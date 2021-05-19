@@ -1,0 +1,11 @@
+body {
+  font-size: 18px !important;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+root {
+  --blue: #007bff;
+  --font-title: #001933;
+  --body-text: #666666;
+}

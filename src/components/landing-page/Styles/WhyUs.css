@@ -1,0 +1,92 @@
+
+root {
+  --blue: #007bff;
+  --font-title: #001933;
+  --body-text: #666666;
+}
+
+/* Why Us */
+.why-us {
+  margin-top: 120px;
+}
+
+.why-us h2 {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 138.2%;
+  letter-spacing: -0.01em;
+  color: var(--font-title);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.why-us span {
+  color: var(--blue);
+}
+
+.why-us h3{
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+  color: var(--blue);
+}
+
+.why-us p{
+  font-size: 18px;
+  line-height: 164.6%;
+  text-align: center;
+  color: var(--body-text);
+  margin-top: 8px;
+  margin-bottom: 56px;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+.why-us img{
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+  margin-top: 48px;
+  width: 32%;
+}
+
+.use {
+  background: #ffffff;
+  box-shadow: 0px 25px 35px -5px rgba(112, 144, 176, 0.15);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 40px;
+}
+
+.use:hover {
+  transform: translateY(-12px);
+}
+
+.use .user {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.spacing {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  p {
+    font-size: 18px !important;
+  }
+  /* Why Us */
+  .use {
+    margin-bottom: 40px;
+    margin-right: 0;
+  }
+}

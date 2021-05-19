@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+
+import LandingPagePage from "../pages/LandingPage";
+
 import HomePage from "../pages/HomePage";
 import DisplaysPage from "../pages/DisplaysPage";
 import BooksPage from "../pages/BooksPage";
@@ -20,12 +23,11 @@ class RootRoute extends Component {
     return (
       <div className="root page">
         <Router>
-          <HeaderComponent />
           <Switch>
             <Route path="/displays" component={DisplaysPage} />
             <Route path="/books" component={BooksPage} />
             <Route path="/categories" component={CategoriesPage} />
-            <Route path="/" component={HomePage} />
+            <Route path="/" component={LandingPagePage} />
             <Route path="" component={ErrorPage} />
           </Switch>
         </Router>
