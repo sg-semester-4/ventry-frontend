@@ -29,16 +29,16 @@ class HomePage extends Component {
 
   handleSubmitAdd = (val) => {
     const { name } = val;
-    CategoryAPI.create({ name })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        this.handleFetch();
-      });
+    // CategoryAPI.create({ name })
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   })
+    //   .finally(() => {
+    //     this.handleFetch();
+    //   });
   };
 
   render() {

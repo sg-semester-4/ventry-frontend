@@ -1,26 +1,26 @@
 class AuthService {
-  handleLoginSucceed(credentials) {
+  loginSucceed(credentials) {
     sessionStorage.setItem("authenticatedUser", JSON.stringify(credentials));
   }
 
-  handleLoginFailed() {
+  loginFailed() {
     sessionStorage.removeItem("authenticatedUser");
   }
 
-  handleLogoutSucceed() {
+  logoutSucceed() {
     sessionStorage.removeItem("authenticatedUser");
   }
 
-  handleLogoutFailed() {
+  logoutFailed() {
     sessionStorage.removeItem("authenticatedUser");
   }
 
-  handleIsLoggedIn() {
-    const user = this.handleGetUser();
+  isLoggedIn() {
+    const user = this.GetUser();
     return user != null;
   }
 
-  handleGetUser() {
+  getUser() {
     const user = JSON.parse(sessionStorage.getItem("authenticatedUser"));
     return user;
   }

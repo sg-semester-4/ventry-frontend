@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { Formik, Form, Field } from "formik";
-import CategoryAPI from "../api/CategoryAPI";
 import CategoryModifyFormComponent from "../components/CategoryModifyFormComponent.js";
 
 class CategoryModifyFormComponent extends Component {
