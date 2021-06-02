@@ -1,7 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { Formik, Form } from "formik";
-import BookAPI from "../api/BookAPI";
-import CategoryAPI from "../api/CategoryAPI";
 import CategoryAddFormComponent from "../components/CategoryAddFormComponent.js";
 
 class HomePage extends Component {
@@ -12,33 +10,33 @@ class HomePage extends Component {
     };
   }
 
-  handleFetch = () => {
-    BookAPI.readAll()
-      .then((res) => {
-        console.log(res);
-        this.setState({ categoryData: res.data });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   componentDidMount() {
     this.handleFetch();
   }
 
+  handleFetch = () => {
+    // BookAPI.readAll()
+    //   .then((res) => {
+    //     console.log(res);
+    //     this.setState({ categoryData: res.data });
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+  };
+
   handleSubmitAdd = (val) => {
     const { name } = val;
-    BookAPI.create({ name })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        this.handleFetch();
-      });
+    // BookAPI.create({ name })
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   })
+    //   .finally(() => {
+    //     this.handleFetch();
+    //   });
   };
 
   render() {

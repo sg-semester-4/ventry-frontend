@@ -1,8 +1,8 @@
 import React from "react";
-import LogoNavImage from "../../assets/images/Logo-Nav.png";
 import * as ReactBootstrap from "react-bootstrap";
-import "./Styles/NavigationBar.css";
-import "./Styles/Styles.css";
+import LogoNavImage from "../../assets/images/Logo-Nav.png";
+import "./Styles/NavigationBarStyle.css";
+import "./Styles/LandingStyle.css";
 
 function NavigationBar() {
   return (
@@ -16,10 +16,13 @@ function NavigationBar() {
     >
       <ReactBootstrap.Container>
         <ReactBootstrap.Navbar.Brand href="#">
-          <ReactBootstrap.Image src={LogoNavImage} alt="Logo"/>
+          <ReactBootstrap.Image src={LogoNavImage} alt="Logo" />
         </ReactBootstrap.Navbar.Brand>
         <ReactBootstrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <ReactBootstrap.Navbar.Collapse id="responsive-navbar-nav" className="nav-mobile">
+        <ReactBootstrap.Navbar.Collapse
+          id="responsive-navbar-nav"
+          className="nav-mobile"
+        >
           <ReactBootstrap.Nav className="mr-auto hover-biru">
             <ReactBootstrap.Nav.Link href="#" classsName="kiri link">
               Home
@@ -38,8 +41,8 @@ function NavigationBar() {
             <ReactBootstrap.Nav.Link href="#login" className="login link">
               Login
             </ReactBootstrap.Nav.Link>
-            <ReactBootstrap.Nav.Link href="#sign-up" className="sign-up">
-              Sign Up
+            <ReactBootstrap.Nav.Link href="#register" className="register">
+              Register
             </ReactBootstrap.Nav.Link>
           </ReactBootstrap.Nav>
         </ReactBootstrap.Navbar.Collapse>

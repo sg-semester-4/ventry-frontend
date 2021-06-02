@@ -3,16 +3,18 @@ import * as ReactBootstrap from "react-bootstrap";
 import Kharisma from "../../assets/images/kharisma.png";
 import Julyo from "../../assets/images/Julyo.png";
 import Kevin from "../../assets/images/kevin.png";
-import "./Styles/OurTeam.css";
-import "./Styles/Styles.css";
+import "./Styles/OurTeamStyle.css";
+import "./Styles/LandingStyle.css";
 
 function OurTeam() {
   return (
-    <div class="our-team" id="our-team">
-      <ReactBootstrap.Container >
+    <div className="our-team" id="our-team">
+      <ReactBootstrap.Container>
         <ReactBootstrap.Row>
           <ReactBootstrap.Col>
-            <h2>Our <span>Team</span></h2>
+            <h2>
+              Our <span>Team</span>
+            </h2>
           </ReactBootstrap.Col>
         </ReactBootstrap.Row>
         <ReactBootstrap.Row className="member">

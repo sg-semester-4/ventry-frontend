@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-
 import LandingPagePage from "../pages/LandingPage";
 
-import HomePage from "../pages/HomePage";
+import TestPage from "../pages/TestPage";
 import DisplaysPage from "../pages/DisplaysPage";
 import BooksPage from "../pages/BooksPage";
 import CategoriesPage from "../pages/CategoriesPage";
@@ -24,6 +23,7 @@ class RootRoute extends Component {
       <div className="root page">
         <Router>
           <Switch>
+            <Route path="/test" component={TestPage} />
             <Route path="/displays" component={DisplaysPage} />
             <Route path="/books" component={BooksPage} />
             <Route path="/categories" component={CategoriesPage} />
