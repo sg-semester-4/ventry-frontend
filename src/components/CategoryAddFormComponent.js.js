@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { Formik, Form, Field } from "formik";
-import CategoryAPI from "../api/CategoryAPI";
 
 class CategoryAddFormComponent extends Component {
   constructor(props) {
@@ -12,6 +11,7 @@ class CategoryAddFormComponent extends Component {
       },
     };
   }
+
   handleChange = (e) => {
     this.setState({ categoryValues: { [e.target.name]: e.target.value } });
   };

@@ -3,7 +3,6 @@ import { Formik, Form } from "formik";
 import { Line } from "react-chartjs-2";
 import moment from "moment";
 import TestAPI from "../api/TestAPI";
-import BookListComponent from "../components/BookListComponent";
 
 class TestPage extends Component {
   constructor(props) {

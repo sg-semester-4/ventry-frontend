@@ -1,6 +1,6 @@
 import { isInteger } from "formik";
 import React, { Component, Fragment } from "react";
-import BookAPI from "../api/BookAPI";
+// import BookAPI from "../api/BookAPI";
 
 class BookCardComponent extends Component {
   constructor(props) {
@@ -34,23 +34,23 @@ class BookCardComponent extends Component {
     const { data } = this.state;
     const { bookID } = data;
 
-    BookAPI.readCustomByID(bookID)
-      .then((res) => {
-        console.log(res);
-        const data = {
-          bookID: res.data.book_id,
-          categoryID: res.data.category_id,
-          bookName: res.data.book_name,
-          categoryName: res.data.category_name,
-          bookDescription: res.data.book_description,
-          bookStock: res.data.book_stock,
-          bookImage: res.data.book_image,
-        };
-        this.setState({ triggerSafe: true, data: data });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // BookAPI.readCustomByID(bookID)
+    //   .then((res) => {
+    //     console.log(res);
+    //     const data = {
+    //       bookID: res.data.book_id,
+    //       categoryID: res.data.category_id,
+    //       bookName: res.data.book_name,
+    //       categoryName: res.data.category_name,
+    //       bookDescription: res.data.book_description,
+    //       bookStock: res.data.book_stock,
+    //       bookImage: res.data.book_image,
+    //     };
+    //     this.setState({ triggerSafe: true, data: data });
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   };
 
   handleClickReturn = () => {
@@ -64,22 +64,22 @@ class BookCardComponent extends Component {
       bookImage,
     } = data;
 
-    BookAPI.updateByID(bookID, {
-      name: bookName,
-      description: bookDescription,
-      stock: Number.parseInt(bookStock) + 1,
-      image: bookImage,
-      categoryID,
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        this.handleFetch();
-      });
+    // BookAPI.updateByID(bookID, {
+    //   name: bookName,
+    //   description: bookDescription,
+    //   stock: Number.parseInt(bookStock) + 1,
+    //   image: bookImage,
+    //   categoryID,
+    // })
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   })
+    //   .finally(() => {
+    //     this.handleFetch();
+    //   });
   };
 
   handleClickBorrow = () => {
@@ -93,22 +93,22 @@ class BookCardComponent extends Component {
       bookImage,
     } = data;
 
-    BookAPI.updateByID(bookID, {
-      name: bookName,
-      description: bookDescription,
-      stock: Number.parseInt(bookStock) - 1,
-      image: bookImage,
-      categoryID,
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        this.handleFetch();
-      });
+    // BookAPI.updateByID(bookID, {
+    //   name: bookName,
+    //   description: bookDescription,
+    //   stock: Number.parseInt(bookStock) - 1,
+    //   image: bookImage,
+    //   categoryID,
+    // })
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   })
+    //   .finally(() => {
+    //     this.handleFetch();
+    //   });
   };
 
   render() {
