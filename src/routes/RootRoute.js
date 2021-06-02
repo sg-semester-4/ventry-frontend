@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import LandingPagePage from "../pages/LandingPage";
+import LandingPage from "../pages/LandingPage";
+import RegisterPage from "../pages/RegisterPage";
+import LoginPage from "../pages/LoginPage";
 
 import TestPage from "../pages/TestPage";
 import DisplaysPage from "../pages/DisplaysPage";
@@ -27,7 +29,10 @@ class RootRoute extends Component {
             <Route path="/displays" component={DisplaysPage} />
             <Route path="/books" component={BooksPage} />
             <Route path="/categories" component={CategoriesPage} />
-            <Route path="/" component={LandingPagePage} />
+
+            <Route path="/register" component={RegisterPage} />
+            <Route path="/login" component={LoginPage} />
+            <Route path="/" component={LandingPage} />
             <Route path="" component={ErrorPage} />
           </Switch>
         </Router>

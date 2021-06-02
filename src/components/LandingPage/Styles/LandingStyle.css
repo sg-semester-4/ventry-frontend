@@ -1,10 +1,10 @@
-body {
+.page.landing body {
   font-size: 18px !important;
   min-height: 100vh;
   scroll-behavior: smooth;
 }
 
-root {
+.page.landing root {
   --blue: #007bff;
   --font-title: #001933;
   --body-text: #666666;

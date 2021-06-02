@@ -1,6 +1,6 @@
 import React from "react";
 import * as ReactBootstrap from "react-bootstrap";
-import AboutImg from "../../assets/images/VENTRY-BACKGROUND.png";
+import AboutImg from "../../assets/images/VENTRY-BACKGROUND.svg";
 import "./Styles/AboutUsStyle.css";
 import "./Styles/LandingStyle.css";
 

@@ -1,21 +1,21 @@
 /* Navbar */
-body {
+.page.landing body {
   font-size: 18px !important;
   min-height: 100vh;
   scroll-behavior: smooth;
 }
 
-root {
+.page.landing root {
   --blue: #007bff;
   --font-title: #001933;
   --body-text: #666666;
 }
 
-.navbar {
+.page.landing .navbar {
   background: #fff;
 }
 
-.register {
+.page.landing .register {
   color: var(--blue) !important;
   background-color: #fff;
   padding: 6px 24px !important;
@@ -24,36 +24,36 @@ root {
   transition: all 0.2s ease;
 }
 
-.register:hover {
+.page.landing .register:hover {
   color: #ffffff !important;
   background-color: var(--blue);
 }
 
-.login {
+.page.landing .login {
   margin-right: 20px;
 }
 
-.nav-mobile {
+.page.landing .nav-mobile {
   margin: auto;
   text-align: center;
   font-weight: 500;
 }
 
-.link:hover {
+.page.landing .link:hover {
   color: var(--blue) !important;
   font-weight: 500;
 }
 
 @media (max-width: 992px) {
-  p {
+  .page.landing p {
     font-size: 18px !important;
   }
 
   /* Navbar */
-  .login {
+  .page.landing .login {
     margin-right: 0px;
   }
-  .register {
+  .page.landing .register {
     padding: 6px 24px;
     text-align: center;
     margin: auto;
