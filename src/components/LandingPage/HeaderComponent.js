@@ -1,6 +1,6 @@
 import React from "react";
 import * as ReactBootstrap from "react-bootstrap";
-import HeaderImg from "../../assets/images/Header-Img.png";
+import HeaderImg from "../../assets/images/Header-Img.svg";
 import "./Styles/HeaderStyle.css";
 import "./Styles/LandingStyle.css";
 

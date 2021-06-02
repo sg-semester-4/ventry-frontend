@@ -1,17 +1,17 @@
 import Axios from "axios";
 
 class ForecastsAPI {
-  URL = process.env.REACT_APP_API_URL_MANAGEMENT;
+  URL = process.env.REACT_APP_API_URL_FORECAST;
 
-  ItemStockByID() {
+  itemStockByID(ID) {
     return Axios.get(`${this.URL}/forecasts/items/${ID}/stocks`);
   }
 
-  ItemSalesByID(ID) {
+  itemSalesByID(ID) {
     return Axios.get(`${this.URL}/forecasts/items/${ID}/sales`);
   }
 
-  ProductSalesByID(ID) {
+  productSalesByID(ID) {
     return Axios.get(`${this.URL}/forecasts/products/${ID}/sales`);
   }
 }

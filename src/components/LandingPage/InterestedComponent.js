@@ -1,7 +1,7 @@
 import React from "react";
 import * as ReactBootstrap from "react-bootstrap";
-import AwanKiri from "../../assets/images/awan-kiri-atas.png";
-import AwanKanan from "../../assets/images/awan-kanan-bawah.png";
+import AwanKiri from "../../assets/images/awan-kiri-atas.svg";
+import AwanKanan from "../../assets/images/awan-kanan-bawah.svg";
 import "./Styles/InterestedStyle.css";
 import "./Styles/LandingStyle.css";
 

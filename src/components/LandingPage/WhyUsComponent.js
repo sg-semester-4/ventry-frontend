@@ -1,8 +1,8 @@
 import React from "react";
 import * as ReactBootstrap from "react-bootstrap";
-import Forecasting from "../../assets/images/forecasting-icon.png";
-import UserFriendly from "../../assets/images/user-friendly-icon.png";
-import EasyToUse from "../../assets/images/easy-to-use-icon.png";
+import Forecasting from "../../assets/images/forecasting-icon.svg";
+import UserFriendly from "../../assets/images/user-friendly-icon.svg";
+import EasyToUse from "../../assets/images/easy-to-use-icon.svg";
 import "./Styles/WhyUsStyle.css";
 import "./Styles/LandingStyle.css";
 

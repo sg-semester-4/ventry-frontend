@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import LogoImage from "../assets/images/auth-logo-img.svg";
-import SplashImage from "../assets/images/auth-register-img.svg";
 
 class RegisterPage extends Component {
   constructor(props) {
@@ -14,9 +13,6 @@ class RegisterPage extends Component {
         <div className="left-section">
           <div className="logo">
             <img src={LogoImage} alt="ventry-logo" />
-          </div>
-          <div className="splash">
-            <img src={SplashImage} alt="ventry-logo" />
           </div>
         </div>
         <div className="right-section">

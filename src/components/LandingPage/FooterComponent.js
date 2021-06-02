@@ -1,6 +1,6 @@
 import React from "react";
 import * as ReactBootstrap from "react-bootstrap";
-import Logo from "../../assets/images/Ventry-Footer.png";
+import Logo from "../../assets/images/Ventry-Footer.svg";
 import "./Styles/FooterStyle.css";
 import "./Styles/LandingStyle.css";
 

@@ -1,15 +1,15 @@
-root {
+.page.landing root {
   --blue: #007bff;
   --font-title: #001933;
   --body-text: #666666;
 }
 
 /* Header */
-.header {
+.page.landing .header {
   margin-top: 56px;
 }
 
-.header-title h1 {
+.page.landing .header-title h1 {
   font-weight: 600;
   font-size: 50px;
   line-height: 138.2%;
@@ -18,14 +18,14 @@ root {
   margin-bottom: 16px;
 }
 
-.header-title p {
+.page.landing .header-title p {
   margin-bottom: 40px;
   font-size: 20px;
   line-height: 30px;
   color: var(--body-text);
 }
 
-.button {
+.page.landing .button {
   font-size: 24px !important;
   line-height: 36px;
   color: #fafafa;
@@ -34,33 +34,33 @@ root {
   padding: 12px 32px !important;
 }
 
-.header-img {
+.page.landing .header-img {
   width: 100%;
 }
 
 @media (max-width: 992px) {
-  p {
+  .page.landing p {
     font-size: 18px !important;
   }
 
   /* Header */
-  .header {
+  .page.landing .header {
     margin-top: 40px;
   }
-  .header-title h1 {
+  .page.landing .header-title h1 {
     font-size: 40px;
   }
-  .header-title p {
+  .page.landing .header-title p {
     margin-bottom: 24px;
   }
-  .button {
+  .page.landing .button {
     font-size: 20px !important;
     color: #fafafa;
     box-shadow: 0px 25px 35px -5px rgba(0, 123, 255, 0.16);
     border-radius: 4px;
     padding: 8px 24px !important;
   }
-  .header-img {
+  .page.landing .header-img {
     width: 80%;
     margin: 40px auto;
     display: flex;

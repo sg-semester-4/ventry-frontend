@@ -1,15 +1,15 @@
-root {
+.page.landing root {
   --blue: #007bff;
   --font-title: #001933;
   --body-text: #666666;
 }
 
 /* Our Team */
-.our-team {
+.page.landing .our-team {
   margin-top: 120px;
 }
 
-.our-team h2 {
+.page.landing .our-team h2 {
   font-weight: 600;
   font-size: 40px;
   line-height: 138.2%;
@@ -19,15 +19,15 @@ root {
   margin-bottom: 40px;
 }
 
-.our-team span {
+.page.landing .our-team span {
   color: var(--blue);
 }
 
-.our-team p {
+.page.landing .our-team p {
   margin-bottom: 0px;
 }
 
-.our-team h3 {
+.page.landing .our-team h3 {
   font-weight: 500;
   font-size: 24px;
   line-height: 36px;
@@ -35,7 +35,7 @@ root {
   color: var(--blue);
 }
 
-.our-team p {
+.page.landing .our-team p {
   font-size: 18px;
   line-height: 164.6%;
   text-align: center;
@@ -45,7 +45,7 @@ root {
   margin-right: 24px;
 }
 
-.our-team img {
+.page.landing .our-team img {
   margin: auto;
   text-align: center;
   display: flex;
@@ -55,7 +55,7 @@ root {
   width: 32%;
 }
 
-.member span {
+.page.landing .member span {
   font-size: 16px;
   line-height: 164.6%;
   text-align: center;
@@ -66,7 +66,7 @@ root {
 }
 
 @media (max-width: 992px) {
-  p {
+  .page.landing p {
     font-size: 18px !important;
   }
 }

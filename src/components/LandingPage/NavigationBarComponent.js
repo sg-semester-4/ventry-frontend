@@ -1,6 +1,6 @@
 import React from "react";
 import * as ReactBootstrap from "react-bootstrap";
-import LogoNavImage from "../../assets/images/Logo-Nav.png";
+import LogoNavImage from "../../assets/images/Logo-Nav.svg";
 import "./Styles/NavigationBarStyle.css";
 import "./Styles/LandingStyle.css";
 

@@ -1,21 +1,21 @@
-root {
+.page.landing root {
   --blue: #007bff;
   --font-title: #001933;
   --body-text: #666666;
 }
 
 /* Interested */
-.interested {
+.page.landing .interested {
   margin-top: 120px;
 }
 
-.interested {
+.page.landing .interested {
   background: var(--blue);
   height: 778px;
   position: relative;
 }
 
-.our-product {
+.page.landing .our-product {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +23,7 @@ root {
   margin-top: 275px;
 }
 
-.interested h1 {
+.page.landing .interested h1 {
   font-weight: 500;
   font-size: 56px;
   line-height: 138.2%;
@@ -33,7 +33,7 @@ root {
   margin-bottom: 16px;
 }
 
-.interested p {
+.page.landing .interested p {
   line-height: 138.2%;
   text-align: center;
   letter-spacing: -0.01em;
@@ -41,7 +41,7 @@ root {
   margin-bottom: 40px;
 }
 
-.interested .button {
+.page.landing .interested .button {
   font-size: 24px;
   line-height: 36px;
   display: flex;
@@ -52,24 +52,24 @@ root {
   background: #fff;
 }
 
-.interested .button:hover {
+.page.landing .interested .button:hover {
   background: #003166;
   color: #ffffff !important;
   border: 1px solid #003166 !important;
 }
 
-.interested .button:active {
+.page.landing .interested .button:active {
   background: #004ea1 !important;
   color: #ffffff !important;
 }
 
-.awan-kiri {
+.page.landing .awan-kiri {
   width: 100%;
   position: absolute;
   left: 0;
 }
 
-.awan-kanan {
+.page.landing .awan-kanan {
   width: 100%;
   position: absolute;
   right: 0;
@@ -80,24 +80,24 @@ root {
 }
 
 @media (max-width: 992px) {
-  p {
+  .page.landing p {
     font-size: 18px !important;
   }
 
   /* Interested */
-  .interested h1 {
+  .page.landing .interested h1 {
     font-size: 40px !important;
   }
 }
 
 @media (max-width: 600px) {
   /* Intrested */
-  .awan-kiri {
+  .page.landing .awan-kiri {
     overflow-x: hidden;
     z-index: 999;
   }
 
-  .awan-kanan {
+  .page.landing .awan-kanan {
     display: none !important;
   }
 }
