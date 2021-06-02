@@ -1,13 +1,13 @@
 import React from "react";
 import * as ReactBootstrap from "react-bootstrap";
 import Logo from "../../assets/images/Ventry-Footer.png";
-import "./Styles/Footer.css";
-import "./Styles/Styles.css";
+import "./Styles/FooterStyle.css";
+import "./Styles/LandingStyle.css";
 
 function Footer() {
   return (
-    <div class="footer">
-      <ReactBootstrap.Container >
+    <div className="footer">
+      <ReactBootstrap.Container>
         <ReactBootstrap.Row>
           <ReactBootstrap.Col>
             <img src={Logo} alt="Ventry Logo" />

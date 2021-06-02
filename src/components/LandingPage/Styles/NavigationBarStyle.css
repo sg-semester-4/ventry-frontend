@@ -15,7 +15,7 @@ root {
   background: #fff;
 }
 
-.sign-up {
+.register {
   color: var(--blue) !important;
   background-color: #fff;
   padding: 6px 24px !important;
@@ -24,7 +24,7 @@ root {
   transition: all 0.2s ease;
 }
 
-.sign-up:hover {
+.register:hover {
   color: #ffffff !important;
   background-color: var(--blue);
 }
@@ -53,7 +53,7 @@ root {
   .login {
     margin-right: 0px;
   }
-  .sign-up {
+  .register {
     padding: 6px 24px;
     text-align: center;
     margin: auto;

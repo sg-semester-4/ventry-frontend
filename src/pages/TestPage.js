@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from "react";
 import { Formik, Form } from "formik";
-import TestAPI from "../api/TestAPI";
-import BookListComponent from "../components/BookListComponent";
 import { Line } from "react-chartjs-2";
 import moment from "moment";
+import TestAPI from "../api/TestAPI";
+import BookListComponent from "../components/BookListComponent";
 
-class HomePage extends Component {
+class TestPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,8 +42,8 @@ class HomePage extends Component {
         ]);
 
         sortData.sort((a, b) => b - a);
-        for (let i = 1; i < sortData.length; i++) {
-          for (let j = sortData[i][1]; j < sortData[0][1]; j++) {
+        for (let i = 1; i < sortData.length; i += 1) {
+          for (let j = sortData[i][1]; j < sortData[0][1]; j += 1) {
             data[sortData[i][0]].push({
               x: data[sortData[0][0]][j].x,
               y: null,
@@ -155,8 +155,8 @@ class HomePage extends Component {
     };
 
     return (
-      <div className="page home container">
-        <h1>Home Page</h1>
+      <div className="page Test container">
+        <h1>Test Page</h1>
         <Line data={chartData} options={lineOptions} />
         {JSON.stringify({
           o: observedData.length,
@@ -168,4 +168,4 @@ class HomePage extends Component {
   }
 }
 
-export default HomePage;
+export default TestPage;

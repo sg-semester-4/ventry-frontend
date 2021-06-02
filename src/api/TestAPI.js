@@ -1,7 +1,7 @@
 import Axios from "axios";
 
 class BookAPI {
-  URL = process.env.REACT_APP_API_URL;
+  URL = process.env.REACT_APP_API_URL_MANAGEMENT;
 
   readByID(ID) {
     return Axios.get(`${this.URL}/test/${ID}`);
