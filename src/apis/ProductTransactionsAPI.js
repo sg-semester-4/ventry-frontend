@@ -7,16 +7,16 @@ class ProductTransactionsAPI {
     return Axios.get(`${this.URL}/productTransactions`);
   }
 
-  readByID(ID) {
+  readOneByID(ID) {
     return Axios.get(`${this.URL}/productTransactions/${ID}`);
   }
 
-  create(toCreateProductTransaction) {
+  createOne(toCreateProductTransaction) {
     const {
-      accountID: account_id,
-      productID: product_id,
+      account_id,
+      product_id,
       quantity,
-      totalSellPrice: total_sell_price,
+      total_sell_price,
     } = toCreateProductTransaction;
     return Axios.post(`${this.URL}/productTransactions`, {
       account_id,
@@ -26,12 +26,12 @@ class ProductTransactionsAPI {
     });
   }
 
-  updateByID(ID, toUpdateProductTransaction) {
+  updateOneByID(ID, toUpdateProductTransaction) {
     const {
-      accountID: account_id,
-      productID: product_id,
+      account_id,
+      product_id,
       quantity,
-      totalSellPrice: total_sell_price,
+      total_sell_price,
     } = toUpdateProductTransaction;
     return Axios.put(`${this.URL}/productTransactions/${ID}`, {
       account_id,
@@ -41,7 +41,7 @@ class ProductTransactionsAPI {
     });
   }
 
-  deleteByID(ID) {
+  deleteOneByID(ID) {
     return Axios.delete(`${this.URL}/productTransactions/${ID}`);
   }
 }

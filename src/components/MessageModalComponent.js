@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from "react";
-import { Modal, Button } from "react-bootstrap";
+import React, { Component } from "react";
+import { Modal } from "react-bootstrap";
 
 export default class FooterComponent extends Component {
   constructor() {

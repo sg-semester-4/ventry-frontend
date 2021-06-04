@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import LogoImage from "../assets/images/auth-logo-img.svg";
@@ -18,9 +18,7 @@ class LoginPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      statusMessage: "",
-      statusCode: 0,
-      data: {},
+      loginResponse: { status: 0, message: "", data: {} },
     };
   }
 
@@ -30,14 +28,13 @@ class LoginPage extends Component {
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
-        this.setState({
-          statusCode: status,
-          statusMessage: message,
-          data,
-        });
 
         if (status === 200) {
+          this.setState({
+            loginResponse: { status, message, data },
+          });
           AuthSessionService.loginSucceed(data);
+          this.props.history.push(`/item-management`);
         }
 
         this.messageModalComponent.setState({
@@ -48,6 +45,11 @@ class LoginPage extends Component {
       })
       .catch((err) => {
         console.log(err);
+        this.messageModalComponent.setState({
+          title: "Status",
+          content: "Error has occurred",
+        });
+        this.messageModalComponent.handleShow();
       })
       .finally(() => {
         actions.setSubmitting(false);

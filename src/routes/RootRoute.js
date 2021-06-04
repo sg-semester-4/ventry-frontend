@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import AuthenticatedRoute from "./AuthenticatedRoute";
+import UnAuthenticatedRoute from "./UnAuthenticatedRoute";
+
 import LandingPage from "../pages/LandingPage";
 import RegisterPage from "../pages/RegisterPage";
 import LoginPage from "../pages/LoginPage";
+
+import ItemManagementPage from "../pages/ItemManagementPage";
 
 import TestPage from "../pages/TestPage";
 import ErrorPage from "../pages/ErrorPage";
@@ -24,8 +29,14 @@ class RootRoute extends Component {
           <Switch>
             <Route path="/test" component={TestPage} />
 
-            <Route path="/register" component={RegisterPage} />
-            <Route path="/login" component={LoginPage} />
+            <UnAuthenticatedRoute path="/register" component={RegisterPage} />
+            <UnAuthenticatedRoute path="/login" component={LoginPage} />
+
+            <AuthenticatedRoute
+              path="/item-management"
+              component={ItemManagementPage}
+            />
+
             <Route path="/" component={LandingPage} />
             <Route path="" component={ErrorPage} />
           </Switch>

@@ -7,21 +7,21 @@ class ItemsAPI {
     return Axios.get(`${this.URL}/items`);
   }
 
-  readByID(ID) {
+  readOneByID(ID) {
     return Axios.get(`${this.URL}/items/${ID}`);
   }
 
-  create(toCreateItem) {
+  createOne(toCreateItem) {
     const {
       code,
       name,
       description,
       quantity,
-      maxQuantity: max_quantity,
-      unitType: unit_type,
-      unitCostPrice: unit_cost_price,
-      imageURL: image_url,
-      accountID: account_id,
+      max_quantity,
+      unit_type,
+      unit_cost_price,
+      image_url,
+      account_id,
     } = toCreateItem;
     return Axios.post(`${this.URL}/items`, {
       code,
@@ -36,17 +36,17 @@ class ItemsAPI {
     });
   }
 
-  updateByID(ID, toUpdateItem) {
+  updateOneByID(ID, toUpdateItem) {
     const {
       code,
       name,
       description,
       quantity,
-      maxQuantity: max_quantity,
-      unitType: unit_type,
-      unitCostPrice: unit_cost_price,
-      imageURL: image_url,
-      accountID: account_id,
+      max_quantity,
+      unit_type,
+      unit_cost_price,
+      image_url,
+      account_id,
     } = toUpdateItem;
     return Axios.put(`${this.URL}/items/${ID}`, {
       code,
@@ -61,7 +61,7 @@ class ItemsAPI {
     });
   }
 
-  deleteByID(ID) {
+  deleteOneByID(ID) {
     return Axios.delete(`${this.URL}/items/${ID}`);
   }
 }
