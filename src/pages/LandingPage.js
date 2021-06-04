@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 
 import NavigationBar from "../components/LandingPage/NavigationBarComponent";
 import Header from "../components/LandingPage/HeaderComponent";

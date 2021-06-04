@@ -7,33 +7,27 @@ class ItemCombinationsAPI {
     return Axios.get(`${this.URL}/itemCombinations`);
   }
 
-  readByID(ID) {
+  readOneByID(ID) {
     return Axios.get(`${this.URL}/itemCombinations/${ID}`);
   }
 
-  create(toCreateItemCombination) {
-    const {
-      parentItemID: parent_item_id,
-      childItemID: child_item_id,
-    } = toCreateItemCombination;
+  createOne(toCreateItemCombination) {
+    const { parent_item_id, child_item_id } = toCreateItemCombination;
     return Axios.post(`${this.URL}/itemCombinations`, {
       parent_item_id,
       child_item_id,
     });
   }
 
-  updateByID(ID, toUpdateItemCombination) {
-    const {
-      parentItemID: parent_item_id,
-      childItemID: child_item_id,
-    } = toUpdateItemCombination;
+  updateOneByID(ID, toUpdateItemCombination) {
+    const { parent_item_id, child_item_id } = toUpdateItemCombination;
     return Axios.put(`${this.URL}/itemCombinations/${ID}`, {
       parent_item_id,
       child_item_id,
     });
   }
 
-  deleteByID(ID) {
+  deleteOneByID(ID) {
     return Axios.delete(`${this.URL}/itemCombinations/${ID}`);
   }
 }

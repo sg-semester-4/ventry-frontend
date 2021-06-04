@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import LogoImage from "../assets/images/auth-logo-img.svg";
@@ -21,9 +21,11 @@ class RegisterPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      statusMessage: "",
-      statusCode: 0,
-      data: {},
+      registerResponse: {
+        statusMessage: "",
+        statusCode: 0,
+        data: {},
+      },
     };
   }
 
@@ -33,11 +35,12 @@ class RegisterPage extends Component {
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
-        this.setState({
-          statusCode: status,
-          statusMessage: message,
-          data,
-        });
+
+        if (status === 200) {
+          this.setState({
+            registerResponse: { status, message, data },
+          });
+        }
 
         this.messageModalComponent.setState({
           title: "Status",
@@ -47,6 +50,11 @@ class RegisterPage extends Component {
       })
       .catch((err) => {
         console.log(err);
+        this.messageModalComponent.setState({
+          title: "Status",
+          content: "Error has occurred",
+        });
+        this.messageModalComponent.handleShow();
       })
       .finally(() => {
         actions.setSubmitting(false);

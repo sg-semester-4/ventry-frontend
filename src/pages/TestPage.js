@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Formik, Form } from "formik";
 import { Line } from "react-chartjs-2";
 import moment from "moment";

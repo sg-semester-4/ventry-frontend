@@ -7,11 +7,11 @@ class AccountsAPI {
     return Axios.get(`${this.URL}/accounts`);
   }
 
-  readByID(ID) {
+  readOneByID(ID) {
     return Axios.get(`${this.URL}/accounts/${ID}`);
   }
 
-  create(toCreateAccount) {
+  createOne(toCreateAccount) {
     const { name, email, password } = toCreateAccount;
     return Axios.post(`${this.URL}/accounts`, {
       name,
@@ -20,7 +20,7 @@ class AccountsAPI {
     });
   }
 
-  updateByID(ID, toUpdateAccount) {
+  updateOneByID(ID, toUpdateAccount) {
     const { name, email, password } = toUpdateAccount;
     return Axios.put(`${this.URL}/accounts/${ID}`, {
       name,
@@ -29,7 +29,7 @@ class AccountsAPI {
     });
   }
 
-  deleteByID(ID) {
+  deleteOneByID(ID) {
     return Axios.delete(`${this.URL}/accounts/${ID}`);
   }
 }
