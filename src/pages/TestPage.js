@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Formik, Form } from "formik";
 import { Line } from "react-chartjs-2";
 import moment from "moment";
-import TestAPI from "../api/TestAPI";
+import TestAPI from "../apis/TestAPI";
 
 class TestPage extends Component {
   constructor(props) {

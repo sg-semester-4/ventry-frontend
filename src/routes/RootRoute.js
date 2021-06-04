@@ -6,9 +6,6 @@ import RegisterPage from "../pages/RegisterPage";
 import LoginPage from "../pages/LoginPage";
 
 import TestPage from "../pages/TestPage";
-import DisplaysPage from "../pages/DisplaysPage";
-import BooksPage from "../pages/BooksPage";
-import CategoriesPage from "../pages/CategoriesPage";
 import ErrorPage from "../pages/ErrorPage";
 
 import HeaderComponent from "../components/HeaderComponent";
@@ -22,13 +19,10 @@ class RootRoute extends Component {
 
   render() {
     return (
-      <div className="root page">
+      <div className="router root">
         <Router>
           <Switch>
             <Route path="/test" component={TestPage} />
-            <Route path="/displays" component={DisplaysPage} />
-            <Route path="/books" component={BooksPage} />
-            <Route path="/categories" component={CategoriesPage} />
 
             <Route path="/register" component={RegisterPage} />
             <Route path="/login" component={LoginPage} />

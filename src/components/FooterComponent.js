@@ -17,9 +17,7 @@ export default class FooterComponent extends Component {
           }}
         >
           <hr />
-          <p className="text-muted">
-            Created with love by Muhammad Kharisma Azhari
-          </p>
+          <p className="text-muted">Created with love by Ventry</p>
         </footer>
       </div>
     );

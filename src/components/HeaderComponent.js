@@ -15,17 +15,11 @@ class HeaderComponent extends Component {
         <header>
           <nav className="navbar navbar-expand-md">
             <div className="navbar-brand">
-              <Link to="/">Books App</Link>
+              <Link to="/">App</Link>
             </div>
             <ul className="navbar-nav mr-auto">
-              <Link className="nav-item mr-2" to="/displays">
-                Displays
-              </Link>
-              <Link className="nav-item mr-2" to="/books">
-                Books Management
-              </Link>
-              <Link className="nav-item mr-2" to="/categories">
-                Categories Management
+              <Link className="nav-item mr-2" to="/test">
+                Test
               </Link>
             </ul>
           </nav>
