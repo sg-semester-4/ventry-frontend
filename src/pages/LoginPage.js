@@ -37,19 +37,19 @@ class LoginPage extends Component {
           this.props.history.push(`/item-management`);
         }
 
-        this.messageModalComponent.setState({
+        this.refMessageModalComponent.setState({
           title: "Status",
           content: message,
         });
-        this.messageModalComponent.handleShow();
+        this.refMessageModalComponent.handleShow();
       })
       .catch((err) => {
         console.log(err);
-        this.messageModalComponent.setState({
+        this.refMessageModalComponent.setState({
           title: "Status",
           content: "Error has occurred",
         });
-        this.messageModalComponent.handleShow();
+        this.refMessageModalComponent.handleShow();
       })
       .finally(() => {
         actions.setSubmitting(false);
@@ -72,7 +72,7 @@ class LoginPage extends Component {
         </div>
         <MessageModalComponent
           ref={(ref) => {
-            this.messageModalComponent = ref;
+            this.refMessageModalComponent = ref;
           }}
         />
         <div className="right-section">

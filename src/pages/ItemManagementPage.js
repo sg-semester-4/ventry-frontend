@@ -6,6 +6,7 @@ import "./Styles/ItemManagementStyle.css";
 import ItemsAPI from "../apis/ItemsAPI";
 import AuthSessionService from "../services/AuthSessionService";
 import ItemViewModalComponent from "../components/ItemManagementPage/ItemViewModalComponent";
+import ItemInsertModalComponent from "../components/ItemManagementPage/ItemInsertModalComponent";
 import MessageModalComponent from "../components/MessageModalComponent";
 
 import ButtonPlusImage from "../assets/images/control-button-plus-img.svg";
@@ -20,7 +21,22 @@ class ItemManagementPage extends Component {
         statusCode: 0,
         data: [],
       },
-      oneItemResponse: {
+      viewItemResponse: {
+        statusMessage: "",
+        statusCode: 0,
+        data: {},
+      },
+      insertItemResponse: {
+        statusMessage: "",
+        statusCode: 0,
+        data: {},
+      },
+      updateItemResponse: {
+        statusMessage: "",
+        statusCode: 0,
+        data: {},
+      },
+      deleteItemResponse: {
         statusMessage: "",
         statusCode: 0,
         data: {},
@@ -31,8 +47,8 @@ class ItemManagementPage extends Component {
   componentDidMount = () => {
     this.handleFetchAllItem();
     // setInterval(() => {
-    //   this.handleFetch();
-    // }, 1000);
+    //   this.handleFetchAllItem();
+    // }, 2000);
   };
 
   handleFetchAllItem = () => {
@@ -44,16 +60,28 @@ class ItemManagementPage extends Component {
         const { status, message, data } = res.data;
 
         if (status === 200) {
-          this.setState({ allItemResponse: { status, message, data } });
+          this.setState({
+            allItemResponse: {
+              status,
+              message,
+              data: data.filter((val, idx) => val.account_id === account.id),
+            },
+          });
+        } else {
+          this.refMessageModalComponent.setState({
+            title: "Status",
+            content: message,
+          });
+          this.refMessageModalComponent.handleShow();
         }
       })
       .catch((err) => {
         console.log(err);
-        this.messageModalComponent.setState({
+        this.refMessageModalComponent.setState({
           title: "Status",
           content: "Error has occurred",
         });
-        this.messageModalComponent.handleShow();
+        this.refMessageModalComponent.handleShow();
       })
       .finally(() => {});
   };
@@ -67,40 +95,103 @@ class ItemManagementPage extends Component {
         const { status, message, data } = res.data;
 
         if (status === 200) {
-          this.setState({ oneItemResponse: { status, message, data } });
-          this.itemViewModalComponent.setState({
+          this.setState({ viewItemResponse: { status, message, data } });
+          this.refItemViewModalComponent.setState({
             itemData: data,
           });
-          this.itemViewModalComponent.handleShow();
+          this.refItemViewModalComponent.handleShow();
         } else {
-          this.messageModalComponent.setState({
+          this.refMessageModalComponent.setState({
             title: "Status",
             content: message,
           });
-          this.messageModalComponent.handleShow();
+          this.refMessageModalComponent.handleShow();
         }
       })
       .catch((err) => {
         console.log(err);
-        this.messageModalComponent.setState({
+        this.refMessageModalComponent.setState({
           title: "Status",
           content: "Error has occurred",
         });
-        this.messageModalComponent.handleShow();
+        this.refMessageModalComponent.handleShow();
       })
       .finally(() => {});
   };
 
   handleModalInsert = () => {
-    this.itemViewModalComponent.handleShow();
+    this.refItemInsertModalComponent.handleShow();
+  };
+
+  handleModalInsertOnSubmit = (values, actions) => {
+    console.log(values);
+    const account = AuthSessionService.getAccount();
+    ItemsAPI.createOne({ ...values, account_id: account.id })
+      .then((res) => {
+        console.log(res);
+        const { status, message, data } = res.data;
+
+        if (status === 200) {
+          this.setState({ insertItemResponse: { status, message, data } });
+          this.refItemInsertModalComponent.setState({
+            itemData: data,
+          });
+          this.refItemInsertModalComponent.handleShow();
+          this.handleFetchAllItem();
+        } else {
+          this.refMessageModalComponent.setState({
+            title: "Status",
+            content: message,
+          });
+          this.refMessageModalComponent.handleShow();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        this.refMessageModalComponent.setState({
+          title: "Status",
+          content: "Error has occurred",
+        });
+        this.refMessageModalComponent.handleShow();
+      })
+      .finally(() => {
+        actions.setSubmitting(false);
+      });
   };
 
   handleModalUpdate = () => {
-    this.itemViewModalComponent.handleShow();
+    this.refItemViewModalComponent.handleShow();
   };
 
   handleModalDelete = () => {
-    this.itemViewModalComponent.handleShow();
+    const { viewItemResponse } = this.state;
+    ItemsAPI.deleteOneByID(viewItemResponse.data.id)
+      .then((res) => {
+        console.log(res);
+        const { status, message, data } = res.data;
+
+        if (status === 200) {
+          this.setState({ deleteItemResponse: { status, message, data } });
+          this.handleFetchAllItem();
+        } else {
+          this.refMessageModalComponent.setState({
+            title: "Status",
+            content: message,
+          });
+          this.refMessageModalComponent.handleShow();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        this.refMessageModalComponent.setState({
+          title: "Status",
+          content: "Error has occurred",
+        });
+        this.refMessageModalComponent.handleShow();
+      })
+      .finally(() => {
+        this.refItemViewModalComponent.handleShow();
+      });
   };
 
   render() {
@@ -109,15 +200,22 @@ class ItemManagementPage extends Component {
       <div className="page item-management">
         <MessageModalComponent
           ref={(ref) => {
-            this.messageModalComponent = ref;
+            this.refMessageModalComponent = ref;
           }}
         />
         <ItemViewModalComponent
           ref={(ref) => {
-            this.itemViewModalComponent = ref;
+            this.refItemViewModalComponent = ref;
           }}
           onUpdate={this.handleModalUpdate}
           onDelete={this.handleModalDelete}
+        />
+
+        <ItemInsertModalComponent
+          ref={(ref) => {
+            this.refItemInsertModalComponent = ref;
+          }}
+          onSubmit={this.handleModalInsertOnSubmit}
         />
 
         <div className="header">
@@ -147,10 +245,23 @@ class ItemManagementPage extends Component {
         </div>
 
         <div className="body">
+          {allItemResponse.data.length <= 0 ? (
+            <div className="empty-data">
+              <div className="text">
+                Your items is empty, try to insert one!
+              </div>
+            </div>
+          ) : null}
           {allItemResponse.data.map((val, idx) => (
             <div key={val.id} className="card">
               <div className="image">
-                <img src={ItemCardImage} alt="item" />
+                <img
+                  src={val.image_url || ItemCardImage}
+                  onError={(e) => {
+                    e.target.src = ItemCardImage;
+                  }}
+                  alt="item"
+                />
               </div>
               <div className="content">
                 <div className="code">

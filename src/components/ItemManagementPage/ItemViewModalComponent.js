@@ -26,7 +26,7 @@ export default class FooterComponent extends Component {
         show={isShow}
         onHide={this.handleShow}
         centered
-        className="component item-detail-modal"
+        className="component item-view-modal"
       >
         <Modal.Header closeButton className="header">
           <Modal.Title>Item Details</Modal.Title>
@@ -70,7 +70,14 @@ export default class FooterComponent extends Component {
             <div className="text">{`Description: ${itemData.description}`}</div>
           </div>
           <div className="image">
-            Image: <img src={ItemCardImage} alt="item" />
+            Image:{" "}
+            <img
+              src={itemData.image_url || ItemCardImage}
+              onError={(e) => {
+                e.target.src = ItemCardImage;
+              }}
+              alt="item"
+            />
           </div>
         </Modal.Body>
 
