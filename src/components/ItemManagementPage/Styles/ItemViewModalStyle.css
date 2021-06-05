@@ -1,4 +1,4 @@
-.component.item-detail-modal .body {
+.component.item-view-modal .body {
   display: flex;
   flex: 1;
   flex-flow: column;
@@ -6,11 +6,11 @@
   align-items: flex-start;
 }
 
-.component.item-detail-modal .body div {
+.component.item-view-modal .body div {
   margin: 0 0 0.5vh 0;
 }
 
-.component.item-detail-modal .body .image {
+.component.item-view-modal .body .image {
   display: flex;
   flex: 1;
   flex-flow: row;
@@ -20,7 +20,7 @@
   height: 100%;
 }
 
-.component.item-detail-modal .body .image img {
+.component.item-view-modal .body .image img {
   margin: 0 0 0 1vh;
   max-width: 80%;
 }
