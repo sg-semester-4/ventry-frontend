@@ -7,6 +7,7 @@ import ItemsAPI from "../apis/ItemsAPI";
 import AuthSessionService from "../services/AuthSessionService";
 import ItemViewModalComponent from "../components/ItemManagementPage/ItemViewModalComponent";
 import ItemInsertModalComponent from "../components/ItemManagementPage/ItemInsertModalComponent";
+import ItemUpdateModalComponent from "../components/ItemManagementPage/ItemUpdateModalComponent";
 import MessageModalComponent from "../components/MessageModalComponent";
 
 import ButtonPlusImage from "../assets/images/control-button-plus-img.svg";
@@ -87,8 +88,6 @@ class ItemManagementPage extends Component {
   };
 
   handleModalView = (ID) => {
-    const account = AuthSessionService.getAccount();
-
     ItemsAPI.readOneByID(ID)
       .then((res) => {
         console.log(res);
@@ -124,7 +123,6 @@ class ItemManagementPage extends Component {
   };
 
   handleModalInsertOnSubmit = (values, actions) => {
-    console.log(values);
     const account = AuthSessionService.getAccount();
     ItemsAPI.createOne({ ...values, account_id: account.id })
       .then((res) => {
@@ -160,7 +158,54 @@ class ItemManagementPage extends Component {
   };
 
   handleModalUpdate = () => {
+    const { viewItemResponse } = this.state;
     this.refItemViewModalComponent.handleShow();
+    this.refItemUpdateModalComponent.handleShow();
+    this.refItemUpdateModalComponent.setState({
+      itemData: viewItemResponse.data,
+    });
+  };
+
+  handleModalUpdateOnSubmit = (values, actions) => {
+    const { viewItemResponse } = this.state;
+    const account = AuthSessionService.getAccount();
+    ItemsAPI.updateOneByID(viewItemResponse.data.id, {
+      ...values,
+      account_id: account.id,
+    })
+      .then((res) => {
+        console.log(res);
+        const { status, message, data } = res.data;
+
+        if (status === 200) {
+          this.setState({
+            updateItemResponse: { status, message, data },
+          });
+          this.refItemUpdateModalComponent.setState({
+            itemData: data,
+          });
+          this.refItemUpdateModalComponent.handleShow();
+          this.handleModalView(values.id);
+          this.handleFetchAllItem();
+        } else {
+          this.refMessageModalComponent.setState({
+            title: "Status",
+            content: message,
+          });
+          this.refMessageModalComponent.handleShow();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        this.refMessageModalComponent.setState({
+          title: "Status",
+          content: "Error has occurred",
+        });
+        this.refMessageModalComponent.handleShow();
+      })
+      .finally(() => {
+        actions.setSubmitting(false);
+      });
   };
 
   handleModalDelete = () => {
@@ -216,6 +261,13 @@ class ItemManagementPage extends Component {
             this.refItemInsertModalComponent = ref;
           }}
           onSubmit={this.handleModalInsertOnSubmit}
+        />
+
+        <ItemUpdateModalComponent
+          ref={(ref) => {
+            this.refItemUpdateModalComponent = ref;
+          }}
+          onSubmit={this.handleModalUpdateOnSubmit}
         />
 
         <div className="header">
