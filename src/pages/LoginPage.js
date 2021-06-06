@@ -45,11 +45,11 @@ class LoginPage extends Component {
       })
       .catch((err) => {
         console.log(err);
-        this.refMessageModalComponent.setState({
-          title: "Status",
-          content: "Error has occurred",
-        });
-        this.refMessageModalComponent.handleShow();
+        // this.refMessageModalComponent.setState({
+        //   title: "Status",
+        //   content: "Error has occurred",
+        // });
+        // this.refMessageModalComponent.handleShow();
       })
       .finally(() => {
         actions.setSubmitting(false);

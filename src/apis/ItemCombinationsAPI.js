@@ -12,18 +12,20 @@ class ItemCombinationsAPI {
   }
 
   createOne(toCreateItemCombination) {
-    const { parent_item_id, child_item_id } = toCreateItemCombination;
+    const { parent_item_id, child_item_id, quantity } = toCreateItemCombination;
     return Axios.post(`${this.URL}/itemCombinations`, {
       parent_item_id,
       child_item_id,
+      quantity,
     });
   }
 
   updateOneByID(ID, toUpdateItemCombination) {
-    const { parent_item_id, child_item_id } = toUpdateItemCombination;
+    const { parent_item_id, child_item_id, quantity } = toUpdateItemCombination;
     return Axios.put(`${this.URL}/itemCombinations/${ID}`, {
       parent_item_id,
       child_item_id,
+      quantity,
     });
   }
 

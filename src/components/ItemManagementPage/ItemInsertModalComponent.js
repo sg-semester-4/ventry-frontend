@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Modal } from "react-bootstrap";
+import { Modal, Nav } from "react-bootstrap";
 import * as Yup from "yup";
 
 import ItemCardImage from "../../assets/images/item-management-card-img.svg";
@@ -25,12 +25,232 @@ const insertSchema = Yup.object().shape({
   description: Yup.string("Must be string"),
 });
 
-export default class FooterComponent extends Component {
+class MainComponent extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  render() {
+    const { onSubmit } = this.props;
+    return (
+      <div className="main form">
+        <Formik
+          validationSchema={insertSchema}
+          initialValues={{
+            code: "",
+            name: "",
+            available_quantity: 0,
+            estimate_quantity: 0,
+            max_estimate_quantity: 0,
+            unit_type: "",
+            unit_cost_price: 0,
+            description: "",
+            image_url: "",
+          }}
+          onSubmit={onSubmit}
+          enableReinitialize
+        >
+          {(props) => (
+            <Form>
+              <div className="row">
+                <fieldset className="form-group">
+                  <label htmlFor="code">Code</label>
+                  <Field type="text" name="code" className="form-control" />
+                  <ErrorMessage
+                    name="code"
+                    component="div"
+                    className="text-danger"
+                  />
+                </fieldset>
+
+                <fieldset className="form-group">
+                  <label htmlFor="name">Name</label>
+                  <Field type="text" name="name" className="form-control" />
+                  <ErrorMessage
+                    name="name"
+                    component="div"
+                    className="text-danger"
+                  />
+                </fieldset>
+              </div>
+
+              <div className="row">
+                <fieldset className="form-group">
+                  <label htmlFor="available_quantity">Available Quantity</label>
+                  <Field
+                    type="number"
+                    name="available_quantity"
+                    className="form-control"
+                  />
+                  <ErrorMessage
+                    name="available_quantity"
+                    component="div"
+                    className="text-danger"
+                  />
+                </fieldset>
+
+                <fieldset className="form-group">
+                  <label htmlFor="estimate_quantity">Estimate Quantity</label>
+                  <Field
+                    type="number"
+                    name="estimate_quantity"
+                    className="form-control"
+                  />
+                  <ErrorMessage
+                    name="estimate_quantity"
+                    component="div"
+                    className="text-danger"
+                  />
+                </fieldset>
+              </div>
+
+              <div className="row">
+                <fieldset className="form-group">
+                  <label htmlFor="max_estimate_quantity">
+                    Max Estimate Quantity
+                  </label>
+                  <Field
+                    type="number"
+                    name="max_estimate_quantity"
+                    className="form-control"
+                  />
+                  <ErrorMessage
+                    name="max_estimate_quantity"
+                    component="div"
+                    className="text-danger"
+                  />
+                </fieldset>
+
+                <fieldset className="form-group">
+                  <label htmlFor="unit_type">Unit Type</label>
+                  <Field
+                    type="text"
+                    name="unit_type"
+                    className="form-control"
+                  />
+                  <ErrorMessage
+                    name="unit_type"
+                    component="div"
+                    className="text-danger"
+                  />
+                </fieldset>
+              </div>
+
+              <div className="row">
+                <fieldset className="form-group">
+                  <label htmlFor="unit_cost_price">Unit Cost Price</label>
+                  <Field
+                    type="number"
+                    name="unit_cost_price"
+                    className="form-control"
+                  />
+                  <ErrorMessage
+                    name="unit_cost_price"
+                    component="div"
+                    className="text-danger"
+                  />
+                </fieldset>
+              </div>
+
+              <div className="row">
+                <fieldset className="form-group">
+                  <label htmlFor="description">Description</label>
+                  <Field
+                    as="textarea"
+                    type="text"
+                    name="description"
+                    className="form-control"
+                  />
+                  <ErrorMessage
+                    name="description"
+                    component="div"
+                    className="text-danger"
+                  />
+                </fieldset>
+              </div>
+              <button
+                type="submit"
+                className="d-none"
+                ref={(ref) => {
+                  this.refFormSubmitButton = ref;
+                }}
+              >
+                Submit
+              </button>
+            </Form>
+          )}
+        </Formik>
+      </div>
+    );
+  }
+}
+
+class CombinationComponent extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  render() {
+    const { parent, onSubmit } = this.props;
+    return (
+      <div className="combination form">
+        {parent.state.menu}
+        <Formik
+          validationSchema={insertSchema}
+          initialValues={{
+            code: "",
+            name: "",
+            available_quantity: 0,
+            estimate_quantity: 0,
+            max_estimate_quantity: 0,
+            unit_type: "",
+            unit_cost_price: 0,
+            description: "",
+            image_url: "",
+          }}
+          onSubmit={onSubmit}
+          enableReinitialize
+        >
+          {(props) => (
+            <Form>
+              <div className="row">
+                <fieldset className="form-group">
+                  <label htmlFor="code">Code</label>
+                  <Field type="text" name="code" className="form-control" />
+                  <ErrorMessage
+                    name="code"
+                    component="div"
+                    className="text-danger"
+                  />
+                </fieldset>
+              </div>
+              <button
+                type="submit"
+                className="d-none"
+                ref={(ref) => {
+                  this.refFormSubmitButton = ref;
+                }}
+              >
+                Submit
+              </button>
+            </Form>
+          )}
+        </Formik>
+      </div>
+    );
+  }
+}
+
+class ItemInsertModalComponent extends Component {
   constructor() {
     super();
     this.state = {
       isShow: false,
       itemData: {},
+      itemCombinationData: [],
+      menu: "main",
     };
   }
 
@@ -39,8 +259,12 @@ export default class FooterComponent extends Component {
     this.setState({ isShow: !isShow });
   };
 
+  handleSelectMenu = (eventKey, e) => {
+    this.setState({ menu: eventKey });
+  };
+
   render() {
-    const { isShow, itemData } = this.state;
+    const { isShow, itemData, itemCombinationData, menu } = this.state;
     const { onSubmit } = this.props;
     return (
       <Modal
@@ -52,166 +276,48 @@ export default class FooterComponent extends Component {
         <Modal.Header closeButton className="header">
           <Modal.Title>Item Insert</Modal.Title>
         </Modal.Header>
+
+        <Nav variant="tabs" onSelect={this.handleSelectMenu}>
+          <Nav.Item>
+            <Nav.Link eventKey="main">Main</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="combination" disabled>
+              Combination
+            </Nav.Link>
+          </Nav.Item>
+        </Nav>
+
         <Modal.Body className="body">
-          <div className="form">
-            <Formik
-              validationSchema={insertSchema}
-              initialValues={{
-                code: "",
-                name: "",
-                available_quantity: 0,
-                estimate_quantity: 0,
-                max_estimate_quantity: 0,
-                unit_type: "",
-                unit_cost_price: 0,
-                description: "",
-                image_url: "",
-              }}
-              onSubmit={onSubmit}
-              enableReinitialize
-            >
-              {(props) => (
-                <Form>
-                  <div className="row">
-                    <fieldset className="form-group">
-                      <label htmlFor="code">Code</label>
-                      <Field type="text" name="code" className="form-control" />
-                      <ErrorMessage
-                        name="code"
-                        component="div"
-                        className="text-danger"
-                      />
-                    </fieldset>
-
-                    <fieldset className="form-group">
-                      <label htmlFor="name">Name</label>
-                      <Field type="text" name="name" className="form-control" />
-                      <ErrorMessage
-                        name="name"
-                        component="div"
-                        className="text-danger"
-                      />
-                    </fieldset>
-                  </div>
-
-                  <div className="row">
-                    <fieldset className="form-group">
-                      <label htmlFor="available_quantity">
-                        Available Quantity
-                      </label>
-                      <Field
-                        type="number"
-                        name="available_quantity"
-                        className="form-control"
-                      />
-                      <ErrorMessage
-                        name="available_quantity"
-                        component="div"
-                        className="text-danger"
-                      />
-                    </fieldset>
-
-                    <fieldset className="form-group">
-                      <label htmlFor="estimate_quantity">
-                        Estimate Quantity
-                      </label>
-                      <Field
-                        type="number"
-                        name="estimate_quantity"
-                        className="form-control"
-                      />
-                      <ErrorMessage
-                        name="estimate_quantity"
-                        component="div"
-                        className="text-danger"
-                      />
-                    </fieldset>
-                  </div>
-
-                  <div className="row">
-                    <fieldset className="form-group">
-                      <label htmlFor="max_estimate_quantity">
-                        Max Estimate Quantity
-                      </label>
-                      <Field
-                        type="number"
-                        name="max_estimate_quantity"
-                        className="form-control"
-                      />
-                      <ErrorMessage
-                        name="max_estimate_quantity"
-                        component="div"
-                        className="text-danger"
-                      />
-                    </fieldset>
-
-                    <fieldset className="form-group">
-                      <label htmlFor="unit_type">Unit Type</label>
-                      <Field
-                        type="text"
-                        name="unit_type"
-                        className="form-control"
-                      />
-                      <ErrorMessage
-                        name="unit_type"
-                        component="div"
-                        className="text-danger"
-                      />
-                    </fieldset>
-                  </div>
-
-                  <div className="row">
-                    <fieldset className="form-group">
-                      <label htmlFor="unit_cost_price">Unit Cost Price</label>
-                      <Field
-                        type="number"
-                        name="unit_cost_price"
-                        className="form-control"
-                      />
-                      <ErrorMessage
-                        name="unit_cost_price"
-                        component="div"
-                        className="text-danger"
-                      />
-                    </fieldset>
-                  </div>
-
-                  <div className="row">
-                    <fieldset className="form-group">
-                      <label htmlFor="description">Description</label>
-                      <Field
-                        as="textarea"
-                        type="text"
-                        name="description"
-                        className="form-control"
-                      />
-                      <ErrorMessage
-                        name="description"
-                        component="div"
-                        className="text-danger"
-                      />
-                    </fieldset>
-                  </div>
-                  <button
-                    type="submit"
-                    className="d-none"
-                    ref={(ref) => {
-                      this.refFormSubmitButton = ref;
-                    }}
-                  >
-                    Insert Item
-                  </button>
-                </Form>
-              )}
-            </Formik>
-          </div>
+          {
+            // Menu switch.
+            {
+              main: (
+                <MainComponent
+                  parent={this}
+                  ref={(ref) => {
+                    this.refMainComponent = ref;
+                  }}
+                  onSubmit={onSubmit}
+                />
+              ),
+              combination: (
+                <CombinationComponent
+                  parent={this}
+                  ref={(ref) => {
+                    this.refCombinationComponent = ref;
+                  }}
+                />
+              ),
+            }[menu]
+          }
         </Modal.Body>
 
         <Modal.Footer className="footer">
           <button
             type="button"
             className="btn btn-primary"
-            onClick={() => this.refFormSubmitButton.click()}
+            onClick={() => this.refMainComponent.refFormSubmitButton.click()}
           >
             Insert Item
           </button>
@@ -220,3 +326,5 @@ export default class FooterComponent extends Component {
     );
   }
 }
+
+export default ItemInsertModalComponent;
