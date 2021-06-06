@@ -192,7 +192,7 @@ class CombinationComponent extends Component {
     };
   }
 
-  handleClickAdd = (val) => {
+  handleClickInsert = (val) => {
     const { quantity } = this.state;
     const { parent } = this.props;
     const { viewItemResponse } = parent.props.parent.state;
@@ -210,7 +210,7 @@ class CombinationComponent extends Component {
 
         if (status === 200) {
           parent.setState({
-            addItemCombinationResponse: { status, message, data },
+            insertItemCombinationResponse: { status, message, data },
           });
         } else {
           parent.props.parent.refMessageModalComponent.setState({
@@ -239,7 +239,7 @@ class CombinationComponent extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleClickRemove = (val) => {
+  handleClickDelete = (val) => {
     const { parent } = this.props;
     const { viewItemResponse } = parent.props.parent.state;
 
@@ -250,7 +250,7 @@ class CombinationComponent extends Component {
 
         if (status === 200) {
           parent.setState({
-            removeItemCombinationResponse: { status, message, data },
+            deleteItemCombinationResponse: { status, message, data },
           });
         } else {
           parent.props.parent.refMessageModalComponent.setState({
@@ -318,9 +318,9 @@ class CombinationComponent extends Component {
                       <button
                         type="button"
                         className="btn btn-outline-primary"
-                        onClick={() => this.handleClickAdd(val)}
+                        onClick={() => this.handleClickInsert(val)}
                       >
-                        Add
+                        Insert
                       </button>
                     </td>
                   </tr>
@@ -356,9 +356,9 @@ class CombinationComponent extends Component {
                         <button
                           type="button"
                           className="btn btn-outline-primary"
-                          onClick={() => this.handleClickRemove(val)}
+                          onClick={() => this.handleClickDelete(val)}
                         >
-                          Remove
+                          Delete
                         </button>
                       </td>
                     </tr>
@@ -378,8 +378,8 @@ class ItemUpdateModalComponent extends Component {
     this.state = {
       isShow: false,
       menu: "main",
-      addItemCombinationResponse: {},
-      removeItemCombinationResponse: {},
+      insertItemCombinationResponse: {},
+      deleteItemCombinationResponse: {},
     };
   }
 
