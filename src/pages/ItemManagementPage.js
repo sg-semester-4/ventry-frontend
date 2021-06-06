@@ -151,7 +151,18 @@ class ItemManagementPage extends Component {
         const { status, message, data } = res.data;
 
         if (status === 200) {
-          this.setState({ viewItemResponse: { status, message, data } });
+          this.setState({
+            viewItemResponse: {
+              status,
+              message,
+              data: {
+                ...data,
+                available_quantity: parseFloat(data.available_quantity),
+                estimate_quantity: parseFloat(data.estimate_quantity),
+                max_estimate_quantity: parseFloat(data.max_estimate_quantity),
+              },
+            },
+          });
         } else {
           this.refMessageModalComponent.setState({
             title: "Status",
@@ -178,7 +189,18 @@ class ItemManagementPage extends Component {
         const { status, message, data } = res.data;
 
         if (status === 200) {
-          this.setState({ viewItemResponse: { status, message, data } });
+          this.setState({
+            viewItemResponse: {
+              status,
+              message,
+              data: {
+                ...data,
+                available_quantity: parseFloat(data.available_quantity),
+                estimate_quantity: parseFloat(data.estimate_quantity),
+                max_estimate_quantity: parseFloat(data.max_estimate_quantity),
+              },
+            },
+          });
           this.refItemViewModalComponent.handleShow();
         } else {
           this.refMessageModalComponent.setState({

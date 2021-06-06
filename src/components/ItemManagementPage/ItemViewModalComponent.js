@@ -118,7 +118,6 @@ class ItemViewModalComponent extends Component {
     super();
     this.state = {
       isShow: false,
-      itemCombinationData: [],
       menu: "main",
     };
   }
