@@ -4,7 +4,10 @@ import * as Yup from "yup";
 import "./Styles/ItemManagementStyle.css";
 
 import ItemsAPI from "../apis/ItemsAPI";
+import ItemCombinationsAPI from "../apis/ItemCombinationsAPI";
+
 import AuthSessionService from "../services/AuthSessionService";
+
 import ItemViewModalComponent from "../components/ItemManagementPage/ItemViewModalComponent";
 import ItemInsertModalComponent from "../components/ItemManagementPage/ItemInsertModalComponent";
 import ItemUpdateModalComponent from "../components/ItemManagementPage/ItemUpdateModalComponent";
@@ -17,6 +20,11 @@ class ItemManagementPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      allItemCombinationResponse: {
+        statusMessage: "",
+        statusCode: 0,
+        data: [],
+      },
       allItemResponse: {
         statusMessage: "",
         statusCode: 0,
@@ -45,17 +53,65 @@ class ItemManagementPage extends Component {
     };
   }
 
-  componentDidMount = () => {
-    this.handleFetchAllItem();
+  async componentDidMount() {
+    await this.handleFetchAllItem();
+    await this.handleFetchAllItemCombination();
     // setInterval(() => {
     //   this.handleFetchAllItem();
     // }, 2000);
+  }
+
+  handleFetchAllItemCombination = () => {
+    const { allItemResponse } = this.state;
+
+    return ItemCombinationsAPI.readAll()
+      .then((res) => {
+        console.log(res);
+        const { status, message, data } = res.data;
+
+        const newItemCombinationData = data.map((val, idx) => {
+          return {
+            ...val,
+            parent_item: allItemResponse.data.find(
+              (itm) => itm.id === val.parent_item_id
+            ),
+            child_item: allItemResponse.data.find(
+              (itm) => itm.id === val.child_item_id
+            ),
+          };
+        });
+
+        if (status === 200) {
+          this.setState({
+            allItemCombinationResponse: {
+              status,
+              message,
+              data: newItemCombinationData,
+            },
+          });
+        } else {
+          this.refMessageModalComponent.setState({
+            title: "Status",
+            content: message,
+          });
+          this.refMessageModalComponent.handleShow();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        this.refMessageModalComponent.setState({
+          title: "Status",
+          content: "Error has occurred",
+        });
+        this.refMessageModalComponent.handleShow();
+      })
+      .finally(() => {});
   };
 
   handleFetchAllItem = () => {
     const account = AuthSessionService.getAccount();
 
-    ItemsAPI.readAll()
+    return ItemsAPI.readAll()
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
@@ -65,9 +121,37 @@ class ItemManagementPage extends Component {
             allItemResponse: {
               status,
               message,
+              // data,
               data: data.filter((val, idx) => val.account_id === account.id),
             },
           });
+        } else {
+          this.refMessageModalComponent.setState({
+            title: "Status",
+            content: message,
+          });
+          this.refMessageModalComponent.handleShow();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        this.refMessageModalComponent.setState({
+          title: "Status",
+          content: "Error has occurred",
+        });
+        this.refMessageModalComponent.handleShow();
+      })
+      .finally(() => {});
+  };
+
+  handleFetchOneItem = (ID) => {
+    return ItemsAPI.readOneByID(ID)
+      .then((res) => {
+        console.log(res);
+        const { status, message, data } = res.data;
+
+        if (status === 200) {
+          this.setState({ viewItemResponse: { status, message, data } });
         } else {
           this.refMessageModalComponent.setState({
             title: "Status",
@@ -95,9 +179,6 @@ class ItemManagementPage extends Component {
 
         if (status === 200) {
           this.setState({ viewItemResponse: { status, message, data } });
-          this.refItemViewModalComponent.setState({
-            itemData: data,
-          });
           this.refItemViewModalComponent.handleShow();
         } else {
           this.refMessageModalComponent.setState({
@@ -115,7 +196,10 @@ class ItemManagementPage extends Component {
         });
         this.refMessageModalComponent.handleShow();
       })
-      .finally(() => {});
+      .finally(async () => {
+        await this.handleFetchAllItem();
+        await this.handleFetchAllItemCombination();
+      });
   };
 
   handleModalInsert = () => {
@@ -135,7 +219,6 @@ class ItemManagementPage extends Component {
             itemData: data,
           });
           this.refItemInsertModalComponent.handleShow();
-          this.handleFetchAllItem();
         } else {
           this.refMessageModalComponent.setState({
             title: "Status",
@@ -152,18 +235,16 @@ class ItemManagementPage extends Component {
         });
         this.refMessageModalComponent.handleShow();
       })
-      .finally(() => {
+      .finally(async () => {
         actions.setSubmitting(false);
+        await this.handleFetchAllItem();
+        await this.handleFetchAllItemCombination();
       });
   };
 
   handleModalUpdate = () => {
-    const { viewItemResponse } = this.state;
     this.refItemViewModalComponent.handleShow();
     this.refItemUpdateModalComponent.handleShow();
-    this.refItemUpdateModalComponent.setState({
-      itemData: viewItemResponse.data,
-    });
   };
 
   handleModalUpdateOnSubmit = (values, actions) => {
@@ -181,12 +262,8 @@ class ItemManagementPage extends Component {
           this.setState({
             updateItemResponse: { status, message, data },
           });
-          this.refItemUpdateModalComponent.setState({
-            itemData: data,
-          });
           this.refItemUpdateModalComponent.handleShow();
           this.handleModalView(values.id);
-          this.handleFetchAllItem();
         } else {
           this.refMessageModalComponent.setState({
             title: "Status",
@@ -203,8 +280,10 @@ class ItemManagementPage extends Component {
         });
         this.refMessageModalComponent.handleShow();
       })
-      .finally(() => {
+      .finally(async () => {
         actions.setSubmitting(false);
+        await this.handleFetchAllItem();
+        await this.handleFetchAllItemCombination();
       });
   };
 
@@ -217,7 +296,6 @@ class ItemManagementPage extends Component {
 
         if (status === 200) {
           this.setState({ deleteItemResponse: { status, message, data } });
-          this.handleFetchAllItem();
         } else {
           this.refMessageModalComponent.setState({
             title: "Status",
@@ -234,8 +312,10 @@ class ItemManagementPage extends Component {
         });
         this.refMessageModalComponent.handleShow();
       })
-      .finally(() => {
+      .finally(async () => {
         this.refItemViewModalComponent.handleShow();
+        await this.handleFetchAllItem();
+        await this.handleFetchAllItemCombination();
       });
   };
 
@@ -249,6 +329,7 @@ class ItemManagementPage extends Component {
           }}
         />
         <ItemViewModalComponent
+          parent={this}
           ref={(ref) => {
             this.refItemViewModalComponent = ref;
           }}
@@ -257,6 +338,7 @@ class ItemManagementPage extends Component {
         />
 
         <ItemInsertModalComponent
+          parent={this}
           ref={(ref) => {
             this.refItemInsertModalComponent = ref;
           }}
@@ -264,6 +346,7 @@ class ItemManagementPage extends Component {
         />
 
         <ItemUpdateModalComponent
+          parent={this}
           ref={(ref) => {
             this.refItemUpdateModalComponent = ref;
           }}
