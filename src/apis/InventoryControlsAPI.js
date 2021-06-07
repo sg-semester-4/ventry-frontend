@@ -4,11 +4,11 @@ class InventoryControlsAPI {
   URL = process.env.REACT_APP_API_URL_MANAGEMENT;
 
   readAll() {
-    return Axios.get(`${this.URL}/iventoryControls`);
+    return Axios.get(`${this.URL}/histories/inventoryControls`);
   }
 
   readOneByID(ID) {
-    return Axios.get(`${this.URL}/iventoryControls/${ID}`);
+    return Axios.get(`${this.URL}/histories/inventoryControls/${ID}`);
   }
 
   createOne(toCreateInventoryControl) {
@@ -18,7 +18,7 @@ class InventoryControlsAPI {
       quantity,
       total_price,
     } = toCreateInventoryControl;
-    return Axios.post(`${this.URL}/iventoryControls`, {
+    return Axios.post(`${this.URL}/histories/inventoryControls`, {
       account_id,
       item_id,
       quantity,
@@ -33,7 +33,7 @@ class InventoryControlsAPI {
       quantity,
       total_price,
     } = toUpdateInventoryControl;
-    return Axios.put(`${this.URL}/iventoryControls/${ID}`, {
+    return Axios.put(`${this.URL}/histories/inventoryControls/${ID}`, {
       account_id,
       item_id,
       quantity,
@@ -42,7 +42,7 @@ class InventoryControlsAPI {
   }
 
   deleteOneByID(ID) {
-    return Axios.delete(`${this.URL}/iventoryControls/${ID}`);
+    return Axios.delete(`${this.URL}/histories/inventoryControls/${ID}`);
   }
 }
 

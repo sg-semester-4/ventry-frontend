@@ -5,6 +5,7 @@ import "./Styles/ItemManagementStyle.css";
 
 import ItemsAPI from "../apis/ItemsAPI";
 import ItemCombinationsAPI from "../apis/ItemCombinationsAPI";
+import InventoryControlsAPI from "../apis/InventoryControlsAPI";
 
 import AuthSessionService from "../services/AuthSessionService";
 
@@ -271,11 +272,7 @@ class ItemManagementPage extends Component {
 
   handleModalUpdateOnSubmit = (values, actions) => {
     const { viewItemResponse } = this.state;
-    const account = AuthSessionService.getAccount();
-    ItemsAPI.updateOneByID(viewItemResponse.data.id, {
-      ...values,
-      account_id: account.id,
-    })
+    ItemsAPI.updateOneByID(viewItemResponse.data.id, values)
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
@@ -284,6 +281,35 @@ class ItemManagementPage extends Component {
           this.setState({
             updateItemResponse: { status, message, data },
           });
+
+          if (values.is_record === true) {
+            InventoryControlsAPI.createOne({
+              account_id: values.account_id,
+              item_id: values.id,
+              quantity: values.available_quantity,
+            })
+              .then((res2) => {
+                console.log(res2);
+                if (res2.data.status === 200) {
+                  //
+                } else {
+                  this.refMessageModalComponent.setState({
+                    title: "Status",
+                    content: message,
+                  });
+                  this.refMessageModalComponent.handleShow();
+                }
+              })
+              .catch((err2) => {
+                console.log(err2);
+                this.refMessageModalComponent.setState({
+                  title: "Status",
+                  content: "Error has occurred",
+                });
+                this.refMessageModalComponent.handleShow();
+              });
+          }
+
           this.refItemUpdateModalComponent.handleShow();
           this.handleModalView(values.id);
         } else {

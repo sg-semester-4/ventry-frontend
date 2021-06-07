@@ -4,11 +4,11 @@ class ProductTransactionsAPI {
   URL = process.env.REACT_APP_API_URL_MANAGEMENT;
 
   readAll() {
-    return Axios.get(`${this.URL}/productTransactions`);
+    return Axios.get(`${this.URL}/histories/productTransactions`);
   }
 
   readOneByID(ID) {
-    return Axios.get(`${this.URL}/productTransactions/${ID}`);
+    return Axios.get(`${this.URL}/histories/productTransactions/${ID}`);
   }
 
   createOne(toCreateProductTransaction) {
@@ -18,7 +18,7 @@ class ProductTransactionsAPI {
       quantity,
       total_sell_price,
     } = toCreateProductTransaction;
-    return Axios.post(`${this.URL}/productTransactions`, {
+    return Axios.post(`${this.URL}/histories/productTransactions`, {
       account_id,
       product_id,
       quantity,
@@ -33,7 +33,7 @@ class ProductTransactionsAPI {
       quantity,
       total_sell_price,
     } = toUpdateProductTransaction;
-    return Axios.put(`${this.URL}/productTransactions/${ID}`, {
+    return Axios.put(`${this.URL}/histories/productTransactions/${ID}`, {
       account_id,
       product_id,
       quantity,
@@ -42,7 +42,7 @@ class ProductTransactionsAPI {
   }
 
   deleteOneByID(ID) {
-    return Axios.delete(`${this.URL}/productTransactions/${ID}`);
+    return Axios.delete(`${this.URL}/histories/productTransactions/${ID}`);
   }
 }
 
