@@ -44,7 +44,7 @@ class MainComponent extends Component {
         </div>
         <div className="unit-sell-price">
           <div className="text">
-            {`Unit Cost Price: ${parseFloat(data.unit_sell_price)}`}
+            {`Unit Sell Price: ${parseFloat(data.unit_sell_price)}`}
           </div>
         </div>
         <div className="description">
