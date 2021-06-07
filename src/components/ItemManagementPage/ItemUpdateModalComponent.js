@@ -42,7 +42,10 @@ class MainComponent extends Component {
         <div className="form">
           <Formik
             validationSchema={updateSchema}
-            initialValues={parent.props.parent.state.viewItemResponse.data}
+            initialValues={{
+              ...parent.props.parent.state.viewItemResponse.data,
+              is_record: false,
+            }}
             onSubmit={onSubmit}
             enableReinitialize
           >
@@ -163,6 +166,19 @@ class MainComponent extends Component {
                       name="description"
                       component="div"
                       className="text-danger"
+                    />
+                  </fieldset>
+                </div>
+                <div className="row">
+                  <fieldset className="form-check">
+                    <label htmlFor="is_record">
+                      Is record to Inventory Control History?
+                    </label>
+                    <Field
+                      type="checkbox"
+                      id="is_record"
+                      name="is_record"
+                      className="form-check-input"
                     />
                   </fieldset>
                 </div>

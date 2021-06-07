@@ -53,7 +53,8 @@
 }
 
 .component.item-update-modal .body .combination .input-quantity,
-.component.item-update-modal .body .combination .input-quantity fieldset {
+.component.item-update-modal .body .combination .input-quantity fieldset,
+.component.item-update-modal .body .combination .input-quantity fieldset input {
   display: flex;
   flex: 1;
   flex-flow: column;
