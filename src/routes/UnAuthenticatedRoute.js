@@ -12,7 +12,7 @@ class AuthenticatedRoute extends Component {
     const isAuthenticated = AuthSessionService.isLoggedIn();
 
     if (isAuthenticated) {
-      return <Redirect to="/itemManagement" />;
+      return <Redirect to="/managements/items" />;
     }
     return <Route {...this.props} />;
   }
