@@ -34,7 +34,7 @@ class LoginPage extends Component {
             loginResponse: { status, message, data },
           });
           AuthSessionService.loginSucceed(data);
-          this.props.history.push(`/item-management`);
+          this.props.history.push(`/managements/items`);
         }
 
         this.refMessageModalComponent.setState({
