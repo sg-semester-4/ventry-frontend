@@ -2,8 +2,6 @@
   display: flex;
   flex: 1;
   flex-flow: column wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
 }
 
 .component.product-update-modal .body .main .form form fieldset {
