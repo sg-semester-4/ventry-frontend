@@ -3,16 +3,28 @@ import Axios from "axios";
 class ForecastsAPI {
   URL = process.env.REACT_APP_API_URL_FORECAST;
 
-  itemStockByID(ID) {
-    return Axios.get(`${this.URL}/forecasts/items/${ID}/stocks`);
+  itemStockByID(ID, options) {
+    const { interval, periods } = options;
+    return Axios.post(`${this.URL}/forecasts/items/${ID}/stocks`, {
+      interval,
+      periods,
+    });
   }
 
-  itemSalesByID(ID) {
-    return Axios.get(`${this.URL}/forecasts/items/${ID}/sales`);
+  itemSalesByID(ID, options) {
+    const { interval, periods } = options;
+    return Axios.post(`${this.URL}/forecasts/items/${ID}/sales`, {
+      interval,
+      periods,
+    });
   }
 
-  productSalesByID(ID) {
-    return Axios.get(`${this.URL}/forecasts/products/${ID}/sales`);
+  productSalesByID(ID, options) {
+    const { interval, periods } = options;
+    return Axios.post(`${this.URL}/forecasts/products/${ID}/sales`, {
+      interval,
+      periods,
+    });
   }
 }
 
