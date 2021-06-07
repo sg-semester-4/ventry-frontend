@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Modal, Nav } from "react-bootstrap";
 
-import ItemCardImage from "../../assets/images/item-management-card-img.svg";
-import "./Styles/ItemViewModalStyle.css";
+import ProductCardImage from "../../assets/images/product-management-card-img.svg";
+import "./Styles/ProductViewModalStyle.css";
 
 class MainComponent extends Component {
   constructor() {
@@ -12,7 +12,7 @@ class MainComponent extends Component {
 
   render() {
     const { parent } = this.props;
-    const { data } = parent.props.parent.state.viewItemResponse;
+    const { data } = parent.props.parent.state.viewProductResponse;
     return (
       <div className="main">
         <div className="id">
@@ -34,11 +34,6 @@ class MainComponent extends Component {
             {`Estimate Quantity: ${parseFloat(data.estimate_quantity)}`}
           </div>
         </div>
-        <div className="max-estimate-quantity">
-          <div className="text">
-            {`Max Estimate Quantity: ${parseFloat(data.max_estimate_quantity)}`}
-          </div>
-        </div>
         <div className="unit-type">
           <div className="text">{`Unit Type: ${data.unit_type}`}</div>
         </div>
@@ -47,17 +42,22 @@ class MainComponent extends Component {
             {`Unit Cost Price: ${parseFloat(data.unit_cost_price)}`}
           </div>
         </div>
+        <div className="unit-sell-price">
+          <div className="text">
+            {`Unit Cost Price: ${parseFloat(data.unit_sell_price)}`}
+          </div>
+        </div>
         <div className="description">
           <div className="text">{`Description: ${data.description}`}</div>
         </div>
         <div className="image">
           Image:{" "}
           <img
-            src={data.image_url || ItemCardImage}
+            src={data.image_url || ProductCardImage}
             onError={(e) => {
-              e.target.src = ItemCardImage;
+              e.target.src = ProductCardImage;
             }}
-            alt="item"
+            alt="product"
           />
         </div>
       </div>
@@ -65,7 +65,7 @@ class MainComponent extends Component {
   }
 }
 
-class CombinationComponent extends Component {
+class ItemComponent extends Component {
   constructor() {
     super();
     this.state = {};
@@ -75,32 +75,30 @@ class CombinationComponent extends Component {
     const { quantity } = this.state;
     const { parent } = this.props;
     const {
-      allItemCombinationResponse,
-      viewItemResponse,
+      allProductItemResponse,
+      viewProductResponse,
     } = parent.props.parent.state;
     return (
-      <div className="combination">
+      <div className="item">
         <div className="table-ic">
           <table className="table ">
             <thead>
               <tr>
-                <th scope="col">Child Item ID</th>
+                <th scope="col">Product Item ID</th>
                 <th scope="col">Code</th>
                 <th scope="col">Name</th>
                 <th scope="col">Quantity</th>
               </tr>
             </thead>
             <tbody>
-              {allItemCombinationResponse.data
-                .filter(
-                  (itm) => itm.parent_item_id === viewItemResponse.data.id
-                )
+              {allProductItemResponse.data
+                .filter((itm) => itm.product_id === viewProductResponse.data.id)
                 .map((val, idx) => {
                   return (
                     <tr key={idx}>
-                      <td>{val.child_item_id}</td>
-                      <td>{val.child_item.code}</td>
-                      <td>{val.child_item.name}</td>
+                      <td>{val.item_id}</td>
+                      <td>{val.item.code}</td>
+                      <td>{val.item.name}</td>
                       <td>{val.quantity}</td>
                     </tr>
                   );
@@ -113,12 +111,11 @@ class CombinationComponent extends Component {
   }
 }
 
-class ItemViewModalComponent extends Component {
+class ProductViewModalComponent extends Component {
   constructor() {
     super();
     this.state = {
       isShow: false,
-      itemCombinationData: [],
       menu: "main",
     };
   }
@@ -140,10 +137,10 @@ class ItemViewModalComponent extends Component {
         show={isShow}
         onHide={this.handleShow}
         centered
-        className="component item-view-modal"
+        className="component product-view-modal"
       >
         <Modal.Header closeButton className="header">
-          <Modal.Title>Item Details</Modal.Title>
+          <Modal.Title>Product Details</Modal.Title>
         </Modal.Header>
 
         <Nav variant="tabs" onSelect={this.handleSelectMenu}>
@@ -151,7 +148,7 @@ class ItemViewModalComponent extends Component {
             <Nav.Link eventKey="main">Main</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="combination">Combination</Nav.Link>
+            <Nav.Link eventKey="item">Item</Nav.Link>
           </Nav.Item>
         </Nav>
 
@@ -167,11 +164,11 @@ class ItemViewModalComponent extends Component {
                   }}
                 />
               ),
-              combination: (
-                <CombinationComponent
+              item: (
+                <ItemComponent
                   parent={this}
                   ref={(ref) => {
-                    this.refCombinationComponent = ref;
+                    this.refItemComponent = ref;
                   }}
                 />
               ),
@@ -185,14 +182,14 @@ class ItemViewModalComponent extends Component {
             className="btn btn-primary"
             onClick={() => onUpdate()}
           >
-            Update Item
+            Update Product
           </button>
           <button
             type="button"
             className="btn btn-secondary"
             onClick={() => onDelete()}
           >
-            Delete Item
+            Delete Product
           </button>
         </Modal.Footer>
       </Modal>
@@ -200,4 +197,4 @@ class ItemViewModalComponent extends Component {
   }
 }
 
-export default ItemViewModalComponent;
+export default ProductViewModalComponent;

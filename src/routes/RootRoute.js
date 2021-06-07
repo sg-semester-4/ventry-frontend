@@ -9,6 +9,7 @@ import RegisterPage from "../pages/RegisterPage";
 import LoginPage from "../pages/LoginPage";
 
 import ItemManagementPage from "../pages/ItemManagementPage";
+import ProductManagementPage from "../pages/ProductManagementPage";
 
 import TestPage from "../pages/TestPage";
 import ErrorPage from "../pages/ErrorPage";
@@ -33,8 +34,12 @@ class RootRoute extends Component {
             <UnAuthenticatedRoute path="/login" component={LoginPage} />
 
             <AuthenticatedRoute
-              path="/item-management"
+              path="/itemManagement"
               component={ItemManagementPage}
+            />
+            <AuthenticatedRoute
+              path="/productManagement"
+              component={ProductManagementPage}
             />
 
             <Route path="/" component={LandingPage} />
