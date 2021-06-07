@@ -3,7 +3,7 @@ import Axios from "axios";
 class ProductsAPI {
   URL = process.env.REACT_APP_API_URL_MANAGEMENT;
 
-  readOneAll() {
+  readAll() {
     return Axios.get(`${this.URL}/products`);
   }
 
@@ -16,7 +16,7 @@ class ProductsAPI {
       code,
       name,
       description,
-      quantity,
+      available_quantity,
       estimate_quantity,
       unit_type,
       unit_sell_price,
@@ -28,7 +28,7 @@ class ProductsAPI {
       code,
       name,
       description,
-      quantity,
+      available_quantity,
       estimate_quantity,
       unit_type,
       unit_sell_price,
@@ -43,7 +43,7 @@ class ProductsAPI {
       code,
       name,
       description,
-      quantity,
+      available_quantity,
       estimate_quantity,
       unit_type,
       unit_sell_price,
@@ -55,7 +55,7 @@ class ProductsAPI {
       code,
       name,
       description,
-      quantity,
+      available_quantity,
       estimate_quantity,
       unit_type,
       unit_sell_price,

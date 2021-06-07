@@ -3,8 +3,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Modal, Nav } from "react-bootstrap";
 import * as Yup from "yup";
 
-import ItemCardImage from "../../assets/images/item-management-card-img.svg";
-import "./Styles/ItemInsertModalStyle.css";
+import ProductCardImage from "../../assets/images/product-management-card-img.svg";
+import "./Styles/ProductInsertModalStyle.css";
 
 const insertSchema = Yup.object().shape({
   code: Yup.string("Must be string").required("Required"),
@@ -15,11 +15,11 @@ const insertSchema = Yup.object().shape({
   estimate_quantity: Yup.number("Must be number")
     .required("Required")
     .min(0, "Atleast 0"),
-  max_estimate_quantity: Yup.number("Must be number")
-    .required("Required")
-    .min(0, "Atleast 0"),
   unit_type: Yup.string("Must be string").required("Required"),
   unit_cost_price: Yup.number("Must be number")
+    .required("Required")
+    .min(0, "Atleast 0"),
+  unit_sell_price: Yup.number("Must be number")
     .required("Required")
     .min(0, "Atleast 0"),
   description: Yup.string("Must be string"),
@@ -42,9 +42,9 @@ class MainComponent extends Component {
             name: "",
             available_quantity: 0,
             estimate_quantity: 0,
-            max_estimate_quantity: 0,
             unit_type: "",
             unit_cost_price: 0,
+            unit_sell_price: 0,
             description: "",
             image_url: "",
           }}
@@ -107,22 +107,6 @@ class MainComponent extends Component {
 
               <div className="row">
                 <fieldset className="form-group">
-                  <label htmlFor="max_estimate_quantity">
-                    Max Estimate Quantity
-                  </label>
-                  <Field
-                    type="number"
-                    name="max_estimate_quantity"
-                    className="form-control"
-                  />
-                  <ErrorMessage
-                    name="max_estimate_quantity"
-                    component="div"
-                    className="text-danger"
-                  />
-                </fieldset>
-
-                <fieldset className="form-group">
                   <label htmlFor="unit_type">Unit Type</label>
                   <Field
                     type="text"
@@ -135,9 +119,7 @@ class MainComponent extends Component {
                     className="text-danger"
                   />
                 </fieldset>
-              </div>
 
-              <div className="row">
                 <fieldset className="form-group">
                   <label htmlFor="unit_cost_price">Unit Cost Price</label>
                   <Field
@@ -147,6 +129,22 @@ class MainComponent extends Component {
                   />
                   <ErrorMessage
                     name="unit_cost_price"
+                    component="div"
+                    className="text-danger"
+                  />
+                </fieldset>
+              </div>
+
+              <div className="row">
+                <fieldset className="form-group">
+                  <label htmlFor="unit_sell_price">Unit Sell Price</label>
+                  <Field
+                    type="text"
+                    name="unit_sell_price"
+                    className="form-control"
+                  />
+                  <ErrorMessage
+                    name="unit_sell_price"
                     component="div"
                     className="text-danger"
                   />
@@ -176,7 +174,7 @@ class MainComponent extends Component {
                   this.refFormSubmitButton = ref;
                 }}
               >
-                Insert Item
+                Submit
               </button>
             </Form>
           )}
@@ -186,7 +184,7 @@ class MainComponent extends Component {
   }
 }
 
-class CombinationComponent extends Component {
+class ItemComponent extends Component {
   constructor() {
     super();
     this.state = {};
@@ -195,7 +193,7 @@ class CombinationComponent extends Component {
   render() {
     const { parent, onSubmit } = this.props;
     return (
-      <div className="combination form">
+      <div className="item form">
         {parent.state.menu}
         <Formik
           validationSchema={insertSchema}
@@ -204,9 +202,9 @@ class CombinationComponent extends Component {
             name: "",
             available_quantity: 0,
             estimate_quantity: 0,
-            max_estimate_quantity: 0,
             unit_type: "",
             unit_cost_price: 0,
+            unit_sell_price: 0,
             description: "",
             image_url: "",
           }}
@@ -233,7 +231,7 @@ class CombinationComponent extends Component {
                   this.refFormSubmitButton = ref;
                 }}
               >
-                Insert Item
+                Submit
               </button>
             </Form>
           )}
@@ -243,7 +241,7 @@ class CombinationComponent extends Component {
   }
 }
 
-class ItemInsertModalComponent extends Component {
+class ProductInsertModalComponent extends Component {
   constructor() {
     super();
     this.state = {
@@ -269,18 +267,19 @@ class ItemInsertModalComponent extends Component {
         show={isShow}
         onHide={this.handleShow}
         centered
-        className="component item-insert-modal"
+        className="component product-insert-modal"
       >
         <Modal.Header closeButton className="header">
-          <Modal.Title>Item Insert</Modal.Title>
+          <Modal.Title>Product Insert</Modal.Title>
         </Modal.Header>
+
         <Nav variant="tabs" onSelect={this.handleSelectMenu}>
           <Nav.Item>
             <Nav.Link eventKey="main">Main</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="combination" disabled>
-              Combination
+            <Nav.Link eventKey="item" disabled>
+              Item
             </Nav.Link>
           </Nav.Item>
         </Nav>
@@ -298,11 +297,11 @@ class ItemInsertModalComponent extends Component {
                   onSubmit={onSubmit}
                 />
               ),
-              combination: (
-                <CombinationComponent
+              item: (
+                <ItemComponent
                   parent={this}
                   ref={(ref) => {
-                    this.refCombinationComponent = ref;
+                    this.refItemComponent = ref;
                   }}
                 />
               ),
@@ -316,7 +315,7 @@ class ItemInsertModalComponent extends Component {
             className="btn btn-primary"
             onClick={() => this.refMainComponent.refFormSubmitButton.click()}
           >
-            Insert Item
+            Insert Product
           </button>
         </Modal.Footer>
       </Modal>
@@ -324,4 +323,4 @@ class ItemInsertModalComponent extends Component {
   }
 }
 
-export default ItemInsertModalComponent;
+export default ProductInsertModalComponent;
