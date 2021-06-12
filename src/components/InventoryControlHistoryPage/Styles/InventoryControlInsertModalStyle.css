@@ -1,4 +1,4 @@
-.component.product-insert-modal .body {
+.component.item-insert-modal .body {
   display: flex;
   flex: 1;
   flex-flow: column wrap;
@@ -6,14 +6,14 @@
   align-items: flex-start;
 }
 
-.component.product-insert-modal .body .main .form .table-p,
-.component.product-insert-modal .body .main .form .table-sp,
-.component.product-insert-modal .body .main .form table {
+.component.item-insert-modal .body .main .form .table-p,
+.component.item-insert-modal .body .main .form .table-sp,
+.component.item-insert-modal .body .main .form table {
   width: 100%;
   height: 100%;
 }
 
-.component.product-insert-modal .body .main .form form fieldset {
+.component.item-insert-modal .body .main .form form fieldset {
   display: flex;
   flex: 1;
   flex-flow: column wrap;
@@ -22,8 +22,8 @@
   width: 100%;
   height: 100%;
 }
-.component.product-insert-modal .body .main .form,
-.component.product-insert-modal .body .main .form form {
+.component.item-insert-modal .body .main .form,
+.component.item-insert-modal .body .main .form form {
   display: flex;
   flex: 1;
   flex-flow: column wrap;
@@ -33,7 +33,7 @@
   height: 100%;
 }
 
-.component.product-insert-modal .body .main .form form .row {
+.component.item-insert-modal .body .main .form form .row {
   display: flex;
   flex: 1;
   flex-flow: row wrap;
@@ -44,7 +44,7 @@
   margin: 0 0 2vh 0;
 }
 
-.component.product-insert-modal .body .main .form form .column {
+.component.item-insert-modal .body .main .form form .column {
   display: flex;
   flex: 1;
   flex-flow: column wrap;
@@ -55,6 +55,6 @@
   margin: 0 0 2vh 0;
 }
 
-.component.product-insert-modal .body .main .form form .row fieldset {
+.component.item-insert-modal .body .main .form form .row fieldset {
   margin: 0vh 1vh 0vh 1vh;
 }

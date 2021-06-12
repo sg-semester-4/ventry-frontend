@@ -244,9 +244,6 @@ class ProductTransactionHistoryPage extends Component {
           this.setState({
             insertProductTransactionResponse: { status, message, data },
           });
-          this.refProductTransactionInsertModalComponent.setState({
-            productData: data,
-          });
           this.refProductTransactionInsertModalComponent.handleShow();
         } else {
           this.refMessageModalComponent.setState({
@@ -403,7 +400,7 @@ class ProductTransactionHistoryPage extends Component {
                 onClick={() => this.handleModalInsert()}
               >
                 <img src={ButtonPlusImage} alt="plus" />
-                Insert Product Transaction
+                Insert Transaction
               </button>
             </div>
           </div>
@@ -421,7 +418,7 @@ class ProductTransactionHistoryPage extends Component {
             <div key={val.id} className="card">
               <div className="image">
                 <img
-                  src={val.image_url || ProductCardImage}
+                  src={val.product.image_url || ProductCardImage}
                   onError={(e) => {
                     e.target.src = ProductCardImage;
                   }}

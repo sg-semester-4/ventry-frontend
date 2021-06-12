@@ -5,16 +5,11 @@ import * as Yup from "yup";
 
 import MessageModalComponent from "../MessageModalComponent";
 
-import ProductCardImage from "../../assets/images/product-management-card-img.svg";
-import "./Styles/ProductTransactionUpdateModalStyle.css";
+import ItemCardImage from "../../assets/images/item-management-card-img.svg";
+import "./Styles/InventoryControlUpdateModalStyle.css";
 
 const updateSchema = Yup.object().shape({
-  quantity: Yup.number("Must be number")
-    .required("Required")
-    .min(0, "Atleast 0"),
-  total_sell_price: Yup.number("Must be number")
-    .required("Required")
-    .min(0, "Atleast 0"),
+  quantity: Yup.number("Must be number").required("Required"),
 });
 
 class MainComponent extends Component {
@@ -25,13 +20,13 @@ class MainComponent extends Component {
 
   render() {
     const { onSubmit, parent } = this.props;
-    const { viewProductTransactionResponse } = parent.props.parent.state;
+    const { viewInventoryControlResponse } = parent.props.parent.state;
     return (
       <div className="main">
         <div className="form">
           <Formik
             validationSchema={updateSchema}
-            initialValues={viewProductTransactionResponse.data}
+            initialValues={viewInventoryControlResponse.data}
             onSubmit={onSubmit}
             enableReinitialize
           >
@@ -39,7 +34,7 @@ class MainComponent extends Component {
               <Form>
                 <div className="row">
                   <fieldset className="form-group">
-                    <label htmlFor="quantity">Transaction Quantity</label>
+                    <label htmlFor="quantity">Control Quantity</label>
                     <Field
                       type="number"
                       name="quantity"
@@ -47,22 +42,6 @@ class MainComponent extends Component {
                     />
                     <ErrorMessage
                       name="quantity"
-                      component="div"
-                      className="text-danger"
-                    />
-                  </fieldset>
-                </div>
-
-                <div className="row">
-                  <fieldset className="form-group">
-                    <label htmlFor="total_sell_price">Total Sell Price</label>
-                    <Field
-                      type="number"
-                      name="total_sell_price"
-                      className="form-control"
-                    />
-                    <ErrorMessage
-                      name="total_sell_price"
                       component="div"
                       className="text-danger"
                     />
@@ -87,7 +66,7 @@ class MainComponent extends Component {
   }
 }
 
-class ProductTransactionUpdateModalComponent extends Component {
+class InventoryControlUpdateModalComponent extends Component {
   constructor() {
     super();
     this.state = {
@@ -113,10 +92,10 @@ class ProductTransactionUpdateModalComponent extends Component {
         show={isShow}
         onHide={this.handleShow}
         centered
-        className="component product-update-modal"
+        className="component item-update-modal"
       >
         <Modal.Header closeButton className="header">
-          <Modal.Title>Product Transaction Update</Modal.Title>
+          <Modal.Title>Inventory Control Update</Modal.Title>
         </Modal.Header>
 
         <Nav variant="tabs" onSelect={this.handleSelectMenu}>
@@ -148,7 +127,7 @@ class ProductTransactionUpdateModalComponent extends Component {
             className="btn btn-primary"
             onClick={() => this.refMainComponent.refFormSubmitButton.click()}
           >
-            Update Transaction
+            Update Control
           </button>
         </Modal.Footer>
       </Modal>
@@ -156,4 +135,4 @@ class ProductTransactionUpdateModalComponent extends Component {
   }
 }
 
-export default ProductTransactionUpdateModalComponent;
+export default InventoryControlUpdateModalComponent;

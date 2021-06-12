@@ -11,6 +11,7 @@ import LoginPage from "../pages/LoginPage";
 import ItemManagementPage from "../pages/ItemManagementPage";
 import ProductManagementPage from "../pages/ProductManagementPage";
 import ProductTransactionHistoryPage from "../pages/ProductTransactionHistoryPage";
+import InventoryControlHistoryPage from "../pages/InventoryControlHistoryPage";
 import ProductForecastPage from "../pages/ProductForecastPage";
 import ItemForecastPage from "../pages/ItemForecastPage";
 
@@ -41,6 +42,10 @@ class RootRoute extends Component {
             <AuthenticatedRoute
               path="/managements/products"
               component={ProductManagementPage}
+            />
+            <AuthenticatedRoute
+              path="/histories/items"
+              component={InventoryControlHistoryPage}
             />
             <AuthenticatedRoute
               path="/histories/products"

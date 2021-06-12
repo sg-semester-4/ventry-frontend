@@ -133,7 +133,7 @@ class SalesComponent extends Component {
   }
 }
 
-class StocksComponent extends Component {
+class ControlsComponent extends Component {
   constructor() {
     super();
     this.state = {};
@@ -144,7 +144,7 @@ class StocksComponent extends Component {
     const { options } = parent.state;
     const { viewItemResponse } = parent.props.parent.state;
 
-    ForecastsAPI.itemStocksByID(viewItemResponse.data.id, options)
+    ForecastsAPI.itemControlsByID(viewItemResponse.data.id, options)
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
@@ -248,7 +248,7 @@ class StocksComponent extends Component {
       },
     };
     return (
-      <div className="sub stocks">
+      <div className="sub controls">
         <div className="graph">
           <Line data={chartData} options={lineOptions} />
         </div>
@@ -314,7 +314,7 @@ class ItemViewModalComponent extends Component {
             <Nav.Link eventKey="sales">Sales</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="stocks">Stocks</Nav.Link>
+            <Nav.Link eventKey="controls">Controls</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link eventKey="coming-soon" disabled>
@@ -370,8 +370,8 @@ class ItemViewModalComponent extends Component {
                   }}
                 />
               ),
-              stocks: (
-                <StocksComponent
+              controls: (
+                <ControlsComponent
                   parent={this}
                   ref={(ref) => {
                     this.refForecastComponent = ref;

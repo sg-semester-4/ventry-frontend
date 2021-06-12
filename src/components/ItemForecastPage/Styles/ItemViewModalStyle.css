@@ -12,7 +12,7 @@
   width: 100%;
 }
 
-.component.item-view-modal .body .sub.stocks {
+.component.item-view-modal .body .sub.controls {
   display: flex;
   flex: 1;
   flex-flow: column;
