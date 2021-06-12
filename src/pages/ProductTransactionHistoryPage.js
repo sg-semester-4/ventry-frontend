@@ -1,32 +1,26 @@
 import React, { Component } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import "./Styles/ProductManagementStyle.css";
+import "./Styles/ProductTransactionHistoryStyle.css";
 
-import ItemsAPI from "../apis/ItemsAPI";
 import ProductsAPI from "../apis/ProductsAPI";
-import ProductItemsAPI from "../apis/ProductItemsAPI";
+import ProductTransactionsAPI from "../apis/ProductTransactionsAPI";
 
 import AuthSessionService from "../services/AuthSessionService";
 
-import ProductViewModalComponent from "../components/ProductManagementPage/ProductViewModalComponent";
-import ProductInsertModalComponent from "../components/ProductManagementPage/ProductInsertModalComponent";
-import ProductUpdateModalComponent from "../components/ProductManagementPage/ProductUpdateModalComponent";
+import ProductTransactionViewModalComponent from "../components/ProductTransactionHistoryPage/ProductTransactionViewModalComponent";
+import ProductTransactionInsertModalComponent from "../components/ProductTransactionHistoryPage/ProductTransactionInsertModalComponent";
+import ProductTransactionUpdateModalComponent from "../components/ProductTransactionHistoryPage/ProductTransactionUpdateModalComponent";
 import MessageModalComponent from "../components/MessageModalComponent";
 
 import ButtonPlusImage from "../assets/images/control-button-plus-img.svg";
 import ProductCardImage from "../assets/images/product-management-card-img.svg";
 
-class ProductManagementPage extends Component {
+class ProductTransactionHistoryPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      allProductItemResponse: {
-        statusMessage: "",
-        statusCode: 0,
-        data: [],
-      },
-      allItemResponse: {
+      allProductTransactionResponse: {
         statusMessage: "",
         statusCode: 0,
         data: [],
@@ -36,22 +30,22 @@ class ProductManagementPage extends Component {
         statusCode: 0,
         data: [],
       },
-      viewProductResponse: {
+      viewProductTransactionResponse: {
         statusMessage: "",
         statusCode: 0,
         data: {},
       },
-      insertProductResponse: {
+      insertProductTransactionResponse: {
         statusMessage: "",
         statusCode: 0,
         data: {},
       },
-      updateProductResponse: {
+      updateProductTransactionResponse: {
         statusMessage: "",
         statusCode: 0,
         data: {},
       },
-      deleteProductResponse: {
+      deleteProductTransactionResponse: {
         statusMessage: "",
         statusCode: 0,
         data: {},
@@ -60,74 +54,37 @@ class ProductManagementPage extends Component {
   }
 
   async componentDidMount() {
-    await this.handleFetchAllItem();
     await this.handleFetchAllProduct();
-    await this.handleFetchAllProductItem();
+    await this.handleFetchAllProductTransaction();
     // setInterval(() => {
-    //   this.handleFetchAllItem();
     // }, 2000);
   }
 
-  handleFetchAllProductItem = () => {
-    const { allProductResponse, allItemResponse } = this.state;
+  handleFetchAllProductTransaction = () => {
+    const { allProductResponse } = this.state;
 
-    return ProductItemsAPI.readAll()
+    return ProductTransactionsAPI.readAll()
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
 
-        const newProductItemData = data.map((val, idx) => {
-          return {
-            ...val,
-            product: allProductResponse.data.find(
-              (itm) => itm.id === val.product_id
-            ),
-            item: allItemResponse.data.find((itm) => itm.id === val.item_id),
-          };
-        });
+        const newProductTransactionData = data
+          .map((val, idx) => {
+            return {
+              ...val,
+              product: allProductResponse.data.find(
+                (itm) => itm.id === val.product_id
+              ),
+            };
+          })
+          .sort((a, b) => (b.updated_at > a.updated_at ? 1 : -1));
 
         if (status === 200) {
           this.setState({
-            allProductItemResponse: {
+            allProductTransactionResponse: {
               status,
               message,
-              data: newProductItemData,
-            },
-          });
-        } else {
-          this.refMessageModalComponent.setState({
-            title: "Status",
-            content: message,
-          });
-          this.refMessageModalComponent.handleShow();
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        this.refMessageModalComponent.setState({
-          title: "Status",
-          content: "Error has occurred",
-        });
-        this.refMessageModalComponent.handleShow();
-      })
-      .finally(() => {});
-  };
-
-  handleFetchAllItem = () => {
-    const account = AuthSessionService.getAccount();
-
-    return ItemsAPI.readAll()
-      .then((res) => {
-        console.log(res);
-        const { status, message, data } = res.data;
-
-        if (status === 200) {
-          this.setState({
-            allItemResponse: {
-              status,
-              message,
-              // data,
-              data: data.filter((val, idx) => val.account_id === account.id),
+              data: newProductTransactionData,
             },
           });
         } else {
@@ -163,9 +120,7 @@ class ProductManagementPage extends Component {
               status,
               message,
               // data,
-              data: data
-                .filter((val, idx) => val.account_id === account.id)
-                .sort((a, b) => (b.code < a.code ? 1 : -1)),
+              data: data.filter((val, idx) => val.account_id === account.id),
             },
           });
         } else {
@@ -187,21 +142,24 @@ class ProductManagementPage extends Component {
       .finally(() => {});
   };
 
-  handleFetchOneProduct = (ID) => {
-    return ProductsAPI.readOneByID(ID)
+  handleFetchOneProductTransaction = (ID) => {
+    const { allProductResponse } = this.state;
+    return ProductTransactionsAPI.readOneByID(ID)
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
 
         if (status === 200) {
           this.setState({
-            viewProductResponse: {
+            viewProductTransactionResponse: {
               status,
               message,
               data: {
                 ...data,
-                available_quantity: parseFloat(data.available_quantity),
-                estimate_quantity: parseFloat(data.estimate_quantity),
+                quantity: parseFloat(data.quantity),
+                product: allProductResponse.data.find(
+                  (itm) => itm.id === data.product_id
+                ),
               },
             },
           });
@@ -225,24 +183,27 @@ class ProductManagementPage extends Component {
   };
 
   handleModalView = (ID) => {
-    ProductsAPI.readOneByID(ID)
+    const { allProductResponse } = this.state;
+    ProductTransactionsAPI.readOneByID(ID)
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
 
         if (status === 200) {
           this.setState({
-            viewProductResponse: {
+            viewProductTransactionResponse: {
               status,
               message,
               data: {
                 ...data,
-                available_quantity: parseFloat(data.available_quantity),
-                estimate_quantity: parseFloat(data.estimate_quantity),
+                quantity: parseFloat(data.quantity),
+                product: allProductResponse.data.find(
+                  (itm) => itm.id === data.product_id
+                ),
               },
             },
           });
-          this.refProductViewModalComponent.handleShow();
+          this.refProductTransactionViewModalComponent.handleShow();
         } else {
           this.refMessageModalComponent.setState({
             title: "Status",
@@ -260,26 +221,33 @@ class ProductManagementPage extends Component {
         this.refMessageModalComponent.handleShow();
       })
       .finally(async () => {
-        await this.handleFetchAllItem();
         await this.handleFetchAllProduct();
-        await this.handleFetchAllProductItem();
+        await this.handleFetchAllProductTransaction();
       });
   };
 
   handleModalInsert = () => {
-    this.refProductInsertModalComponent.handleShow();
+    this.refProductTransactionInsertModalComponent.handleShow();
   };
 
   handleModalInsertOnSubmit = (values, actions) => {
     const account = AuthSessionService.getAccount();
-    ProductsAPI.createOne({ ...values, account_id: account.id })
+    ProductTransactionsAPI.createOne({
+      ...values,
+      account_id: account.id,
+    })
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
 
         if (status === 200) {
-          this.setState({ insertProductResponse: { status, message, data } });
-          this.refProductInsertModalComponent.handleShow();
+          this.setState({
+            insertProductTransactionResponse: { status, message, data },
+          });
+          this.refProductTransactionInsertModalComponent.setState({
+            productData: data,
+          });
+          this.refProductTransactionInsertModalComponent.handleShow();
         } else {
           this.refMessageModalComponent.setState({
             title: "Status",
@@ -298,32 +266,31 @@ class ProductManagementPage extends Component {
       })
       .finally(async () => {
         actions.setSubmitting(false);
-        await this.handleFetchAllItem();
         await this.handleFetchAllProduct();
-        await this.handleFetchAllProductItem();
+        await this.handleFetchAllProductTransaction();
       });
   };
 
   handleModalUpdate = () => {
-    this.refProductViewModalComponent.handleShow();
-    this.refProductUpdateModalComponent.handleShow();
+    this.refProductTransactionViewModalComponent.handleShow();
+    this.refProductTransactionUpdateModalComponent.handleShow();
   };
 
   handleModalUpdateOnSubmit = (values, actions) => {
-    const { viewProductResponse } = this.state;
-    ProductsAPI.updateOneByID(viewProductResponse.data.id, values)
+    const { viewProductTransactionResponse } = this.state;
+    ProductTransactionsAPI.updateOneByID(
+      viewProductTransactionResponse.data.id,
+      values
+    )
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
 
         if (status === 200) {
           this.setState({
-            updateProductResponse: { status, message, data },
+            updateProductTransactionResponse: { status, message, data },
           });
-
-          // Should implement inventory control history when product quantity changed.
-
-          this.refProductUpdateModalComponent.handleShow();
+          this.refProductTransactionUpdateModalComponent.handleShow();
           this.handleModalView(values.id);
         } else {
           this.refMessageModalComponent.setState({
@@ -343,21 +310,22 @@ class ProductManagementPage extends Component {
       })
       .finally(async () => {
         actions.setSubmitting(false);
-        await this.handleFetchAllItem();
         await this.handleFetchAllProduct();
-        await this.handleFetchAllProductItem();
+        await this.handleFetchAllProductTransaction();
       });
   };
 
   handleModalDelete = () => {
-    const { viewProductResponse } = this.state;
-    ProductsAPI.deleteOneByID(viewProductResponse.data.id)
+    const { viewProductTransactionResponse } = this.state;
+    ProductTransactionsAPI.deleteOneByID(viewProductTransactionResponse.data.id)
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
 
         if (status === 200) {
-          this.setState({ deleteProductResponse: { status, message, data } });
+          this.setState({
+            deleteProductTransactionResponse: { status, message, data },
+          });
         } else {
           this.refMessageModalComponent.setState({
             title: "Status",
@@ -375,43 +343,42 @@ class ProductManagementPage extends Component {
         this.refMessageModalComponent.handleShow();
       })
       .finally(async () => {
-        this.refProductViewModalComponent.handleShow();
-        await this.handleFetchAllItem();
+        this.refProductTransactionViewModalComponent.handleShow();
         await this.handleFetchAllProduct();
-        await this.handleFetchAllProductItem();
+        await this.handleFetchAllProductTransaction();
       });
   };
 
   render() {
-    const { allProductResponse } = this.state;
+    const { allProductTransactionResponse } = this.state;
     return (
-      <div className="page product-management">
+      <div className="page product-transaction-history">
         <MessageModalComponent
           ref={(ref) => {
             this.refMessageModalComponent = ref;
           }}
         />
-        <ProductViewModalComponent
+        <ProductTransactionViewModalComponent
           parent={this}
           ref={(ref) => {
-            this.refProductViewModalComponent = ref;
+            this.refProductTransactionViewModalComponent = ref;
           }}
           onUpdate={this.handleModalUpdate}
           onDelete={this.handleModalDelete}
         />
 
-        <ProductInsertModalComponent
+        <ProductTransactionInsertModalComponent
           parent={this}
           ref={(ref) => {
-            this.refProductInsertModalComponent = ref;
+            this.refProductTransactionInsertModalComponent = ref;
           }}
           onSubmit={this.handleModalInsertOnSubmit}
         />
 
-        <ProductUpdateModalComponent
+        <ProductTransactionUpdateModalComponent
           parent={this}
           ref={(ref) => {
-            this.refProductUpdateModalComponent = ref;
+            this.refProductTransactionUpdateModalComponent = ref;
           }}
           onSubmit={this.handleModalUpdateOnSubmit}
         />
@@ -419,12 +386,12 @@ class ProductManagementPage extends Component {
         <div className="header">
           <div className="left-section">
             <div className="title">
-              <h1>Product Management</h1>
+              <h1>Product Transaction History</h1>
             </div>
             <div className="description">
               <div className="text">
-                You can manage all of your products in here (view, insert,
-                update, and delete product).
+                You can manage all of your product transactions in here (view,
+                insert, update, and delete product transaction).
               </div>
             </div>
           </div>
@@ -436,21 +403,21 @@ class ProductManagementPage extends Component {
                 onClick={() => this.handleModalInsert()}
               >
                 <img src={ButtonPlusImage} alt="plus" />
-                Insert Product
+                Insert Product Transaction
               </button>
             </div>
           </div>
         </div>
 
         <div className="body">
-          {allProductResponse.data.length <= 0 ? (
+          {allProductTransactionResponse.data.length <= 0 ? (
             <div className="empty-data">
               <div className="text">
-                Your products is empty, try to insert one!
+                Your product transactions is empty, try to insert one!
               </div>
             </div>
           ) : null}
-          {allProductResponse.data.map((val, idx) => (
+          {allProductTransactionResponse.data.map((val, idx) => (
             <div key={val.id} className="card">
               <div className="image">
                 <img
@@ -463,23 +430,23 @@ class ProductManagementPage extends Component {
               </div>
               <div className="content">
                 <div className="code">
-                  <div className="text">Code: {val.code}</div>
+                  <div className="text">Code: {val.product.code}</div>
                 </div>
                 <div className="name">
-                  <div className="text">Name: {val.name}</div>
+                  <div className="text">Name: {val.product.name}</div>
                 </div>
                 <div className="quantity">
-                  <div className="text">Quantity: {val.available_quantity}</div>
+                  <div className="text">Quantity: {val.quantity}</div>
                 </div>
-                <div className="control">
-                  <button
-                    type="button"
-                    className="btn btn-outline-primary"
-                    onClick={() => this.handleModalView(val.id)}
-                  >
-                    Details
-                  </button>
-                </div>
+              </div>
+              <div className="control">
+                <button
+                  type="button"
+                  className="btn btn-outline-primary"
+                  onClick={() => this.handleModalView(val.id)}
+                >
+                  Details
+                </button>
               </div>
             </div>
           ))}
@@ -489,4 +456,4 @@ class ProductManagementPage extends Component {
   }
 }
 
-export default ProductManagementPage;
+export default ProductTransactionHistoryPage;

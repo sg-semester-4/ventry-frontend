@@ -3,7 +3,7 @@ import Axios from "axios";
 class ForecastsAPI {
   URL = process.env.REACT_APP_API_URL_FORECAST;
 
-  itemStockByID(ID, options) {
+  itemStocksByID(ID, options) {
     const { interval, periods } = options;
     return Axios.post(`${this.URL}/forecasts/items/${ID}/stocks`, {
       interval,

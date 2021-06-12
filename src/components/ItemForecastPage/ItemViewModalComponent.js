@@ -6,8 +6,8 @@ import moment from "moment";
 import * as ForecastTool from "../../tools/Forecast";
 
 import ForecastsAPI from "../../apis/ForecastsAPI";
-import ProductCardImage from "../../assets/images/product-management-card-img.svg";
-import "./Styles/ProductViewModalStyle.css";
+import ItemCardImage from "../../assets/images/item-management-card-img.svg";
+import "./Styles/ItemViewModalStyle.css";
 
 class SalesComponent extends Component {
   constructor() {
@@ -18,9 +18,9 @@ class SalesComponent extends Component {
   handleFetchForecast = () => {
     const { parent } = this.props;
     const { options } = parent.state;
-    const { viewProductResponse } = parent.props.parent.state;
+    const { viewItemResponse } = parent.props.parent.state;
 
-    ForecastsAPI.productSalesByID(viewProductResponse.data.id, options)
+    ForecastsAPI.itemSalesByID(viewItemResponse.data.id, options)
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
@@ -133,7 +133,131 @@ class SalesComponent extends Component {
   }
 }
 
-class ProductViewModalComponent extends Component {
+class StocksComponent extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  handleFetchForecast = () => {
+    const { parent } = this.props;
+    const { options } = parent.state;
+    const { viewItemResponse } = parent.props.parent.state;
+
+    ForecastsAPI.itemStocksByID(viewItemResponse.data.id, options)
+      .then((res) => {
+        console.log(res);
+        const { status, message, data } = res.data;
+        if (status === 200) {
+          const tempData = ForecastTool.cleanData(data);
+          parent.setState({
+            observedData: tempData.observedData,
+            forecastedData: tempData.forecastedData,
+            forecastResponse: { status, message, data },
+          });
+        } else {
+          parent.props.parent.refMessageModalComponent.setState({
+            title: "Status",
+            content: message,
+          });
+          parent.props.parent.refMessageModalComponent.handleShow();
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        parent.props.parent.refMessageModalComponent.setState({
+          title: "Status",
+          content: "Error has occurred",
+        });
+        parent.props.parent.refMessageModalComponent.handleShow();
+      });
+  };
+
+  render() {
+    const { parent } = this.props;
+    const { forecastedData, observedData } = parent.state;
+    const chartData = {
+      datasets: [
+        {
+          label: "Observed",
+          borderColor: "#36a2eb",
+          lineTension: 0.1,
+          borderDashOffset: 0.0,
+          pointBackgroundColor: "#fff",
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: "#fff",
+          pointHoverBorderWidth: 2,
+          pointRadius: 4,
+          pointHitRadius: 10,
+          data: observedData,
+        },
+        {
+          label: "Forecasted",
+          borderColor: "#ff6384",
+          lineTension: 0.1,
+          borderDashOffset: 0.0,
+          pointBackgroundColor: "#fff",
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: "#fff",
+          pointHoverBorderWidth: 2,
+          pointRadius: 4,
+          pointHitRadius: 10,
+          data: forecastedData,
+        },
+      ],
+    };
+
+    const lineOptions = {
+      scales: {
+        xAxes: [
+          {
+            type: "time",
+            time: {
+              // unit: "month",
+              tooltipFormat: "lll",
+            },
+            gridLines: {
+              display: true,
+              drawBorder: false,
+            },
+            ticks: {
+              display: true,
+            },
+          },
+        ],
+        yAxes: [
+          {
+            // stacked: true,
+            gridLines: {
+              display: true,
+              drawBorder: false,
+            },
+            ticks: {
+              display: true,
+            },
+          },
+        ],
+      },
+      legend: {
+        display: true,
+      },
+      tooltips: {
+        enabled: true,
+      },
+    };
+    return (
+      <div className="sub stocks">
+        <div className="graph">
+          <Line data={chartData} options={lineOptions} />
+        </div>
+      </div>
+    );
+  }
+}
+
+class ItemViewModalComponent extends Component {
   constructor() {
     super();
     this.state = {
@@ -178,16 +302,19 @@ class ProductViewModalComponent extends Component {
         show={isShow}
         onHide={this.handleShow}
         centered
-        className="component product-view-modal"
+        className="component item-view-modal"
         size="lg"
       >
         <Modal.Header closeButton className="header">
-          <Modal.Title>Product Forecast Details</Modal.Title>
+          <Modal.Title>Item Forecast Details</Modal.Title>
         </Modal.Header>
 
         <Nav variant="tabs" onSelect={this.handleSelectMenu}>
           <Nav.Item>
             <Nav.Link eventKey="sales">Sales</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="stocks">Stocks</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link eventKey="coming-soon" disabled>
@@ -243,6 +370,14 @@ class ProductViewModalComponent extends Component {
                   }}
                 />
               ),
+              stocks: (
+                <StocksComponent
+                  parent={this}
+                  ref={(ref) => {
+                    this.refForecastComponent = ref;
+                  }}
+                />
+              ),
             }[menu]
           }
           {forecastResponse.data ? (
@@ -263,4 +398,4 @@ class ProductViewModalComponent extends Component {
   }
 }
 
-export default ProductViewModalComponent;
+export default ItemViewModalComponent;

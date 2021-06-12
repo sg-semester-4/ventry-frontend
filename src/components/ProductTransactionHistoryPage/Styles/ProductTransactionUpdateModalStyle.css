@@ -1,0 +1,74 @@
+.component.product-update-modal .body {
+  display: flex;
+  flex: 1;
+  flex-flow: column wrap;
+}
+
+.component.product-update-modal .body .main .form form fieldset {
+  display: flex;
+  flex: 1;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+.component.product-update-modal .body .main .form,
+.component.product-update-modal .body .main .form form {
+  display: flex;
+  flex: 1;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.component.product-update-modal .body .main .form form .row {
+  display: flex;
+  flex: 1;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0 0 2vh 0;
+}
+
+.component.product-update-modal .body .main .form form .row fieldset {
+  margin: 0vh 1vh 0vh 1vh;
+}
+
+.component.product-update-modal .body .item {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.component.product-update-modal .body .item .input-quantity,
+.component.product-update-modal .body .item .input-quantity fieldset,
+.component.product-update-modal .body .item .input-quantity fieldset input {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+.component.product-update-modal .body .item .table-i,
+.component.product-update-modal .body .item .table-ic {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}

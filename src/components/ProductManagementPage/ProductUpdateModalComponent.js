@@ -377,8 +377,6 @@ class ProductUpdateModalComponent extends Component {
     this.state = {
       isShow: false,
       menu: "main",
-      insertProductItemResponse: {},
-      deleteProductItemResponse: {},
     };
   }
 
