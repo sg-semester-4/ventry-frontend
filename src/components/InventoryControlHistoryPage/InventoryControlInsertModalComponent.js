@@ -3,46 +3,41 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Modal, Nav } from "react-bootstrap";
 import * as Yup from "yup";
 
-import ProductCardImage from "../../assets/images/product-management-card-img.svg";
-import "./Styles/ProductTransactionInsertModalStyle.css";
+import ItemCardImage from "../../assets/images/item-management-card-img.svg";
+import "./Styles/InventoryControlInsertModalStyle.css";
 
 const insertSchema = Yup.object().shape({
-  product_id: Yup.string("Must be string").required("Required"),
-  quantity: Yup.number("Must be number")
-    .required("Required")
-    .min(0, "Atleast 0"),
-  total_sell_price: Yup.number("Must be number")
-    .required("Required")
-    .min(0, "Atleast 0"),
+  item_id: Yup.string("Must be string").required("Required"),
+  quantity: Yup.number("Must be number").required("Required"),
 });
 
 class MainComponent extends Component {
   constructor() {
     super();
     this.state = {
-      selectProduct: [],
+      selectItem: [],
     };
   }
 
   handleClickSelect = (val) => {
-    this.setState({ selectProduct: [val] });
+    this.setState({ selectItem: [val] });
   };
 
   handleClickDelete = (val) => {
-    this.setState({ selectProduct: [] });
+    this.setState({ selectItem: [] });
   };
 
   render() {
     const { onSubmit, parent } = this.props;
-    const { selectProduct } = this.state;
-    const { allProductResponse } = parent.props.parent.state;
+    const { selectItem } = this.state;
+    const { allItemResponse } = parent.props.parent.state;
     return (
       <div className="main ">
         <div className="form">
           <Formik
             validationSchema={insertSchema}
             initialValues={{
-              product_id: selectProduct[0] ? selectProduct[0].id : "",
+              item_id: selectItem[0] ? selectItem[0].id : "",
               quantity: 0,
               total_sell_price: 0,
             }}
@@ -56,14 +51,14 @@ class MainComponent extends Component {
                     <table className="table ">
                       <thead>
                         <tr>
-                          <th scope="col">Product ID</th>
+                          <th scope="col">Item ID</th>
                           <th scope="col">Code</th>
                           <th scope="col">Name</th>
                           <th scope="col">Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {allProductResponse.data.map((val, idx) => {
+                        {allItemResponse.data.map((val, idx) => {
                           return (
                             <tr key={idx}>
                               <td>{val.id}</td>
@@ -88,14 +83,14 @@ class MainComponent extends Component {
                     <table className="table ">
                       <thead>
                         <tr>
-                          <th scope="col">Selected Product ID</th>
+                          <th scope="col">Selected Item ID</th>
                           <th scope="col">Code</th>
                           <th scope="col">Name</th>
                           <th scope="col">Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                        {selectProduct.map((val, idx) => {
+                        {selectItem.map((val, idx) => {
                           return (
                             <tr key={idx}>
                               <td>{val.id}</td>
@@ -117,14 +112,14 @@ class MainComponent extends Component {
                     </table>
                   </div>
                   <ErrorMessage
-                    name="product_id"
+                    name="item_id"
                     component="div"
                     className="text-danger"
                   />
                 </div>
                 <div className="row">
                   <fieldset className="form-group">
-                    <label htmlFor="quantity">Transaction Quantity</label>
+                    <label htmlFor="quantity">Control Quantity</label>
                     <Field
                       type="number"
                       name="quantity"
@@ -138,21 +133,6 @@ class MainComponent extends Component {
                   </fieldset>
                 </div>
 
-                <div className="row">
-                  <fieldset className="form-group">
-                    <label htmlFor="total_sell_price">Total Sell Price</label>
-                    <Field
-                      type="number"
-                      name="total_sell_price"
-                      className="form-control"
-                    />
-                    <ErrorMessage
-                      name="total_sell_price"
-                      component="div"
-                      className="text-danger"
-                    />
-                  </fieldset>
-                </div>
                 <button
                   type="submit"
                   className="d-none"
@@ -171,7 +151,7 @@ class MainComponent extends Component {
   }
 }
 
-class ProductTransactionInsertModalComponent extends Component {
+class InventoryControlInsertModalComponent extends Component {
   constructor() {
     super();
     this.state = {
@@ -197,10 +177,10 @@ class ProductTransactionInsertModalComponent extends Component {
         show={isShow}
         onHide={this.handleShow}
         centered
-        className="component product-insert-modal"
+        className="component item-insert-modal"
       >
         <Modal.Header closeButton className="header">
-          <Modal.Title>Product Insert</Modal.Title>
+          <Modal.Title>Item Insert</Modal.Title>
         </Modal.Header>
 
         <Nav variant="tabs" onSelect={this.handleSelectMenu}>
@@ -232,7 +212,7 @@ class ProductTransactionInsertModalComponent extends Component {
             className="btn btn-primary"
             onClick={() => this.refMainComponent.refFormSubmitButton.click()}
           >
-            Insert Transaction
+            Insert Control
           </button>
         </Modal.Footer>
       </Modal>
@@ -240,4 +220,4 @@ class ProductTransactionInsertModalComponent extends Component {
   }
 }
 
-export default ProductTransactionInsertModalComponent;
+export default InventoryControlInsertModalComponent;

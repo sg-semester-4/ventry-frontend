@@ -1,27 +1,26 @@
 import React, { Component } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import "./Styles/ItemManagementStyle.css";
+import "./Styles/InventoryControlHistoryStyle.css";
 
 import ItemsAPI from "../apis/ItemsAPI";
-import ItemCombinationsAPI from "../apis/ItemCombinationsAPI";
 import InventoryControlsAPI from "../apis/InventoryControlsAPI";
 
 import AuthSessionService from "../services/AuthSessionService";
 
-import ItemViewModalComponent from "../components/ItemManagementPage/ItemViewModalComponent";
-import ItemInsertModalComponent from "../components/ItemManagementPage/ItemInsertModalComponent";
-import ItemUpdateModalComponent from "../components/ItemManagementPage/ItemUpdateModalComponent";
+import InventoryControlViewModalComponent from "../components/InventoryControlHistoryPage/InventoryControlViewModalComponent";
+import InventoryControlInsertModalComponent from "../components/InventoryControlHistoryPage/InventoryControlInsertModalComponent";
+import InventoryControlUpdateModalComponent from "../components/InventoryControlHistoryPage/InventoryControlUpdateModalComponent";
 import MessageModalComponent from "../components/MessageModalComponent";
 
 import ButtonPlusImage from "../assets/images/control-button-plus-img.svg";
 import ItemCardImage from "../assets/images/item-management-card-img.svg";
 
-class ItemManagementPage extends Component {
+class InventoryControlHistoryPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      allItemCombinationResponse: {
+      allInventoryControlResponse: {
         statusMessage: "",
         statusCode: 0,
         data: [],
@@ -31,22 +30,22 @@ class ItemManagementPage extends Component {
         statusCode: 0,
         data: [],
       },
-      viewItemResponse: {
+      viewInventoryControlResponse: {
         statusMessage: "",
         statusCode: 0,
         data: {},
       },
-      insertItemResponse: {
+      insertInventoryControlResponse: {
         statusMessage: "",
         statusCode: 0,
         data: {},
       },
-      updateItemResponse: {
+      updateInventoryControlResponse: {
         statusMessage: "",
         statusCode: 0,
         data: {},
       },
-      deleteItemResponse: {
+      deleteInventoryControlResponse: {
         statusMessage: "",
         statusCode: 0,
         data: {},
@@ -56,38 +55,34 @@ class ItemManagementPage extends Component {
 
   async componentDidMount() {
     await this.handleFetchAllItem();
-    await this.handleFetchAllItemCombination();
+    await this.handleFetchAllInventoryControl();
     // setInterval(() => {
-    //   this.handleFetchAllItem();
     // }, 2000);
   }
 
-  handleFetchAllItemCombination = () => {
+  handleFetchAllInventoryControl = () => {
     const { allItemResponse } = this.state;
 
-    return ItemCombinationsAPI.readAll()
+    return InventoryControlsAPI.readAll()
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
 
-        const newItemCombinationData = data.map((val, idx) => {
-          return {
-            ...val,
-            parent_item: allItemResponse.data.find(
-              (itm) => itm.id === val.parent_item_id
-            ),
-            child_item: allItemResponse.data.find(
-              (itm) => itm.id === val.child_item_id
-            ),
-          };
-        });
+        const newInventoryControlData = data
+          .map((val, idx) => {
+            return {
+              ...val,
+              item: allItemResponse.data.find((itm) => itm.id === val.item_id),
+            };
+          })
+          .sort((a, b) => (b.updated_at > a.updated_at ? 1 : -1));
 
         if (status === 200) {
           this.setState({
-            allItemCombinationResponse: {
+            allInventoryControlResponse: {
               status,
               message,
-              data: newItemCombinationData,
+              data: newInventoryControlData,
             },
           });
         } else {
@@ -123,9 +118,7 @@ class ItemManagementPage extends Component {
               status,
               message,
               // data,
-              data: data
-                .filter((val, idx) => val.account_id === account.id)
-                .sort((a, b) => (b.code < a.code ? 1 : -1)),
+              data: data.filter((val, idx) => val.account_id === account.id),
             },
           });
         } else {
@@ -147,22 +140,24 @@ class ItemManagementPage extends Component {
       .finally(() => {});
   };
 
-  handleFetchOneItem = (ID) => {
-    return ItemsAPI.readOneByID(ID)
+  handleFetchOneInventoryControl = (ID) => {
+    const { allItemResponse } = this.state;
+    return InventoryControlsAPI.readOneByID(ID)
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
 
         if (status === 200) {
           this.setState({
-            viewItemResponse: {
+            viewInventoryControlResponse: {
               status,
               message,
               data: {
                 ...data,
-                available_quantity: parseFloat(data.available_quantity),
-                estimate_quantity: parseFloat(data.estimate_quantity),
-                max_estimate_quantity: parseFloat(data.max_estimate_quantity),
+                quantity: parseFloat(data.quantity),
+                item: allItemResponse.data.find(
+                  (itm) => itm.id === data.item_id
+                ),
               },
             },
           });
@@ -186,25 +181,27 @@ class ItemManagementPage extends Component {
   };
 
   handleModalView = (ID) => {
-    ItemsAPI.readOneByID(ID)
+    const { allItemResponse } = this.state;
+    InventoryControlsAPI.readOneByID(ID)
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
 
         if (status === 200) {
           this.setState({
-            viewItemResponse: {
+            viewInventoryControlResponse: {
               status,
               message,
               data: {
                 ...data,
-                available_quantity: parseFloat(data.available_quantity),
-                estimate_quantity: parseFloat(data.estimate_quantity),
-                max_estimate_quantity: parseFloat(data.max_estimate_quantity),
+                quantity: parseFloat(data.quantity),
+                item: allItemResponse.data.find(
+                  (itm) => itm.id === data.item_id
+                ),
               },
             },
           });
-          this.refItemViewModalComponent.handleShow();
+          this.refInventoryControlViewModalComponent.handleShow();
         } else {
           this.refMessageModalComponent.setState({
             title: "Status",
@@ -223,27 +220,29 @@ class ItemManagementPage extends Component {
       })
       .finally(async () => {
         await this.handleFetchAllItem();
-        await this.handleFetchAllItemCombination();
+        await this.handleFetchAllInventoryControl();
       });
   };
 
   handleModalInsert = () => {
-    this.refItemInsertModalComponent.handleShow();
+    this.refInventoryControlInsertModalComponent.handleShow();
   };
 
   handleModalInsertOnSubmit = (values, actions) => {
     const account = AuthSessionService.getAccount();
-    ItemsAPI.createOne({ ...values, account_id: account.id })
+    InventoryControlsAPI.createOne({
+      ...values,
+      account_id: account.id,
+    })
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
 
         if (status === 200) {
-          this.setState({ insertItemResponse: { status, message, data } });
-          this.refItemInsertModalComponent.setState({
-            itemData: data,
+          this.setState({
+            insertInventoryControlResponse: { status, message, data },
           });
-          this.refItemInsertModalComponent.handleShow();
+          this.refInventoryControlInsertModalComponent.handleShow();
         } else {
           this.refMessageModalComponent.setState({
             title: "Status",
@@ -263,58 +262,30 @@ class ItemManagementPage extends Component {
       .finally(async () => {
         actions.setSubmitting(false);
         await this.handleFetchAllItem();
-        await this.handleFetchAllItemCombination();
+        await this.handleFetchAllInventoryControl();
       });
   };
 
   handleModalUpdate = () => {
-    this.refItemViewModalComponent.handleShow();
-    this.refItemUpdateModalComponent.handleShow();
+    this.refInventoryControlViewModalComponent.handleShow();
+    this.refInventoryControlUpdateModalComponent.handleShow();
   };
 
   handleModalUpdateOnSubmit = (values, actions) => {
-    const { viewItemResponse } = this.state;
-    ItemsAPI.updateOneByID(viewItemResponse.data.id, values)
+    const { viewInventoryControlResponse } = this.state;
+    InventoryControlsAPI.updateOneByID(
+      viewInventoryControlResponse.data.id,
+      values
+    )
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
 
         if (status === 200) {
           this.setState({
-            updateItemResponse: { status, message, data },
+            updateInventoryControlResponse: { status, message, data },
           });
-
-          if (values.is_record === true) {
-            InventoryControlsAPI.createOne({
-              account_id: values.account_id,
-              item_id: values.id,
-              quantity:
-                values.available_quantity -
-                viewItemResponse.data.available_quantity,
-            })
-              .then((res2) => {
-                console.log(res2);
-                if (res2.data.status === 200) {
-                  //
-                } else {
-                  this.refMessageModalComponent.setState({
-                    title: "Status",
-                    content: message,
-                  });
-                  this.refMessageModalComponent.handleShow();
-                }
-              })
-              .catch((err2) => {
-                console.log(err2);
-                this.refMessageModalComponent.setState({
-                  title: "Status",
-                  content: "Error has occurred",
-                });
-                this.refMessageModalComponent.handleShow();
-              });
-          }
-
-          this.refItemUpdateModalComponent.handleShow();
+          this.refInventoryControlUpdateModalComponent.handleShow();
           this.handleModalView(values.id);
         } else {
           this.refMessageModalComponent.setState({
@@ -335,19 +306,21 @@ class ItemManagementPage extends Component {
       .finally(async () => {
         actions.setSubmitting(false);
         await this.handleFetchAllItem();
-        await this.handleFetchAllItemCombination();
+        await this.handleFetchAllInventoryControl();
       });
   };
 
   handleModalDelete = () => {
-    const { viewItemResponse } = this.state;
-    ItemsAPI.deleteOneByID(viewItemResponse.data.id)
+    const { viewInventoryControlResponse } = this.state;
+    InventoryControlsAPI.deleteOneByID(viewInventoryControlResponse.data.id)
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
 
         if (status === 200) {
-          this.setState({ deleteItemResponse: { status, message, data } });
+          this.setState({
+            deleteInventoryControlResponse: { status, message, data },
+          });
         } else {
           this.refMessageModalComponent.setState({
             title: "Status",
@@ -365,42 +338,42 @@ class ItemManagementPage extends Component {
         this.refMessageModalComponent.handleShow();
       })
       .finally(async () => {
-        this.refItemViewModalComponent.handleShow();
+        this.refInventoryControlViewModalComponent.handleShow();
         await this.handleFetchAllItem();
-        await this.handleFetchAllItemCombination();
+        await this.handleFetchAllInventoryControl();
       });
   };
 
   render() {
-    const { allItemResponse } = this.state;
+    const { allInventoryControlResponse } = this.state;
     return (
-      <div className="page item-management">
+      <div className="page inventory-control-history">
         <MessageModalComponent
           ref={(ref) => {
             this.refMessageModalComponent = ref;
           }}
         />
-        <ItemViewModalComponent
+        <InventoryControlViewModalComponent
           parent={this}
           ref={(ref) => {
-            this.refItemViewModalComponent = ref;
+            this.refInventoryControlViewModalComponent = ref;
           }}
           onUpdate={this.handleModalUpdate}
           onDelete={this.handleModalDelete}
         />
 
-        <ItemInsertModalComponent
+        <InventoryControlInsertModalComponent
           parent={this}
           ref={(ref) => {
-            this.refItemInsertModalComponent = ref;
+            this.refInventoryControlInsertModalComponent = ref;
           }}
           onSubmit={this.handleModalInsertOnSubmit}
         />
 
-        <ItemUpdateModalComponent
+        <InventoryControlUpdateModalComponent
           parent={this}
           ref={(ref) => {
-            this.refItemUpdateModalComponent = ref;
+            this.refInventoryControlUpdateModalComponent = ref;
           }}
           onSubmit={this.handleModalUpdateOnSubmit}
         />
@@ -408,12 +381,12 @@ class ItemManagementPage extends Component {
         <div className="header">
           <div className="left-section">
             <div className="title">
-              <h1>Item Management</h1>
+              <h1>Inventory Control History</h1>
             </div>
             <div className="description">
               <div className="text">
-                You can manage all of your items in here (view, insert, update,
-                and delete item).
+                You can manage all of your inventory controls in here (view,
+                insert, update, and delete inventory control).
               </div>
             </div>
           </div>
@@ -425,25 +398,25 @@ class ItemManagementPage extends Component {
                 onClick={() => this.handleModalInsert()}
               >
                 <img src={ButtonPlusImage} alt="plus" />
-                Insert Item
+                Insert Control
               </button>
             </div>
           </div>
         </div>
 
         <div className="body">
-          {allItemResponse.data.length <= 0 ? (
+          {allInventoryControlResponse.data.length <= 0 ? (
             <div className="empty-data">
               <div className="text">
-                Your items is empty, try to insert one!
+                Your inventory controls is empty, try to insert one!
               </div>
             </div>
           ) : null}
-          {allItemResponse.data.map((val, idx) => (
+          {allInventoryControlResponse.data.map((val, idx) => (
             <div key={val.id} className="card">
               <div className="image">
                 <img
-                  src={val.image_url || ItemCardImage}
+                  src={val.item.image_url || ItemCardImage}
                   onError={(e) => {
                     e.target.src = ItemCardImage;
                   }}
@@ -452,23 +425,23 @@ class ItemManagementPage extends Component {
               </div>
               <div className="content">
                 <div className="code">
-                  <div className="text">Code: {val.code}</div>
+                  <div className="text">Code: {val.item.code}</div>
                 </div>
                 <div className="name">
-                  <div className="text">Name: {val.name}</div>
+                  <div className="text">Name: {val.item.name}</div>
                 </div>
                 <div className="quantity">
-                  <div className="text">Quantity: {val.available_quantity}</div>
+                  <div className="text">Quantity: {val.quantity}</div>
                 </div>
-                <div className="control">
-                  <button
-                    type="button"
-                    className="btn btn-outline-primary"
-                    onClick={() => this.handleModalView(val.id)}
-                  >
-                    Details
-                  </button>
-                </div>
+              </div>
+              <div className="control">
+                <button
+                  type="button"
+                  className="btn btn-outline-primary"
+                  onClick={() => this.handleModalView(val.id)}
+                >
+                  Details
+                </button>
               </div>
             </div>
           ))}
@@ -478,4 +451,4 @@ class ItemManagementPage extends Component {
   }
 }
 
-export default ItemManagementPage;
+export default InventoryControlHistoryPage;

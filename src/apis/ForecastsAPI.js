@@ -11,6 +11,14 @@ class ForecastsAPI {
     });
   }
 
+  itemControlsByID(ID, options) {
+    const { interval, periods } = options;
+    return Axios.post(`${this.URL}/forecasts/items/${ID}/controls`, {
+      interval,
+      periods,
+    });
+  }
+
   itemSalesByID(ID, options) {
     const { interval, periods } = options;
     return Axios.post(`${this.URL}/forecasts/items/${ID}/sales`, {
