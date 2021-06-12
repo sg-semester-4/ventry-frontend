@@ -10,7 +10,9 @@ import LoginPage from "../pages/LoginPage";
 
 import ItemManagementPage from "../pages/ItemManagementPage";
 import ProductManagementPage from "../pages/ProductManagementPage";
+import ProductTransactionHistoryPage from "../pages/ProductTransactionHistoryPage";
 import ProductForecastPage from "../pages/ProductForecastPage";
+import ItemForecastPage from "../pages/ItemForecastPage";
 
 import TestPage from "../pages/TestPage";
 import ErrorPage from "../pages/ErrorPage";
@@ -30,10 +32,8 @@ class RootRoute extends Component {
         <Router>
           <Switch>
             <Route path="/test" component={TestPage} />
-
             <UnAuthenticatedRoute path="/register" component={RegisterPage} />
             <UnAuthenticatedRoute path="/login" component={LoginPage} />
-
             <AuthenticatedRoute
               path="/managements/items"
               component={ItemManagementPage}
@@ -43,10 +43,17 @@ class RootRoute extends Component {
               component={ProductManagementPage}
             />
             <AuthenticatedRoute
+              path="/histories/products"
+              component={ProductTransactionHistoryPage}
+            />
+            <AuthenticatedRoute
               path="/forecasts/products"
               component={ProductForecastPage}
             />
-
+            <AuthenticatedRoute
+              path="/forecasts/items"
+              component={ItemForecastPage}
+            />
             <Route path="/" component={LandingPage} />
             <Route path="" component={ErrorPage} />
           </Switch>

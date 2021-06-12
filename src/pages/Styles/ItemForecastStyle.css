@@ -1,5 +1,5 @@
 @media (min-width: 768px) {
-  .page.product-forecast {
+  .page.item-forecast {
     display: flex;
     flex: 1;
     flex-flow: column;
@@ -7,7 +7,7 @@
     align-items: center;
   }
 
-  .page.product-forecast .header {
+  .page.item-forecast .header {
     min-height: 0;
     display: flex;
     flex: 2;
@@ -19,7 +19,7 @@
     height: 100%;
   }
 
-  .page.product-forecast .header .left-section {
+  .page.item-forecast .header .left-section {
     display: flex;
     flex: 8;
     flex-flow: column;
@@ -29,7 +29,7 @@
     height: 100%;
   }
 
-  .page.product-forecast .header .right-section {
+  .page.item-forecast .header .right-section {
     display: flex;
     flex: 2;
     flex-flow: column;
@@ -39,7 +39,7 @@
     height: 100%;
   }
 
-  .page.product-forecast .body {
+  .page.item-forecast .body {
     min-height: 0;
     display: flex;
     flex: 8;
@@ -50,7 +50,7 @@
     height: 100%;
   }
 
-  .page.product-forecast .card {
+  .page.item-forecast .card {
     display: flex;
     flex: 0 0 auto;
     flex-flow: column;
@@ -62,7 +62,7 @@
 }
 
 @media (min-width: 0px) and (max-width: 768px) {
-  .page.product-forecast {
+  .page.item-forecast {
     display: flex;
     flex: 1;
     flex-flow: column;
@@ -70,7 +70,7 @@
     align-items: center;
   }
 
-  .page.product-forecast .header {
+  .page.item-forecast .header {
     min-height: 0;
     display: flex;
     flex: 1;
@@ -82,7 +82,7 @@
     height: 100%;
   }
 
-  .page.product-forecast .header .left-section {
+  .page.item-forecast .header .left-section {
     display: flex;
     flex: 7;
     flex-flow: column;
@@ -91,7 +91,7 @@
     height: 100%;
   }
 
-  .page.product-forecast .header .right-section {
+  .page.item-forecast .header .right-section {
     display: flex;
     flex: 3;
     flex-flow: column;
@@ -100,7 +100,7 @@
     height: 100%;
   }
 
-  .page.product-forecast .body {
+  .page.item-forecast .body {
     min-height: 0;
     display: flex;
     flex: 1;
@@ -111,7 +111,7 @@
     height: 100%;
   }
 
-  .page.product-forecast .card {
+  .page.item-forecast .card {
     display: flex;
     flex: 0 0 auto;
     flex-flow: column;
@@ -122,30 +122,30 @@
   }
 }
 
-.page.product-forecast .header .left-section .description {
+.page.item-forecast .header .left-section .description {
   color: gray;
 }
 
-.page.product-forecast .header .right-section .control button img {
+.page.item-forecast .header .right-section .control button img {
   max-width: 30%;
   margin: 0 2vh 0 0;
 }
 
-.page.product-forecast .card .code,
-.page.product-forecast .card .name,
-.page.product-forecast .card .quantity,
-.page.product-forecast .card .image {
+.page.item-forecast .card .code,
+.page.item-forecast .card .name,
+.page.item-forecast .card .quantity,
+.page.item-forecast .card .image {
   width: 100%;
   height: 100%;
 }
 
-.page.product-forecast .card .image img {
+.page.item-forecast .card .image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.page.product-forecast .content {
+.page.item-forecast .content {
   display: flex;
   flex: 1;
   flex-flow: column;
@@ -156,20 +156,20 @@
   height: 100%;
 }
 
-.page.product-forecast .content .code {
+.page.item-forecast .content .code {
   font-weight: bold;
 }
 
-.page.product-forecast .content .quantity {
+.page.item-forecast .content .quantity {
   color: #007bff;
 }
 
-.page.product-forecast .content .control {
+.page.item-forecast .content .control {
   margin: 2vh 0 0 0;
 }
 
-.component.product-view-modal .body .options,
-.component.product-view-modal .body .options form {
+.component.item-view-modal .body .options,
+.component.item-view-modal .body .options form {
   display: flex;
   flex: 1;
   flex-flow: row;
@@ -177,7 +177,7 @@
   width: 100%;
 }
 
-.component.product-view-modal .body .options fieldset {
+.component.item-view-modal .body .options fieldset {
   display: flex;
   flex: 1;
   flex-flow: column;
@@ -185,13 +185,13 @@
   width: 100%;
   margin: 0vh 2vh 2vh 2vh;
 }
-.component.product-view-modal .body .options button {
+.component.item-view-modal .body .options button {
   margin: 0vh 2vh 2vh 2vh;
 }
 
-.component.product-view-modal .body .metrics,
-.component.product-view-modal .body .metrics .mse,
-.component.product-view-modal .body .metrics .r2 {
+.component.item-view-modal .body .metrics,
+.component.item-view-modal .body .metrics .mse,
+.component.item-view-modal .body .metrics .r2 {
   display: flex;
   flex: 1;
   flex-flow: row;

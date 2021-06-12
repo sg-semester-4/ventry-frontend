@@ -15,7 +15,7 @@ import MessageModalComponent from "../components/MessageModalComponent";
 import ButtonPlusImage from "../assets/images/control-button-plus-img.svg";
 import ProductCardImage from "../assets/images/product-management-card-img.svg";
 
-class ProductManagementPage extends Component {
+class ProductForecastPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -143,7 +143,9 @@ class ProductManagementPage extends Component {
               status,
               message,
               // data,
-              data: data.filter((val, idx) => val.account_id === account.id),
+              data: data
+                .filter((val, idx) => val.account_id === account.id)
+                .sort((a, b) => (b.code < a.code ? 1 : -1)),
             },
           });
         } else {
@@ -203,6 +205,12 @@ class ProductManagementPage extends Component {
   };
 
   handleModalView = (ID) => {
+    this.refProductViewModalComponent.setState({
+      observedData: [],
+      forecastedData: [],
+      forecastResponse: {},
+    });
+
     ProductsAPI.readOneByID(ID)
       .then((res) => {
         console.log(res);
@@ -328,4 +336,4 @@ class ProductManagementPage extends Component {
   }
 }
 
-export default ProductManagementPage;
+export default ProductForecastPage;

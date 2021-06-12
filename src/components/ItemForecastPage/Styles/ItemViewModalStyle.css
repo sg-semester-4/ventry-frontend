@@ -1,0 +1,30 @@
+.component.item-view-modal .body {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+}
+
+.component.item-view-modal .body .sub.sales {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
+}
+
+.component.item-view-modal .body .sub.stocks {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
+}
+
+.component.item-view-modal .body .sub .graph,
+.component.item-view-modal .body .sub canvas {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
+}
