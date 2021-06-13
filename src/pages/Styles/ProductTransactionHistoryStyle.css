@@ -92,7 +92,6 @@
   }
 
   .page.product-transaction-history .body {
-    overflow: auto;
     min-height: 0;
     display: flex;
     flex: 4;
