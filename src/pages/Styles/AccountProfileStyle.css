@@ -47,7 +47,7 @@
     align-items: flex-start;
     width: 100%;
     height: 100%;
-    padding: 2vh 2vh 2vh 2vh;
+    padding: 2vh 4vh 2vh 4vh;
   }
 
   .page.account-profile .body .image img {
@@ -108,7 +108,7 @@
     align-items: flex-start;
     width: 100%;
     height: 100%;
-    padding: 2vh 2vh 2vh 2vh;
+    padding: 2vh 4vh 2vh 4vh;
   }
 
   .page.account-profile .body .image img {
