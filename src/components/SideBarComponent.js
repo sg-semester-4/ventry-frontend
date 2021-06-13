@@ -66,9 +66,7 @@ class SideBarComponent extends Component {
                   Product Management
                 </CDBSidebarMenuItem>
               </NavLink>
-            </CDBSidebarMenu>
 
-            <CDBSidebarMenu>
               <NavLink
                 exact
                 to="/histories/items"
@@ -87,9 +85,7 @@ class SideBarComponent extends Component {
                   Product Transaction History
                 </CDBSidebarMenuItem>
               </NavLink>
-            </CDBSidebarMenu>
 
-            <CDBSidebarMenu>
               <NavLink
                 exact
                 to="/forecasts/items"
@@ -108,9 +104,7 @@ class SideBarComponent extends Component {
                   Product Forecast
                 </CDBSidebarMenuItem>
               </NavLink>
-            </CDBSidebarMenu>
 
-            <CDBSidebarMenu>
               <NavLink
                 exact
                 to="/profiles/account"
