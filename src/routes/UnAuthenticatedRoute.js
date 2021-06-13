@@ -14,7 +14,11 @@ class AuthenticatedRoute extends Component {
     if (isAuthenticated) {
       return <Redirect to="/managements/items" />;
     }
-    return <Route {...this.props} />;
+    return (
+      <div className="router un-authenticated">
+        <Route {...this.props} />
+      </div>
+    );
   }
 }
 

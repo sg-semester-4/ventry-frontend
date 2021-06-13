@@ -1,6 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Route, Redirect, withRouter } from "react-router-dom";
+
+import SideBarComponent from "../components/SideBarComponent";
+
 import AuthSessionService from "../services/AuthSessionService";
+
+import "./Styles/AuthenticatedStyle.css";
 
 class AuthenticatedRoute extends Component {
   constructor(props) {
@@ -12,7 +17,12 @@ class AuthenticatedRoute extends Component {
     const isAuthenticated = AuthSessionService.isLoggedIn();
 
     if (isAuthenticated) {
-      return <Route {...this.props} />;
+      return (
+        <div className="router authenticated">
+          <SideBarComponent />
+          <Route {...this.props} />
+        </div>
+      );
     }
     return <Redirect to="/login" />;
   }
