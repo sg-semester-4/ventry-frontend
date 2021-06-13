@@ -139,8 +139,8 @@ class AccountProfilePage extends Component {
               </div>
             </div>
           </div>
-          <div className="right-section d-none">
-            <div className="control">
+          <div className="right-section">
+            <div className="control d-none">
               <button
                 type="button"
                 className="btn btn-danger"
