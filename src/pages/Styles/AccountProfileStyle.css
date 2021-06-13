@@ -7,12 +7,16 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    padding: 4vh 8vh 4vh 8vh;
+    padding: 0vh 8vh 0vh 8vh;
   }
 
-  .page.account-profile .image img {
+  .page.account-profile .body .image img {
     max-width: 12%;
     object-fit: contain;
+  }
+
+  .page.account-profile .body .form form {
+    width: 50%;
   }
 }
 
@@ -25,54 +29,80 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    padding: 2vh 4vh 2vh 4vh;
+    padding: 0vh 4vh 0vh 4vh;
   }
 
-  .page.account-profile .image img {
+  .page.account-profile .body .image img {
     max-width: 30%;
     object-fit: contain;
   }
+
+  .page.account-profile .body .form form {
+    width: 100%;
+  }
 }
 
-.page.account-profile .title {
+.page.account-profile .header {
   min-height: 0;
+  flex: 3;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+}
+
+.page.account-profile .header .left-section {
   display: flex;
-  flex: 1;
+  flex: 8;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.page.account-profile .header .right-section {
+  display: flex;
+  flex: 2;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.page.account-profile .body {
+  min-height: 0;
+  flex: 7;
   flex-flow: column;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
   height: 100%;
-  margin: 0 0 4vh 0;
 }
 
-.page.account-profile .image {
-  min-height: 0;
+.page.account-profile .body .image {
   display: flex;
   flex: 3;
   flex-flow: column;
   justify-content: flex-end;
   align-items: flex-start;
-  width: 100%;
-  height: 100%;
   margin: 0 0 4vh 0;
 }
-.page.account-profile .form {
-  min-height: 0;
+
+.page.account-profile .body .form {
   display: flex;
   flex: 6;
   flex-flow: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 100%;
-  height: 100%;
+  padding: 0 0 12vh 0;
 }
 
-.page.account-profile .form form {
-  width: 100%;
-}
-
-.page.account-profile .form button {
+.page.account-profile .body .form button {
   margin: 4vh 0 0 0;
   width: 100%;
+}
+
+.page.account-profile .body .control {
+  padding: 0 0 12vh 0;
 }

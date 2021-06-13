@@ -58,7 +58,7 @@
     justify-content: center;
     align-items: center;
     margin: 2vh 2vh 2vh 2vh;
-    max-width: 23%;
+    max-width: 22%;
   }
 }
 
@@ -102,7 +102,6 @@
   }
 
   .page.item-management .body {
-    overflow: auto;
     min-height: 0;
     display: flex;
     flex: 1;

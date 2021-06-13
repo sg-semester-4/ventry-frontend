@@ -4,6 +4,7 @@
   flex-flow: row;
 }
 
-body .router.authenticated {
+body .router.authenticated .page {
   background-color: #fafafa;
+  overflow: auto;
 }

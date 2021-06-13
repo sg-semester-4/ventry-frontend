@@ -110,6 +110,15 @@ class AccountProfilePage extends Component {
       });
   };
 
+  handleLogout = () => {
+    try {
+      AuthSessionService.logoutSucceed();
+    } catch (err) {
+      AuthSessionService.logoutFailed();
+    }
+    this.props.history.push(`/`);
+  };
+
   render() {
     const { viewAccountResponse } = this.state;
     return (
@@ -119,77 +128,111 @@ class AccountProfilePage extends Component {
             this.refMessageModalComponent = ref;
           }}
         />
-        <div className="title">
-          <h1>Account Profile</h1>
+        <div className="header">
+          <div className="left-section">
+            <div className="title">
+              <h1>Account Profile</h1>
+            </div>
+            <div className="description">
+              <div className="text">
+                You can manage your account in here (view and update account).
+              </div>
+            </div>
+          </div>
+          <div className="right-section d-none">
+            <div className="control">
+              <button
+                type="button"
+                className="btn btn-danger"
+                onClick={() => this.handleLogout()}
+              >
+                Logout
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="image">
-          <img
-            src={viewAccountResponse.data.image_url || AccountImage}
-            onError={(e) => {
-              e.target.src = AccountImage;
-            }}
-            alt="account"
-          />
-        </div>
-        <div className="form">
-          <Formik
-            validationSchema={updateSchema}
-            initialValues={viewAccountResponse.data}
-            onSubmit={this.handleSubmitUpdate}
-            enableReinitialize
-          >
-            {(props) => (
-              <Form>
-                <fieldset className="form-group">
-                  <label htmlFor="name">Name</label>
-                  <Field type="text" name="name" className="form-control" />
-                  <ErrorMessage
-                    name="name"
-                    component="div"
-                    className="text-danger"
-                  />
-                </fieldset>
-                <fieldset className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <Field type="email" name="email" className="form-control" />
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className="text-danger"
-                  />
-                </fieldset>
-                <fieldset className="form-group">
-                  <label htmlFor="password">New Password</label>
-                  <Field
-                    type="password"
-                    name="password"
-                    className="form-control"
-                  />
-                  <ErrorMessage
-                    name="password"
-                    component="div"
-                    className="text-danger"
-                  />
-                </fieldset>
-                <fieldset className="form-group">
-                  <label htmlFor="confirmPassword">Confirm New Password</label>
-                  <Field
-                    type="password"
-                    name="confirmPassword"
-                    className="form-control"
-                  />
-                  <ErrorMessage
-                    name="confirmPassword"
-                    component="div"
-                    className="text-danger"
-                  />
-                </fieldset>
-                <button type="submit" className="btn btn-primary">
-                  Update Account
-                </button>
-              </Form>
-            )}
-          </Formik>
+        <div className="body">
+          <div className="image">
+            <img
+              src={viewAccountResponse.data.image_url || AccountImage}
+              onError={(e) => {
+                e.target.src = AccountImage;
+              }}
+              alt="account"
+            />
+          </div>
+          <div className="form">
+            <Formik
+              validationSchema={updateSchema}
+              initialValues={viewAccountResponse.data}
+              onSubmit={this.handleSubmitUpdate}
+              enableReinitialize
+            >
+              {(props) => (
+                <Form>
+                  <fieldset className="form-group">
+                    <label htmlFor="name">Name</label>
+                    <Field type="text" name="name" className="form-control" />
+                    <ErrorMessage
+                      name="name"
+                      component="div"
+                      className="text-danger"
+                    />
+                  </fieldset>
+                  <fieldset className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <Field type="email" name="email" className="form-control" />
+                    <ErrorMessage
+                      name="email"
+                      component="div"
+                      className="text-danger"
+                    />
+                  </fieldset>
+                  <fieldset className="form-group">
+                    <label htmlFor="password">New Password</label>
+                    <Field
+                      type="password"
+                      name="password"
+                      className="form-control"
+                    />
+                    <ErrorMessage
+                      name="password"
+                      component="div"
+                      className="text-danger"
+                    />
+                  </fieldset>
+                  <fieldset className="form-group">
+                    <label htmlFor="confirmPassword">
+                      Confirm New Password
+                    </label>
+                    <Field
+                      type="password"
+                      name="confirmPassword"
+                      className="form-control"
+                    />
+                    <ErrorMessage
+                      name="confirmPassword"
+                      component="div"
+                      className="text-danger"
+                    />
+                  </fieldset>
+                  <button type="submit" className="btn btn-primary">
+                    Update Account
+                  </button>
+                </Form>
+              )}
+            </Formik>
+          </div>
+
+          <div className="control">
+            <button
+              type="button"
+              className="btn btn-danger"
+              onClick={() => this.handleLogout()}
+            >
+              Logout
+            </button>
+          </div>
         </div>
       </div>
     );
