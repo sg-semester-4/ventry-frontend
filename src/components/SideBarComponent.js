@@ -10,14 +10,7 @@ import {
 import { NavLink } from "react-router-dom";
 
 import LogoImage from "../assets/images/Logo-Nav.svg";
-import AccountImage from "../assets/images/profile-account-img.svg";
 import "./Styles/SideBarStyle.css";
-
-import AuthSessionService from "../services/AuthSessionService";
-
-import AccountsAPI from "../apis/AccountsAPI";
-
-import MessageModalComponent from "../components/MessageModalComponent";
 
 class SideBarComponent extends Component {
   constructor(props) {

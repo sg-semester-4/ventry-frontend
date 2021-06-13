@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Nav, DropdownButton } from "react-bootstrap";
+import { Modal, Nav } from "react-bootstrap";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Line } from "react-chartjs-2";
 import moment from "moment";
