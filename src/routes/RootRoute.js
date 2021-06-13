@@ -17,11 +17,7 @@ import ItemForecastPage from "../pages/ItemForecastPage";
 
 import AccountProfilePage from "../pages/AccountProfilePage";
 
-import TestPage from "../pages/TestPage";
 import ErrorPage from "../pages/ErrorPage";
-
-import HeaderComponent from "../components/HeaderComponent";
-import FooterComponent from "../components/FooterComponent";
 
 class RootRoute extends Component {
   constructor(props) {
@@ -34,7 +30,6 @@ class RootRoute extends Component {
       <div className="router root">
         <Router>
           <Switch>
-            <Route path="/test" component={TestPage} />
             <UnAuthenticatedRoute
               path="/auth/register"
               component={RegisterAuthPage}

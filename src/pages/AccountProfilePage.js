@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import LogoImage from "../assets/images/auth-logo-img.svg";
+
 import AccountImage from "../assets/images/profile-account-img.svg";
 import "./Styles/AccountProfileStyle.css";
 
