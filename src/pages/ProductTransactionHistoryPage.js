@@ -120,7 +120,9 @@ class ProductTransactionHistoryPage extends Component {
               status,
               message,
               // data,
-              data: data.filter((val, idx) => val.account_id === account.id),
+              data: data
+                .filter((val, idx) => val.account_id === account.id)
+                .sort((a, b) => (b.code < a.code ? 1 : -1)),
             },
           });
         } else {
