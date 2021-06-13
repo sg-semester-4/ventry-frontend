@@ -38,10 +38,10 @@ function NavigationBar() {
             </ReactBootstrap.Nav.Link>
           </ReactBootstrap.Nav>
           <ReactBootstrap.Nav>
-            <ReactBootstrap.Nav.Link href="/login" className="login link">
+            <ReactBootstrap.Nav.Link href="/auth/login" className="login link">
               Login
             </ReactBootstrap.Nav.Link>
-            <ReactBootstrap.Nav.Link href="/register" className="register">
+            <ReactBootstrap.Nav.Link href="/auth/register" className="register">
               Register
             </ReactBootstrap.Nav.Link>
           </ReactBootstrap.Nav>

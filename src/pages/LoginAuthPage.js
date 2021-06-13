@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import LogoImage from "../assets/images/auth-logo-img.svg";
 import SplashImage from "../assets/images/auth-register-img.svg";
-import "./Styles/LoginStyle.css";
+import "./Styles/LoginAuthStyle.css";
 
 import AuthenticationsAPI from "../apis/AuthenticationsAPI";
 import AuthSessionService from "../services/AuthSessionService";
@@ -35,21 +35,21 @@ class LoginPage extends Component {
           });
           AuthSessionService.loginSucceed(data);
           this.props.history.push(`/managements/items`);
+        } else {
+          this.refMessageModalComponent.setState({
+            title: "Status",
+            content: message,
+          });
+          this.refMessageModalComponent.handleShow();
         }
-
-        this.refMessageModalComponent.setState({
-          title: "Status",
-          content: message,
-        });
-        this.refMessageModalComponent.handleShow();
       })
       .catch((err) => {
         console.log(err);
-        // this.refMessageModalComponent.setState({
-        //   title: "Status",
-        //   content: "Error has occurred",
-        // });
-        // this.refMessageModalComponent.handleShow();
+        this.refMessageModalComponent.setState({
+          title: "Status",
+          content: "Error has occurred",
+        });
+        this.refMessageModalComponent.handleShow();
       })
       .finally(() => {
         actions.setSubmitting(false);
@@ -58,7 +58,7 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div className="page register">
+      <div className="page login-auth">
         <div className="left-section">
           <div className="logo">
             <img src={LogoImage} alt="ventry-logo" />

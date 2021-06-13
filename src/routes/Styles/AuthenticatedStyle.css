@@ -1,0 +1,9 @@
+.router.authenticated {
+  display: flex;
+  flex: 1;
+  flex-flow: row;
+}
+
+body .router.authenticated {
+  background-color: #fafafa;
+}

@@ -5,8 +5,8 @@ import AuthenticatedRoute from "./AuthenticatedRoute";
 import UnAuthenticatedRoute from "./UnAuthenticatedRoute";
 
 import LandingPage from "../pages/LandingPage";
-import RegisterPage from "../pages/RegisterPage";
-import LoginPage from "../pages/LoginPage";
+import RegisterAuthPage from "../pages/RegisterAuthPage";
+import LoginAuthPage from "../pages/LoginAuthPage";
 
 import ItemManagementPage from "../pages/ItemManagementPage";
 import ProductManagementPage from "../pages/ProductManagementPage";
@@ -14,6 +14,8 @@ import ProductTransactionHistoryPage from "../pages/ProductTransactionHistoryPag
 import InventoryControlHistoryPage from "../pages/InventoryControlHistoryPage";
 import ProductForecastPage from "../pages/ProductForecastPage";
 import ItemForecastPage from "../pages/ItemForecastPage";
+
+import AccountProfilePage from "../pages/AccountProfilePage";
 
 import TestPage from "../pages/TestPage";
 import ErrorPage from "../pages/ErrorPage";
@@ -33,8 +35,14 @@ class RootRoute extends Component {
         <Router>
           <Switch>
             <Route path="/test" component={TestPage} />
-            <UnAuthenticatedRoute path="/register" component={RegisterPage} />
-            <UnAuthenticatedRoute path="/login" component={LoginPage} />
+            <UnAuthenticatedRoute
+              path="/auth/register"
+              component={RegisterAuthPage}
+            />
+            <UnAuthenticatedRoute
+              path="/auth/login"
+              component={LoginAuthPage}
+            />
             <AuthenticatedRoute
               path="/managements/items"
               component={ItemManagementPage}
@@ -58,6 +66,10 @@ class RootRoute extends Component {
             <AuthenticatedRoute
               path="/forecasts/items"
               component={ItemForecastPage}
+            />
+            <AuthenticatedRoute
+              path="/profiles/account"
+              component={AccountProfilePage}
             />
             <Route path="/" component={LandingPage} />
             <Route path="" component={ErrorPage} />

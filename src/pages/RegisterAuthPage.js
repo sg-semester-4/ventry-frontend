@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import LogoImage from "../assets/images/auth-logo-img.svg";
 import SplashImage from "../assets/images/auth-register-img.svg";
-import "./Styles/RegisterStyle.css";
+import "./Styles/RegisterAuthStyle.css";
 
 import AuthenticationsAPI from "../apis/AuthenticationsAPI";
 import MessageModalComponent from "../components/MessageModalComponent";
@@ -17,7 +17,7 @@ const registerSchema = Yup.object().shape({
     .oneOf([Yup.ref("password"), null], "Passwords must match"),
 });
 
-class RegisterPage extends Component {
+class RegisterAuthPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -63,7 +63,7 @@ class RegisterPage extends Component {
 
   render() {
     return (
-      <div className="page register">
+      <div className="page register-auth">
         <div className="left-section">
           <div className="logo">
             <img src={LogoImage} alt="ventry-logo" />
@@ -160,4 +160,4 @@ class RegisterPage extends Component {
   }
 }
 
-export default RegisterPage;
+export default RegisterAuthPage;
