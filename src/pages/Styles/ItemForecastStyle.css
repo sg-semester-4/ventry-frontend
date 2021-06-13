@@ -146,7 +146,7 @@
   object-fit: cover;
 }
 
-.page.item-forecast .content {
+.page.item-forecast .card .content {
   display: flex;
   flex: 1;
   flex-flow: column;
@@ -157,15 +157,15 @@
   height: 100%;
 }
 
-.page.item-forecast .content .code {
+.page.item-forecast .card .content .code {
   font-weight: bold;
 }
 
-.page.item-forecast .content .quantity {
+.page.item-forecast .card .content .quantity {
   color: #007bff;
 }
 
-.page.item-forecast .content .control {
+.page.item-forecast .card .content .control {
   margin: 2vh 0 0 0;
 }
 
