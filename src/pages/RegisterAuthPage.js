@@ -151,7 +151,7 @@ class RegisterAuthPage extends Component {
           </div>
           <div className="suggest-login">
             <div className="text">
-              Already have an account? Login at <a href="/login">here</a>
+              Already have an account? Login at <a href="/auth/login">here</a>
             </div>
           </div>
         </div>

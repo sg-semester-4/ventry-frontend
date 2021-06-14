@@ -123,7 +123,7 @@ class LoginPage extends Component {
           <div className="suggest-login">
             <div className="text">
               Didn&apos;t have an account? Register at{" "}
-              <a href="/register">here</a>
+              <a href="/auth/register">here</a>
             </div>
           </div>
         </div>

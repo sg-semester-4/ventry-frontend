@@ -60,6 +60,7 @@ class InventoryControlHistoryPage extends Component {
 
   handleFetchAllInventoryControl = () => {
     const { allItemResponse } = this.state;
+    const account = AuthSessionService.getAccount();
 
     return InventoryControlsAPI.readAll()
       .then((res) => {
@@ -67,6 +68,7 @@ class InventoryControlHistoryPage extends Component {
         const { status, message, data } = res.data;
 
         const newInventoryControlData = data
+          .filter((val, idx) => val.account_id === account.id)
           .map((val, idx) => {
             return {
               ...val,

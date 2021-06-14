@@ -61,12 +61,15 @@ class ProductTransactionHistoryPage extends Component {
   handleFetchAllProductTransaction = () => {
     const { allProductResponse } = this.state;
 
+    const account = AuthSessionService.getAccount();
+
     return ProductTransactionsAPI.readAll()
       .then((res) => {
         console.log(res);
         const { status, message, data } = res.data;
 
         const newProductTransactionData = data
+          .filter((val, idx) => val.account_id === account.id)
           .map((val, idx) => {
             return {
               ...val,
