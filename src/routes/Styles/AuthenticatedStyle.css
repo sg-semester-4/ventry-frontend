@@ -8,3 +8,11 @@ body .router.authenticated .page {
   background-color: #fafafa;
   overflow: auto;
 }
+
+body .router.authenticated .rightPage {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  align-items: flex-end;
+}
+

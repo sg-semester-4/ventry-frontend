@@ -3,6 +3,8 @@ import { Route, Redirect, withRouter } from "react-router-dom";
 
 import SideBarComponent from "../components/SideBarComponent";
 
+import UpperBarComponent from "../components/UpperBarComponent";
+
 import AuthSessionService from "../services/AuthSessionService";
 
 import "./Styles/AuthenticatedStyle.css";
@@ -20,7 +22,10 @@ class AuthenticatedRoute extends Component {
       return (
         <div className="router authenticated">
           <SideBarComponent />
-          <Route {...this.props} />
+          <div className="rightPage">
+            <UpperBarComponent/>
+            <Route {...this.props} />
+          </div>
         </div>
       );
     }
