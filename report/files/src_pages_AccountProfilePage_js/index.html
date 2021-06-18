@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - src\pages\AccountProfilePage.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>src\pages\AccountProfilePage.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">73.64</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">242</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">32.57</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">1.25</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">import React, { Component } from &quot;react&quot;;
+import { Formik, Form, Field, ErrorMessage } from &quot;formik&quot;;
+import * as Yup from &quot;yup&quot;;
+
+import AccountImage from &quot;../assets/images/profile-account-img.svg&quot;;
+import &quot;./Styles/AccountProfileStyle.css&quot;;
+
+import AuthSessionService from &quot;../services/AuthSessionService&quot;;
+
+import AccountsAPI from &quot;../apis/AccountsAPI&quot;;
+
+import MessageModalComponent from &quot;../components/MessageModalComponent&quot;;
+
+const updateSchema = Yup.object().shape({
+  name: Yup.string().required(&quot;Required&quot;),
+  email: Yup.string().email(&quot;Invalid email&quot;).required(&quot;Required&quot;),
+  password: Yup.string().required(&quot;Required&quot;),
+  confirmPassword: Yup.string()
+    .required(&quot;Required&quot;)
+    .oneOf([Yup.ref(&quot;password&quot;), null], &quot;Passwords must match&quot;),
+});
+
+class AccountProfilePage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      viewAccountResponse: {
+        statusMessage: &quot;&quot;,
+        statusCode: 0,
+        data: {},
+      },
+      updateAccountResponse: {
+        statusMessage: &quot;&quot;,
+        statusCode: 0,
+        data: {},
+      },
+    };
+  }
+
+  async componentDidMount() {
+    await this.handleFetchAccount();
+  }
+
+  handleFetchAccount = () =&gt; {
+    const account = AuthSessionService.getAccount();
+
+    return AccountsAPI.readOneByID(account.id)
+      .then((res) =&gt; {
+        console.log(res);
+        const { status, message, data } = res.data;
+
+        if (status === 200) {
+          this.setState({
+            viewAccountResponse: { status, message, data },
+          });
+        } else {
+          this.refMessageModalComponent.setState({
+            title: &quot;Status&quot;,
+            content: message,
+          });
+          this.refMessageModalComponent.handleShow();
+        }
+      })
+      .catch((err) =&gt; {
+        console.log(err);
+        this.refMessageModalComponent.setState({
+          title: &quot;Status&quot;,
+          content: &quot;Error has occurred&quot;,
+        });
+        this.refMessageModalComponent.handleShow();
+      })
+      .finally(() =&gt; {});
+  };
+
+  handleSubmitUpdate = (values, actions) =&gt; {
+    const { name, email, password } = values;
+    const account = AuthSessionService.getAccount();
+
+    AccountsAPI.updateOneByID(account.id, {
+      name,
+      email,
+      password,
+    })
+      .then((res) =&gt; {
+        console.log(res);
+        const { status, message, data } = res.data;
+
+        if (status === 200) {
+          this.setState({
+            updateAccountResponse: { status, message, data },
+          });
+        }
+
+        this.refMessageModalComponent.setState({
+          title: &quot;Status&quot;,
+          content: message,
+        });
+        this.refMessageModalComponent.handleShow();
+      })
+      .catch((err) =&gt; {
+        console.log(err);
+        this.refMessageModalComponent.setState({
+          title: &quot;Status&quot;,
+          content: &quot;Error has occurred&quot;,
+        });
+        this.refMessageModalComponent.handleShow();
+      })
+      .finally(() =&gt; {
+        actions.setSubmitting(false);
+      });
+  };
+
+  handleLogout = () =&gt; {
+    try {
+      AuthSessionService.logoutSucceed();
+    } catch (err) {
+      AuthSessionService.logoutFailed();
+    }
+    this.props.history.push(`/`);
+  };
+
+  render() {
+    const { viewAccountResponse } = this.state;
+    return (
+      &lt;div className=&quot;page account-profile&quot;&gt;
+        &lt;MessageModalComponent
+          ref={(ref) =&gt; {
+            this.refMessageModalComponent = ref;
+          }}
+        /&gt;
+        &lt;div className=&quot;header&quot;&gt;
+          &lt;div className=&quot;left-section&quot;&gt;
+            &lt;div className=&quot;title&quot;&gt;
+              &lt;h1&gt;Account Profile&lt;/h1&gt;
+            &lt;/div&gt;
+            &lt;div className=&quot;description&quot;&gt;
+              &lt;div className=&quot;text&quot;&gt;
+                You can manage your account in here (view and update account).
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div className=&quot;right-section&quot;&gt;
+            &lt;div className=&quot;control d-none&quot;&gt;
+              &lt;button
+                type=&quot;button&quot;
+                className=&quot;btn btn-danger&quot;
+                onClick={() =&gt; this.handleLogout()}
+              &gt;
+                Logout
+              &lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;body&quot;&gt;
+          &lt;div className=&quot;image&quot;&gt;
+            &lt;img
+              src={viewAccountResponse.data.image_url || AccountImage}
+              onError={(e) =&gt; {
+                e.target.src = AccountImage;
+              }}
+              alt=&quot;account&quot;
+            /&gt;
+          &lt;/div&gt;
+          &lt;div className=&quot;form&quot;&gt;
+            &lt;Formik
+              validationSchema={updateSchema}
+              initialValues={viewAccountResponse.data}
+              onSubmit={this.handleSubmitUpdate}
+              enableReinitialize
+            &gt;
+              {(props) =&gt; (
+                &lt;Form&gt;
+                  &lt;fieldset className=&quot;form-group&quot;&gt;
+                    &lt;label htmlFor=&quot;name&quot;&gt;Name&lt;/label&gt;
+                    &lt;Field type=&quot;text&quot; name=&quot;name&quot; className=&quot;form-control&quot; /&gt;
+                    &lt;ErrorMessage
+                      name=&quot;name&quot;
+                      component=&quot;div&quot;
+                      className=&quot;text-danger&quot;
+                    /&gt;
+                  &lt;/fieldset&gt;
+                  &lt;fieldset className=&quot;form-group&quot;&gt;
+                    &lt;label htmlFor=&quot;email&quot;&gt;Email&lt;/label&gt;
+                    &lt;Field type=&quot;email&quot; name=&quot;email&quot; className=&quot;form-control&quot; /&gt;
+                    &lt;ErrorMessage
+                      name=&quot;email&quot;
+                      component=&quot;div&quot;
+                      className=&quot;text-danger&quot;
+                    /&gt;
+                  &lt;/fieldset&gt;
+                  &lt;fieldset className=&quot;form-group&quot;&gt;
+                    &lt;label htmlFor=&quot;password&quot;&gt;New Password&lt;/label&gt;
+                    &lt;Field
+                      type=&quot;password&quot;
+                      name=&quot;password&quot;
+                      className=&quot;form-control&quot;
+                    /&gt;
+                    &lt;ErrorMessage
+                      name=&quot;password&quot;
+                      component=&quot;div&quot;
+                      className=&quot;text-danger&quot;
+                    /&gt;
+                  &lt;/fieldset&gt;
+                  &lt;fieldset className=&quot;form-group&quot;&gt;
+                    &lt;label htmlFor=&quot;confirmPassword&quot;&gt;
+                      Confirm New Password
+                    &lt;/label&gt;
+                    &lt;Field
+                      type=&quot;password&quot;
+                      name=&quot;confirmPassword&quot;
+                      className=&quot;form-control&quot;
+                    /&gt;
+                    &lt;ErrorMessage
+                      name=&quot;confirmPassword&quot;
+                      component=&quot;div&quot;
+                      className=&quot;text-danger&quot;
+                    /&gt;
+                  &lt;/fieldset&gt;
+                  &lt;button type=&quot;submit&quot; className=&quot;btn btn-primary&quot;&gt;
+                    Update Account
+                  &lt;/button&gt;
+                &lt;/Form&gt;
+              )}
+            &lt;/Formik&gt;
+          &lt;/div&gt;
+
+          &lt;div className=&quot;control&quot;&gt;
+            &lt;button
+              type=&quot;button&quot;
+              className=&quot;btn btn-danger&quot;
+              onClick={() =&gt; this.handleLogout()}
+            &gt;
+              Logout
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+export default AccountProfilePage;</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ cyclomatic }} <br>
+    Length : {{ halstead.length }} <br>
+    Difficulty : {{ halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

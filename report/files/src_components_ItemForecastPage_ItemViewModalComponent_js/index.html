@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - src\components\ItemForecastPage\ItemViewModalComponent.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>src\components\ItemForecastPage\ItemViewModalComponent.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">62.12</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">401</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">38.86</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">2.38</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">import React, { Component } from &quot;react&quot;;
+import { Modal, Nav } from &quot;react-bootstrap&quot;;
+import { Formik, Form, Field, ErrorMessage } from &quot;formik&quot;;
+import { Line } from &quot;react-chartjs-2&quot;;
+import moment from &quot;moment&quot;;
+import * as ForecastTool from &quot;../../tools/Forecast&quot;;
+
+import ForecastsAPI from &quot;../../apis/ForecastsAPI&quot;;
+import ItemCardImage from &quot;../../assets/images/item-management-card-img.svg&quot;;
+import &quot;./Styles/ItemViewModalStyle.css&quot;;
+
+class SalesComponent extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  handleFetchForecast = () =&gt; {
+    const { parent } = this.props;
+    const { options } = parent.state;
+    const { viewItemResponse } = parent.props.parent.state;
+
+    ForecastsAPI.itemSalesByID(viewItemResponse.data.id, options)
+      .then((res) =&gt; {
+        console.log(res);
+        const { status, message, data } = res.data;
+        if (status === 200) {
+          const tempData = ForecastTool.cleanData(data);
+          parent.setState({
+            observedData: tempData.observedData,
+            forecastedData: tempData.forecastedData,
+            forecastResponse: { status, message, data },
+          });
+        } else {
+          parent.props.parent.refMessageModalComponent.setState({
+            title: &quot;Status&quot;,
+            content: message,
+          });
+          parent.props.parent.refMessageModalComponent.handleShow();
+        }
+      })
+      .catch((err) =&gt; {
+        console.log(err);
+        parent.props.parent.refMessageModalComponent.setState({
+          title: &quot;Status&quot;,
+          content: &quot;Error has occurred&quot;,
+        });
+        parent.props.parent.refMessageModalComponent.handleShow();
+      });
+  };
+
+  render() {
+    const { parent } = this.props;
+    const { forecastedData, observedData } = parent.state;
+    const chartData = {
+      datasets: [
+        {
+          label: &quot;Observed&quot;,
+          borderColor: &quot;#36a2eb&quot;,
+          lineTension: 0.1,
+          borderDashOffset: 0.0,
+          pointBackgroundColor: &quot;#fff&quot;,
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: &quot;#fff&quot;,
+          pointHoverBorderWidth: 2,
+          pointRadius: 4,
+          pointHitRadius: 10,
+          data: observedData,
+        },
+        {
+          label: &quot;Forecasted&quot;,
+          borderColor: &quot;#ff6384&quot;,
+          lineTension: 0.1,
+          borderDashOffset: 0.0,
+          pointBackgroundColor: &quot;#fff&quot;,
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: &quot;#fff&quot;,
+          pointHoverBorderWidth: 2,
+          pointRadius: 4,
+          pointHitRadius: 10,
+          data: forecastedData,
+        },
+      ],
+    };
+
+    const lineOptions = {
+      scales: {
+        xAxes: [
+          {
+            type: &quot;time&quot;,
+            time: {
+              // unit: &quot;month&quot;,
+              tooltipFormat: &quot;lll&quot;,
+            },
+            gridLines: {
+              display: true,
+              drawBorder: false,
+            },
+            ticks: {
+              display: true,
+            },
+          },
+        ],
+        yAxes: [
+          {
+            // stacked: true,
+            gridLines: {
+              display: true,
+              drawBorder: false,
+            },
+            ticks: {
+              display: true,
+            },
+          },
+        ],
+      },
+      legend: {
+        display: true,
+      },
+      tooltips: {
+        enabled: true,
+      },
+    };
+    return (
+      &lt;div className=&quot;sub sales&quot;&gt;
+        &lt;div className=&quot;graph&quot;&gt;
+          &lt;Line data={chartData} options={lineOptions} /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+class ControlsComponent extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  handleFetchForecast = () =&gt; {
+    const { parent } = this.props;
+    const { options } = parent.state;
+    const { viewItemResponse } = parent.props.parent.state;
+
+    ForecastsAPI.itemControlsByID(viewItemResponse.data.id, options)
+      .then((res) =&gt; {
+        console.log(res);
+        const { status, message, data } = res.data;
+        if (status === 200) {
+          const tempData = ForecastTool.cleanData(data);
+          parent.setState({
+            observedData: tempData.observedData,
+            forecastedData: tempData.forecastedData,
+            forecastResponse: { status, message, data },
+          });
+        } else {
+          parent.props.parent.refMessageModalComponent.setState({
+            title: &quot;Status&quot;,
+            content: message,
+          });
+          parent.props.parent.refMessageModalComponent.handleShow();
+        }
+      })
+      .catch((err) =&gt; {
+        console.log(err);
+        parent.props.parent.refMessageModalComponent.setState({
+          title: &quot;Status&quot;,
+          content: &quot;Error has occurred&quot;,
+        });
+        parent.props.parent.refMessageModalComponent.handleShow();
+      });
+  };
+
+  render() {
+    const { parent } = this.props;
+    const { forecastedData, observedData } = parent.state;
+    const chartData = {
+      datasets: [
+        {
+          label: &quot;Observed&quot;,
+          borderColor: &quot;#36a2eb&quot;,
+          lineTension: 0.1,
+          borderDashOffset: 0.0,
+          pointBackgroundColor: &quot;#fff&quot;,
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: &quot;#fff&quot;,
+          pointHoverBorderWidth: 2,
+          pointRadius: 4,
+          pointHitRadius: 10,
+          data: observedData,
+        },
+        {
+          label: &quot;Forecasted&quot;,
+          borderColor: &quot;#ff6384&quot;,
+          lineTension: 0.1,
+          borderDashOffset: 0.0,
+          pointBackgroundColor: &quot;#fff&quot;,
+          pointBorderWidth: 1,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: &quot;#fff&quot;,
+          pointHoverBorderWidth: 2,
+          pointRadius: 4,
+          pointHitRadius: 10,
+          data: forecastedData,
+        },
+      ],
+    };
+
+    const lineOptions = {
+      scales: {
+        xAxes: [
+          {
+            type: &quot;time&quot;,
+            time: {
+              // unit: &quot;month&quot;,
+              tooltipFormat: &quot;lll&quot;,
+            },
+            gridLines: {
+              display: true,
+              drawBorder: false,
+            },
+            ticks: {
+              display: true,
+            },
+          },
+        ],
+        yAxes: [
+          {
+            // stacked: true,
+            gridLines: {
+              display: true,
+              drawBorder: false,
+            },
+            ticks: {
+              display: true,
+            },
+          },
+        ],
+      },
+      legend: {
+        display: true,
+      },
+      tooltips: {
+        enabled: true,
+      },
+    };
+    return (
+      &lt;div className=&quot;sub controls&quot;&gt;
+        &lt;div className=&quot;graph&quot;&gt;
+          &lt;Line data={chartData} options={lineOptions} /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+class ItemViewModalComponent extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isShow: false,
+      menu: &quot;sales&quot;,
+      options: {
+        interval: &quot;D&quot;,
+        periods: 7,
+      },
+      observedData: [],
+      forecastedData: [],
+      forecastResponse: {},
+    };
+  }
+
+  handleShow = () =&gt; {
+    const { isShow } = this.state;
+    this.setState({ isShow: !isShow });
+  };
+
+  handleSelectMenu = (eventKey, e) =&gt; {
+    this.setState({
+      menu: eventKey,
+      observedData: [],
+      forecastedData: [],
+      forecastResponse: {},
+    });
+  };
+
+  handleSubmitOptions = (values, actions) =&gt; {
+    this.setState({ options: values });
+    this.refForecastComponent.handleFetchForecast();
+    actions.setSubmitting(false);
+  };
+
+  render() {
+    const { isShow, menu, options, forecastResponse } = this.state;
+    const { parent } = this.props;
+
+    return (
+      &lt;Modal
+        show={isShow}
+        onHide={this.handleShow}
+        centered
+        className=&quot;component item-view-modal&quot;
+        size=&quot;lg&quot;
+      &gt;
+        &lt;Modal.Header closeButton className=&quot;header&quot;&gt;
+          &lt;Modal.Title&gt;Item Forecast Details&lt;/Modal.Title&gt;
+        &lt;/Modal.Header&gt;
+
+        &lt;Nav variant=&quot;tabs&quot; onSelect={this.handleSelectMenu}&gt;
+          &lt;Nav.Item&gt;
+            &lt;Nav.Link eventKey=&quot;sales&quot;&gt;Sales&lt;/Nav.Link&gt;
+          &lt;/Nav.Item&gt;
+          &lt;Nav.Item&gt;
+            &lt;Nav.Link eventKey=&quot;controls&quot;&gt;Controls&lt;/Nav.Link&gt;
+          &lt;/Nav.Item&gt;
+          &lt;Nav.Item&gt;
+            &lt;Nav.Link eventKey=&quot;coming-soon&quot; disabled&gt;
+              Coming Soon
+            &lt;/Nav.Link&gt;
+          &lt;/Nav.Item&gt;
+        &lt;/Nav&gt;
+
+        &lt;Modal.Body className=&quot;body&quot;&gt;
+          &lt;div className=&quot;options&quot;&gt;
+            &lt;Formik
+              initialValues={options}
+              onSubmit={this.handleSubmitOptions}
+              enableReinitialize
+            &gt;
+              {(props) =&gt; (
+                &lt;Form&gt;
+                  &lt;fieldset className=&quot;form-group&quot;&gt;
+                    &lt;label htmlFor=&quot;interval&quot;&gt;Interval&lt;/label&gt;
+                    &lt;Field
+                      className=&quot;custom-select&quot;
+                      as=&quot;select&quot;
+                      name=&quot;interval&quot;
+                    &gt;
+                      &lt;option value=&quot;D&quot;&gt;Day&lt;/option&gt;
+                      &lt;option value=&quot;W&quot;&gt;Week&lt;/option&gt;
+                      &lt;option value=&quot;M&quot;&gt;Month&lt;/option&gt;
+                    &lt;/Field&gt;
+                  &lt;/fieldset&gt;
+                  &lt;fieldset className=&quot;form-group&quot;&gt;
+                    &lt;label htmlFor=&quot;periods&quot;&gt;Periods&lt;/label&gt;
+                    &lt;Field
+                      className=&quot;form-control&quot;
+                      type=&quot;number&quot;
+                      name=&quot;periods&quot;
+                    /&gt;
+                  &lt;/fieldset&gt;
+                  &lt;button type=&quot;submit&quot; className=&quot;btn btn-outline-primary&quot;&gt;
+                    Forecast
+                  &lt;/button&gt;
+                &lt;/Form&gt;
+              )}
+            &lt;/Formik&gt;
+          &lt;/div&gt;
+          {
+            // Menu switch.
+            {
+              sales: (
+                &lt;SalesComponent
+                  parent={this}
+                  ref={(ref) =&gt; {
+                    this.refForecastComponent = ref;
+                  }}
+                /&gt;
+              ),
+              controls: (
+                &lt;ControlsComponent
+                  parent={this}
+                  ref={(ref) =&gt; {
+                    this.refForecastComponent = ref;
+                  }}
+                /&gt;
+              ),
+            }[menu]
+          }
+          {forecastResponse.data ? (
+            &lt;div className=&quot;metrics&quot;&gt;
+              &lt;div className=&quot;r2&quot;&gt;R^2: {forecastResponse.data.r2}&lt;/div&gt;
+              &lt;div className=&quot;mse&quot;&gt;MSE: {forecastResponse.data.mse}&lt;/div&gt;
+            &lt;/div&gt;
+          ) : null}
+        &lt;/Modal.Body&gt;
+
+        &lt;Modal.Footer className=&quot;footer d-none&quot;&gt;
+          &lt;button type=&quot;button&quot; className=&quot;btn btn-primary &quot;&gt;
+            Action
+          &lt;/button&gt;
+        &lt;/Modal.Footer&gt;
+      &lt;/Modal&gt;
+    );
+  }
+}
+
+export default ItemViewModalComponent;</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ cyclomatic }} <br>
+    Length : {{ halstead.length }} <br>
+    Difficulty : {{ halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>
