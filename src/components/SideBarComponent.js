@@ -29,7 +29,7 @@ class SideBarComponent extends Component {
         }}
       >
         <CDBSidebar textColor="black" backgroundColor="white">
-          <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large" />}>
+          <CDBSidebarHeader className="top-sidebar" prefix={<i className="fa fa-bars fa-large" />}>
             <a
               href="/"
               className="text-decoration-none"

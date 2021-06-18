@@ -1,0 +1,10 @@
+
+.upper-bar{
+    display: flex;
+    align-items: center;
+    height: 10%;
+}
+
+.upper-bar .ddlUser #nav-dropdown{
+    color: black;
+}

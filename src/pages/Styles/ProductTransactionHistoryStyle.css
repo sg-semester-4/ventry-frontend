@@ -21,7 +21,7 @@
 
   .page.product-transaction-history .header .left-section {
     display: flex;
-    flex: 8;
+    flex: 7;
     flex-flow: column;
     justify-content: center;
     align-items: flex-start;
