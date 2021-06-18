@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - src\components\ProductManagementPage\ProductViewModalComponent.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>src\components\ProductManagementPage\ProductViewModalComponent.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">77.86</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">200</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">19.83</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">0.81</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">import React, { Component } from &quot;react&quot;;
+import { Modal, Nav } from &quot;react-bootstrap&quot;;
+
+import ProductCardImage from &quot;../../assets/images/product-management-card-img.svg&quot;;
+import &quot;./Styles/ProductViewModalStyle.css&quot;;
+
+class MainComponent extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  render() {
+    const { parent } = this.props;
+    const { data } = parent.props.parent.state.viewProductResponse;
+    return (
+      &lt;div className=&quot;main&quot;&gt;
+        &lt;div className=&quot;id&quot;&gt;
+          &lt;div className=&quot;text&quot;&gt;{`ID: ${data.id}`}&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;code&quot;&gt;
+          &lt;div className=&quot;text&quot;&gt;{`Code: ${data.code}`}&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;name&quot;&gt;
+          &lt;div className=&quot;text&quot;&gt;{`Name: ${data.name}`}&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;available-quantity&quot;&gt;
+          &lt;div className=&quot;text&quot;&gt;
+            {`Available Quantity: ${parseFloat(data.available_quantity)}`}
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;estimate-quantity&quot;&gt;
+          &lt;div className=&quot;text&quot;&gt;
+            {`Estimate Quantity: ${parseFloat(data.estimate_quantity)}`}
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;unit-type&quot;&gt;
+          &lt;div className=&quot;text&quot;&gt;{`Unit Type: ${data.unit_type}`}&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;unit-cost-price&quot;&gt;
+          &lt;div className=&quot;text&quot;&gt;
+            {`Unit Cost Price: ${parseFloat(data.unit_cost_price)}`}
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;unit-sell-price&quot;&gt;
+          &lt;div className=&quot;text&quot;&gt;
+            {`Unit Sell Price: ${parseFloat(data.unit_sell_price)}`}
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;description&quot;&gt;
+          &lt;div className=&quot;text&quot;&gt;{`Description: ${data.description}`}&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;image&quot;&gt;
+          Image:{&quot; &quot;}
+          &lt;img
+            src={data.image_url || ProductCardImage}
+            onError={(e) =&gt; {
+              e.target.src = ProductCardImage;
+            }}
+            alt=&quot;product&quot;
+          /&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+class ItemComponent extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  render() {
+    const { quantity } = this.state;
+    const { parent } = this.props;
+    const {
+      allProductItemResponse,
+      viewProductResponse,
+    } = parent.props.parent.state;
+    return (
+      &lt;div className=&quot;item&quot;&gt;
+        &lt;div className=&quot;table-ic&quot;&gt;
+          &lt;table className=&quot;table &quot;&gt;
+            &lt;thead&gt;
+              &lt;tr&gt;
+                &lt;th scope=&quot;col&quot;&gt;Product Item ID&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt;Code&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt;Name&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt;Quantity&lt;/th&gt;
+              &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+              {allProductItemResponse.data
+                .filter((itm) =&gt; itm.product_id === viewProductResponse.data.id)
+                .map((val, idx) =&gt; {
+                  return (
+                    &lt;tr key={idx}&gt;
+                      &lt;td&gt;{val.item_id}&lt;/td&gt;
+                      &lt;td&gt;{val.item.code}&lt;/td&gt;
+                      &lt;td&gt;{val.item.name}&lt;/td&gt;
+                      &lt;td&gt;{val.quantity}&lt;/td&gt;
+                    &lt;/tr&gt;
+                  );
+                })}
+            &lt;/tbody&gt;
+          &lt;/table&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+class ProductViewModalComponent extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isShow: false,
+      menu: &quot;main&quot;,
+    };
+  }
+
+  handleShow = () =&gt; {
+    const { isShow } = this.state;
+    this.setState({ isShow: !isShow });
+  };
+
+  handleSelectMenu = (eventKey, e) =&gt; {
+    this.setState({ menu: eventKey });
+  };
+
+  render() {
+    const { isShow, menu } = this.state;
+    const { onUpdate, onDelete, parent } = this.props;
+    return (
+      &lt;Modal
+        show={isShow}
+        onHide={this.handleShow}
+        centered
+        className=&quot;component product-view-modal&quot;
+      &gt;
+        &lt;Modal.Header closeButton className=&quot;header&quot;&gt;
+          &lt;Modal.Title&gt;Product Details&lt;/Modal.Title&gt;
+        &lt;/Modal.Header&gt;
+
+        &lt;Nav variant=&quot;tabs&quot; onSelect={this.handleSelectMenu}&gt;
+          &lt;Nav.Item&gt;
+            &lt;Nav.Link eventKey=&quot;main&quot;&gt;Main&lt;/Nav.Link&gt;
+          &lt;/Nav.Item&gt;
+          &lt;Nav.Item&gt;
+            &lt;Nav.Link eventKey=&quot;item&quot;&gt;Item&lt;/Nav.Link&gt;
+          &lt;/Nav.Item&gt;
+        &lt;/Nav&gt;
+
+        &lt;Modal.Body className=&quot;body&quot;&gt;
+          {
+            // Menu switch.
+            {
+              main: (
+                &lt;MainComponent
+                  parent={this}
+                  ref={(ref) =&gt; {
+                    this.refMainComponent = ref;
+                  }}
+                /&gt;
+              ),
+              item: (
+                &lt;ItemComponent
+                  parent={this}
+                  ref={(ref) =&gt; {
+                    this.refItemComponent = ref;
+                  }}
+                /&gt;
+              ),
+            }[menu]
+          }
+        &lt;/Modal.Body&gt;
+
+        &lt;Modal.Footer className=&quot;footer&quot;&gt;
+          &lt;button
+            type=&quot;button&quot;
+            className=&quot;btn btn-primary&quot;
+            onClick={() =&gt; onUpdate()}
+          &gt;
+            Update Product
+          &lt;/button&gt;
+          &lt;button
+            type=&quot;button&quot;
+            className=&quot;btn btn-secondary&quot;
+            onClick={() =&gt; onDelete()}
+          &gt;
+            Delete Product
+          &lt;/button&gt;
+        &lt;/Modal.Footer&gt;
+      &lt;/Modal&gt;
+    );
+  }
+}
+
+export default ProductViewModalComponent;</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ cyclomatic }} <br>
+    Length : {{ halstead.length }} <br>
+    Difficulty : {{ halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

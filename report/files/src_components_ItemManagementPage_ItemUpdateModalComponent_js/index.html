@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - src\components\ItemManagementPage\ItemUpdateModalComponent.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>src\components\ItemManagementPage\ItemUpdateModalComponent.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">73.63</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">473</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">38.19</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">2.38</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">import React, { Component } from &quot;react&quot;;
+import { Formik, Form, Field, ErrorMessage } from &quot;formik&quot;;
+import { Modal, Nav } from &quot;react-bootstrap&quot;;
+import * as Yup from &quot;yup&quot;;
+
+import MessageModalComponent from &quot;../MessageModalComponent&quot;;
+
+import ItemCombinationsAPI from &quot;../../apis/ItemCombinationsAPI&quot;;
+
+import ItemCardImage from &quot;../../assets/images/item-management-card-img.svg&quot;;
+import &quot;./Styles/ItemUpdateModalStyle.css&quot;;
+
+const updateSchema = Yup.object().shape({
+  code: Yup.string(&quot;Must be string&quot;).required(&quot;Required&quot;),
+  name: Yup.string(&quot;Must be string&quot;).required(&quot;Required&quot;),
+  available_quantity: Yup.number(&quot;Must be number&quot;)
+    .required(&quot;Required&quot;)
+    .min(0, &quot;Atleast 0&quot;),
+  estimate_quantity: Yup.number(&quot;Must be number&quot;)
+    .required(&quot;Required&quot;)
+    .min(0, &quot;Atleast 0&quot;),
+  max_estimate_quantity: Yup.number(&quot;Must be number&quot;)
+    .required(&quot;Required&quot;)
+    .min(0, &quot;Atleast 0&quot;),
+  unit_type: Yup.string(&quot;Must be string&quot;).required(&quot;Required&quot;),
+  unit_cost_price: Yup.number(&quot;Must be number&quot;)
+    .required(&quot;Required&quot;)
+    .min(0, &quot;Atleast 0&quot;),
+  description: Yup.string(&quot;Must be string&quot;),
+});
+
+class MainComponent extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  render() {
+    const { onSubmit, parent } = this.props;
+    return (
+      &lt;div className=&quot;main&quot;&gt;
+        &lt;div className=&quot;form&quot;&gt;
+          &lt;Formik
+            validationSchema={updateSchema}
+            initialValues={{
+              ...parent.props.parent.state.viewItemResponse.data,
+              is_record: false,
+            }}
+            onSubmit={onSubmit}
+            enableReinitialize
+          &gt;
+            {(props) =&gt; (
+              &lt;Form&gt;
+                &lt;div className=&quot;row&quot;&gt;
+                  &lt;fieldset className=&quot;form-group&quot;&gt;
+                    &lt;label htmlFor=&quot;code&quot;&gt;Code&lt;/label&gt;
+                    &lt;Field type=&quot;text&quot; name=&quot;code&quot; className=&quot;form-control&quot; /&gt;
+                    &lt;ErrorMessage
+                      name=&quot;code&quot;
+                      component=&quot;div&quot;
+                      className=&quot;text-danger&quot;
+                    /&gt;
+                  &lt;/fieldset&gt;
+
+                  &lt;fieldset className=&quot;form-group&quot;&gt;
+                    &lt;label htmlFor=&quot;name&quot;&gt;Name&lt;/label&gt;
+                    &lt;Field type=&quot;text&quot; name=&quot;name&quot; className=&quot;form-control&quot; /&gt;
+                    &lt;ErrorMessage
+                      name=&quot;name&quot;
+                      component=&quot;div&quot;
+                      className=&quot;text-danger&quot;
+                    /&gt;
+                  &lt;/fieldset&gt;
+                &lt;/div&gt;
+
+                &lt;div className=&quot;row&quot;&gt;
+                  &lt;fieldset className=&quot;form-group&quot;&gt;
+                    &lt;label htmlFor=&quot;available_quantity&quot;&gt;
+                      Available Quantity
+                    &lt;/label&gt;
+                    &lt;Field
+                      type=&quot;number&quot;
+                      name=&quot;available_quantity&quot;
+                      className=&quot;form-control&quot;
+                    /&gt;
+                    &lt;ErrorMessage
+                      name=&quot;available_quantity&quot;
+                      component=&quot;div&quot;
+                      className=&quot;text-danger&quot;
+                    /&gt;
+                  &lt;/fieldset&gt;
+
+                  &lt;fieldset className=&quot;form-group&quot;&gt;
+                    &lt;label htmlFor=&quot;estimate_quantity&quot;&gt;Estimate Quantity&lt;/label&gt;
+                    &lt;Field
+                      type=&quot;number&quot;
+                      name=&quot;estimate_quantity&quot;
+                      className=&quot;form-control&quot;
+                    /&gt;
+                    &lt;ErrorMessage
+                      name=&quot;estimate_quantity&quot;
+                      component=&quot;div&quot;
+                      className=&quot;text-danger&quot;
+                    /&gt;
+                  &lt;/fieldset&gt;
+                &lt;/div&gt;
+
+                &lt;div className=&quot;row&quot;&gt;
+                  &lt;fieldset className=&quot;form-group&quot;&gt;
+                    &lt;label htmlFor=&quot;max_estimate_quantity&quot;&gt;
+                      Max Estimate Quantity
+                    &lt;/label&gt;
+                    &lt;Field
+                      type=&quot;number&quot;
+                      name=&quot;max_estimate_quantity&quot;
+                      className=&quot;form-control&quot;
+                    /&gt;
+                    &lt;ErrorMessage
+                      name=&quot;max_estimate_quantity&quot;
+                      component=&quot;div&quot;
+                      className=&quot;text-danger&quot;
+                    /&gt;
+                  &lt;/fieldset&gt;
+
+                  &lt;fieldset className=&quot;form-group&quot;&gt;
+                    &lt;label htmlFor=&quot;unit_type&quot;&gt;Unit Type&lt;/label&gt;
+                    &lt;Field
+                      type=&quot;text&quot;
+                      name=&quot;unit_type&quot;
+                      className=&quot;form-control&quot;
+                    /&gt;
+                    &lt;ErrorMessage
+                      name=&quot;unit_type&quot;
+                      component=&quot;div&quot;
+                      className=&quot;text-danger&quot;
+                    /&gt;
+                  &lt;/fieldset&gt;
+                &lt;/div&gt;
+
+                &lt;div className=&quot;row&quot;&gt;
+                  &lt;fieldset className=&quot;form-group&quot;&gt;
+                    &lt;label htmlFor=&quot;unit_cost_price&quot;&gt;Unit Cost Price&lt;/label&gt;
+                    &lt;Field
+                      type=&quot;number&quot;
+                      name=&quot;unit_cost_price&quot;
+                      className=&quot;form-control&quot;
+                    /&gt;
+                    &lt;ErrorMessage
+                      name=&quot;unit_cost_price&quot;
+                      component=&quot;div&quot;
+                      className=&quot;text-danger&quot;
+                    /&gt;
+                  &lt;/fieldset&gt;
+                &lt;/div&gt;
+
+                &lt;div className=&quot;row&quot;&gt;
+                  &lt;fieldset className=&quot;form-group&quot;&gt;
+                    &lt;label htmlFor=&quot;description&quot;&gt;Description&lt;/label&gt;
+                    &lt;Field
+                      as=&quot;textarea&quot;
+                      type=&quot;text&quot;
+                      name=&quot;description&quot;
+                      className=&quot;form-control&quot;
+                    /&gt;
+                    &lt;ErrorMessage
+                      name=&quot;description&quot;
+                      component=&quot;div&quot;
+                      className=&quot;text-danger&quot;
+                    /&gt;
+                  &lt;/fieldset&gt;
+                &lt;/div&gt;
+                &lt;div className=&quot;row&quot;&gt;
+                  &lt;fieldset className=&quot;form-check&quot;&gt;
+                    &lt;label htmlFor=&quot;is_record&quot;&gt;
+                      Is record to Inventory Control History?
+                    &lt;/label&gt;
+                    &lt;Field
+                      type=&quot;checkbox&quot;
+                      id=&quot;is_record&quot;
+                      name=&quot;is_record&quot;
+                      className=&quot;form-check-input&quot;
+                    /&gt;
+                  &lt;/fieldset&gt;
+                &lt;/div&gt;
+                &lt;button
+                  type=&quot;submit&quot;
+                  className=&quot;d-none&quot;
+                  ref={(ref) =&gt; {
+                    this.refFormSubmitButton = ref;
+                  }}
+                &gt;
+                  Update Item
+                &lt;/button&gt;
+              &lt;/Form&gt;
+            )}
+          &lt;/Formik&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+class CombinationComponent extends Component {
+  constructor() {
+    super();
+    this.state = {
+      quantity: 0,
+    };
+  }
+
+  handleClickInsert = (val) =&gt; {
+    const { quantity } = this.state;
+    const { parent } = this.props;
+    const { viewItemResponse } = parent.props.parent.state;
+
+    const newItemCombination = {
+      parent_item_id: viewItemResponse.data.id,
+      child_item_id: val.id,
+      quantity: parseFloat(quantity),
+    };
+
+    ItemCombinationsAPI.createOne(newItemCombination)
+      .then((res) =&gt; {
+        console.log(res);
+        const { status, message, data } = res.data;
+
+        if (status === 200) {
+          parent.setState({
+            insertItemCombinationResponse: { status, message, data },
+          });
+        } else {
+          parent.props.parent.refMessageModalComponent.setState({
+            title: &quot;Status&quot;,
+            content: message,
+          });
+          parent.props.parent.refMessageModalComponent.handleShow();
+        }
+      })
+      .catch((err) =&gt; {
+        console.log(err);
+        parent.props.parent.refMessageModalComponent.setState({
+          title: &quot;Status&quot;,
+          content: &quot;Error has occurred&quot;,
+        });
+        parent.props.parent.refMessageModalComponent.handleShow();
+      })
+      .finally(async () =&gt; {
+        parent.props.parent.handleFetchOneItem(viewItemResponse.data.id);
+        await parent.props.parent.handleFetchAllItem();
+        await parent.props.parent.handleFetchAllItemCombination();
+      });
+  };
+
+  handleChangeInput = (e) =&gt; {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleClickDelete = (val) =&gt; {
+    const { parent } = this.props;
+    const { viewItemResponse } = parent.props.parent.state;
+
+    ItemCombinationsAPI.deleteOneByID(val.id)
+      .then((res) =&gt; {
+        console.log(res);
+        const { status, message, data } = res.data;
+
+        if (status === 200) {
+          parent.setState({
+            deleteItemCombinationResponse: { status, message, data },
+          });
+        } else {
+          parent.props.parent.refMessageModalComponent.setState({
+            title: &quot;Status&quot;,
+            content: message,
+          });
+          parent.props.parent.refMessageModalComponent.handleShow();
+        }
+      })
+      .catch((err) =&gt; {
+        console.log(err);
+        parent.props.parent.refMessageModalComponent.setState({
+          title: &quot;Status&quot;,
+          content: &quot;Error has occurred&quot;,
+        });
+        parent.props.parent.refMessageModalComponent.handleShow();
+      })
+      .finally(async () =&gt; {
+        parent.props.parent.handleFetchOneItem(viewItemResponse.data.id);
+        await parent.props.parent.handleFetchAllItem();
+        await parent.props.parent.handleFetchAllItemCombination();
+      });
+  };
+
+  render() {
+    const { quantity } = this.state;
+    const { parent } = this.props;
+    const {
+      allItemCombinationResponse,
+      allItemResponse,
+      viewItemResponse,
+    } = parent.props.parent.state;
+    return (
+      &lt;div className=&quot;combination&quot;&gt;
+        &lt;div className=&quot;input-quantity&quot;&gt;
+          &lt;fieldset className=&quot;form-group&quot;&gt;
+            &lt;label htmlFor=&quot;quantity&quot;&gt;Quantity&lt;/label&gt;
+            &lt;input
+              className=&quot;form-control&quot;
+              name=&quot;quantity&quot;
+              type=&quot;number&quot;
+              onChange={this.handleChangeInput}
+              value={quantity}
+            /&gt;
+          &lt;/fieldset&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;table-i&quot;&gt;
+          &lt;table className=&quot;table &quot;&gt;
+            &lt;thead&gt;
+              &lt;tr&gt;
+                &lt;th scope=&quot;col&quot;&gt;Item ID&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt;Code&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt;Name&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt;Action&lt;/th&gt;
+              &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+              {allItemResponse.data.map((val, idx) =&gt; {
+                return (
+                  &lt;tr key={idx}&gt;
+                    &lt;td&gt;{val.id}&lt;/td&gt;
+                    &lt;td&gt;{val.code}&lt;/td&gt;
+                    &lt;td&gt;{val.name}&lt;/td&gt;
+                    &lt;td&gt;
+                      &lt;button
+                        type=&quot;button&quot;
+                        className=&quot;btn btn-outline-primary&quot;
+                        onClick={() =&gt; this.handleClickInsert(val)}
+                      &gt;
+                        Insert
+                      &lt;/button&gt;
+                    &lt;/td&gt;
+                  &lt;/tr&gt;
+                );
+              })}
+            &lt;/tbody&gt;
+          &lt;/table&gt;
+        &lt;/div&gt;
+        &lt;div className=&quot;table-ic&quot;&gt;
+          &lt;table className=&quot;table &quot;&gt;
+            &lt;thead&gt;
+              &lt;tr&gt;
+                &lt;th scope=&quot;col&quot;&gt;Child Item ID&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt;Code&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt;Name&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt;Quantity&lt;/th&gt;
+                &lt;th scope=&quot;col&quot;&gt;Action&lt;/th&gt;
+              &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+              {allItemCombinationResponse.data
+                .filter(
+                  (itm) =&gt; itm.parent_item_id === viewItemResponse.data.id
+                )
+                .map((val, idx) =&gt; {
+                  return (
+                    &lt;tr key={idx}&gt;
+                      &lt;td&gt;{val.child_item_id}&lt;/td&gt;
+                      &lt;td&gt;{val.child_item.code}&lt;/td&gt;
+                      &lt;td&gt;{val.child_item.name}&lt;/td&gt;
+                      &lt;td&gt;{val.quantity}&lt;/td&gt;
+                      &lt;td&gt;
+                        &lt;button
+                          type=&quot;button&quot;
+                          className=&quot;btn btn-outline-primary&quot;
+                          onClick={() =&gt; this.handleClickDelete(val)}
+                        &gt;
+                          Delete
+                        &lt;/button&gt;
+                      &lt;/td&gt;
+                    &lt;/tr&gt;
+                  );
+                })}
+            &lt;/tbody&gt;
+          &lt;/table&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+
+class ItemUpdateModalComponent extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isShow: false,
+      menu: &quot;main&quot;,
+      insertItemCombinationResponse: {},
+      deleteItemCombinationResponse: {},
+    };
+  }
+
+  handleShow = () =&gt; {
+    const { isShow } = this.state;
+    this.setState({ isShow: !isShow });
+  };
+
+  handleSelectMenu = (eventKey, e) =&gt; {
+    this.setState({ menu: eventKey });
+  };
+
+  render() {
+    const { isShow, menu } = this.state;
+    const { onSubmit, parent } = this.props;
+    return (
+      &lt;Modal
+        show={isShow}
+        onHide={this.handleShow}
+        centered
+        className=&quot;component item-update-modal&quot;
+      &gt;
+        &lt;Modal.Header closeButton className=&quot;header&quot;&gt;
+          &lt;Modal.Title&gt;Item Update&lt;/Modal.Title&gt;
+        &lt;/Modal.Header&gt;
+
+        &lt;Nav variant=&quot;tabs&quot; onSelect={this.handleSelectMenu}&gt;
+          &lt;Nav.Item&gt;
+            &lt;Nav.Link eventKey=&quot;main&quot;&gt;Main&lt;/Nav.Link&gt;
+          &lt;/Nav.Item&gt;
+          &lt;Nav.Item&gt;
+            &lt;Nav.Link eventKey=&quot;combination&quot;&gt;Combination&lt;/Nav.Link&gt;
+          &lt;/Nav.Item&gt;
+        &lt;/Nav&gt;
+
+        &lt;Modal.Body className=&quot;body&quot;&gt;
+          {
+            // Menu switch.
+            {
+              main: (
+                &lt;MainComponent
+                  parent={this}
+                  ref={(ref) =&gt; {
+                    this.refMainComponent = ref;
+                  }}
+                  onSubmit={onSubmit}
+                /&gt;
+              ),
+              combination: (
+                &lt;CombinationComponent
+                  parent={this}
+                  ref={(ref) =&gt; {
+                    this.refCombinationComponent = ref;
+                  }}
+                /&gt;
+              ),
+            }[menu]
+          }
+        &lt;/Modal.Body&gt;
+
+        &lt;Modal.Footer className=&quot;footer&quot;&gt;
+          &lt;button
+            type=&quot;button&quot;
+            className=&quot;btn btn-primary&quot;
+            onClick={() =&gt; this.refMainComponent.refFormSubmitButton.click()}
+          &gt;
+            Update Item
+          &lt;/button&gt;
+        &lt;/Modal.Footer&gt;
+      &lt;/Modal&gt;
+    );
+  }
+}
+
+export default ItemUpdateModalComponent;</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ cyclomatic }} <br>
+    Length : {{ halstead.length }} <br>
+    Difficulty : {{ halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>
