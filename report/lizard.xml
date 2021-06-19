@@ -1,0 +1,3434 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="https://raw.githubusercontent.com/terryyin/lizard/master/lizard.xsl"?>
+<cppncss>
+	<measure type="Function">
+		<labels>
+			<label>Nr.</label>
+			<label>NCSS</label>
+			<label>CCN</label>
+		</labels>
+		<item name="readAll(...) at ./src\apis\AccountsAPI.js:6">
+			<value>1</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="readOneByID(...) at ./src\apis\AccountsAPI.js:10">
+			<value>2</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="createOne(...) at ./src\apis\AccountsAPI.js:14">
+			<value>3</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="updateOneByID(...) at ./src\apis\AccountsAPI.js:23">
+			<value>4</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="deleteOneByID(...) at ./src\apis\AccountsAPI.js:32">
+			<value>5</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="5.0"/>
+		<average label="CCN" value="1.0"/>
+		<item name="register(...) at ./src\apis\AuthenticationsAPI.js:6">
+			<value>6</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="login(...) at ./src\apis\AuthenticationsAPI.js:15">
+			<value>7</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="5.714285714285714"/>
+		<average label="CCN" value="1.0"/>
+		<item name="itemStocksByID(...) at ./src\apis\ForecastsAPI.js:6">
+			<value>8</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="itemControlsByID(...) at ./src\apis\ForecastsAPI.js:14">
+			<value>9</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="itemSalesByID(...) at ./src\apis\ForecastsAPI.js:22">
+			<value>10</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="productSalesByID(...) at ./src\apis\ForecastsAPI.js:30">
+			<value>11</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="6.181818181818182"/>
+		<average label="CCN" value="1.0"/>
+		<item name="readAll(...) at ./src\apis\InventoryControlsAPI.js:6">
+			<value>12</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="readOneByID(...) at ./src\apis\InventoryControlsAPI.js:10">
+			<value>13</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="createOne(...) at ./src\apis\InventoryControlsAPI.js:14">
+			<value>14</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="updateOneByID(...) at ./src\apis\InventoryControlsAPI.js:23">
+			<value>15</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="deleteOneByID(...) at ./src\apis\InventoryControlsAPI.js:32">
+			<value>16</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="5.8125"/>
+		<average label="CCN" value="1.0"/>
+		<item name="readAll(...) at ./src\apis\ItemCombinationsAPI.js:6">
+			<value>17</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="readOneByID(...) at ./src\apis\ItemCombinationsAPI.js:10">
+			<value>18</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="createOne(...) at ./src\apis\ItemCombinationsAPI.js:14">
+			<value>19</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="updateOneByID(...) at ./src\apis\ItemCombinationsAPI.js:23">
+			<value>20</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="deleteOneByID(...) at ./src\apis\ItemCombinationsAPI.js:32">
+			<value>21</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="5.619047619047619"/>
+		<average label="CCN" value="1.0"/>
+		<item name="readAll(...) at ./src\apis\ItemsAPI.js:6">
+			<value>22</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="readOneByID(...) at ./src\apis\ItemsAPI.js:10">
+			<value>23</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="createOne(...) at ./src\apis\ItemsAPI.js:14">
+			<value>24</value>
+			<value>26</value>
+			<value>1</value>
+		</item>
+		<item name="updateOneByID(...) at ./src\apis\ItemsAPI.js:41">
+			<value>25</value>
+			<value>26</value>
+			<value>1</value>
+		</item>
+		<item name="deleteOneByID(...) at ./src\apis\ItemsAPI.js:68">
+			<value>26</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="6.884615384615385"/>
+		<average label="CCN" value="1.0"/>
+		<item name="readAll(...) at ./src\apis\ProductItemsAPI.js:6">
+			<value>27</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="readOneByID(...) at ./src\apis\ProductItemsAPI.js:10">
+			<value>28</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="createOne(...) at ./src\apis\ProductItemsAPI.js:14">
+			<value>29</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="updateOneByID(...) at ./src\apis\ProductItemsAPI.js:23">
+			<value>30</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="deleteOneByID(...) at ./src\apis\ProductItemsAPI.js:32">
+			<value>31</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="6.580645161290323"/>
+		<average label="CCN" value="1.0"/>
+		<item name="readAll(...) at ./src\apis\ProductsAPI.js:6">
+			<value>32</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="readOneByID(...) at ./src\apis\ProductsAPI.js:10">
+			<value>33</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="createOne(...) at ./src\apis\ProductsAPI.js:14">
+			<value>34</value>
+			<value>26</value>
+			<value>1</value>
+		</item>
+		<item name="updateOneByID(...) at ./src\apis\ProductsAPI.js:41">
+			<value>35</value>
+			<value>26</value>
+			<value>1</value>
+		</item>
+		<item name="deleteOneByID(...) at ./src\apis\ProductsAPI.js:68">
+			<value>36</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="7.361111111111111"/>
+		<average label="CCN" value="1.0"/>
+		<item name="readAll(...) at ./src\apis\ProductTransactionsAPI.js:6">
+			<value>37</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="readOneByID(...) at ./src\apis\ProductTransactionsAPI.js:10">
+			<value>38</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="createOne(...) at ./src\apis\ProductTransactionsAPI.js:14">
+			<value>39</value>
+			<value>14</value>
+			<value>1</value>
+		</item>
+		<item name="updateOneByID(...) at ./src\apis\ProductTransactionsAPI.js:29">
+			<value>40</value>
+			<value>14</value>
+			<value>1</value>
+		</item>
+		<item name="deleteOneByID(...) at ./src\apis\ProductTransactionsAPI.js:44">
+			<value>41</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="7.365853658536586"/>
+		<average label="CCN" value="1.0"/>
+		<item name="readByID(...) at ./src\apis\TestAPI.js:6">
+			<value>42</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="readAll(...) at ./src\apis\TestAPI.js:10">
+			<value>43</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="readCustomByID(...) at ./src\apis\TestAPI.js:14">
+			<value>44</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="readAllCustom(...) at ./src\apis\TestAPI.js:18">
+			<value>45</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="create(...) at ./src\apis\TestAPI.js:22">
+			<value>46</value>
+			<value>10</value>
+			<value>1</value>
+		</item>
+		<item name="updateByID(...) at ./src\apis\TestAPI.js:33">
+			<value>47</value>
+			<value>10</value>
+			<value>1</value>
+		</item>
+		<item name="deleteByID(...) at ./src\apis\TestAPI.js:44">
+			<value>48</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="7.020833333333333"/>
+		<average label="CCN" value="1.0"/>
+		<item name="constructor(...) at ./src\components\InventoryControlHistoryPage\InventoryControlInsertModalComponent.js:15">
+			<value>49</value>
+			<value>6</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\InventoryControlHistoryPage\InventoryControlInsertModalComponent.js:22">
+			<value>50</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\InventoryControlHistoryPage\InventoryControlInsertModalComponent.js:26">
+			<value>51</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\InventoryControlHistoryPage\InventoryControlInsertModalComponent.js:61">
+			<value>52</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\InventoryControlHistoryPage\InventoryControlInsertModalComponent.js:57">
+			<value>53</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\InventoryControlHistoryPage\InventoryControlInsertModalComponent.js:85">
+			<value>54</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\InventoryControlHistoryPage\InventoryControlInsertModalComponent.js:81">
+			<value>55</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\InventoryControlHistoryPage\InventoryControlInsertModalComponent.js:115">
+			<value>56</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\InventoryControlHistoryPage\InventoryControlInsertModalComponent.js:47">
+			<value>57</value>
+			<value>50</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\InventoryControlHistoryPage\InventoryControlInsertModalComponent.js:30">
+			<value>58</value>
+			<value>22</value>
+			<value>2</value>
+		</item>
+		<item name="constructor(...) at ./src\components\InventoryControlHistoryPage\InventoryControlInsertModalComponent.js:134">
+			<value>59</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\InventoryControlHistoryPage\InventoryControlInsertModalComponent.js:142">
+			<value>60</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\InventoryControlHistoryPage\InventoryControlInsertModalComponent.js:147">
+			<value>61</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\InventoryControlHistoryPage\InventoryControlInsertModalComponent.js:176">
+			<value>62</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="className(...) at ./src\components\InventoryControlHistoryPage\InventoryControlInsertModalComponent.js:189">
+			<value>63</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\InventoryControlHistoryPage\InventoryControlInsertModalComponent.js:175">
+			<value>64</value>
+			<value>15</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="7.734375"/>
+		<average label="CCN" value="1.015625"/>
+		<item name="constructor(...) at ./src\components\InventoryControlHistoryPage\InventoryControlUpdateModalComponent.js:16">
+			<value>65</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\InventoryControlHistoryPage\InventoryControlUpdateModalComponent.js:47">
+			<value>66</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\InventoryControlHistoryPage\InventoryControlUpdateModalComponent.js:33">
+			<value>67</value>
+			<value>24</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\InventoryControlHistoryPage\InventoryControlUpdateModalComponent.js:21">
+			<value>68</value>
+			<value>17</value>
+			<value>1</value>
+		</item>
+		<item name="constructor(...) at ./src\components\InventoryControlHistoryPage\InventoryControlUpdateModalComponent.js:66">
+			<value>69</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\InventoryControlHistoryPage\InventoryControlUpdateModalComponent.js:74">
+			<value>70</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\InventoryControlHistoryPage\InventoryControlUpdateModalComponent.js:79">
+			<value>71</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\InventoryControlHistoryPage\InventoryControlUpdateModalComponent.js:108">
+			<value>72</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="className(...) at ./src\components\InventoryControlHistoryPage\InventoryControlUpdateModalComponent.js:121">
+			<value>73</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\InventoryControlHistoryPage\InventoryControlUpdateModalComponent.js:107">
+			<value>74</value>
+			<value>15</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="7.864864864864865"/>
+		<average label="CCN" value="1.0135135135135136"/>
+		<item name="constructor(...) at ./src\components\InventoryControlHistoryPage\InventoryControlViewModalComponent.js:8">
+			<value>75</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\InventoryControlHistoryPage\InventoryControlViewModalComponent.js:39">
+			<value>76</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\InventoryControlHistoryPage\InventoryControlViewModalComponent.js:13">
+			<value>77</value>
+			<value>35</value>
+			<value>2</value>
+		</item>
+		<item name="constructor(...) at ./src\components\InventoryControlHistoryPage\InventoryControlViewModalComponent.js:53">
+			<value>78</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\InventoryControlHistoryPage\InventoryControlViewModalComponent.js:61">
+			<value>79</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\InventoryControlHistoryPage\InventoryControlViewModalComponent.js:66">
+			<value>80</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\InventoryControlHistoryPage\InventoryControlViewModalComponent.js:95">
+			<value>81</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="className(...) at ./src\components\InventoryControlHistoryPage\InventoryControlViewModalComponent.js:107">
+			<value>82</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\InventoryControlHistoryPage\InventoryControlViewModalComponent.js:114">
+			<value>83</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\InventoryControlHistoryPage\InventoryControlViewModalComponent.js:94">
+			<value>84</value>
+			<value>15</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="7.976190476190476"/>
+		<average label="CCN" value="1.0238095238095237"/>
+		<item name="constructor(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:13">
+			<value>85</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:24">
+			<value>86</value>
+			<value>18</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:42">
+			<value>87</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:18">
+			<value>88</value>
+			<value>8</value>
+			<value>2</value>
+		</item>
+		<item name="render(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:52">
+			<value>89</value>
+			<value>79</value>
+			<value>1</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:137">
+			<value>90</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:148">
+			<value>91</value>
+			<value>18</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:166">
+			<value>92</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:142">
+			<value>93</value>
+			<value>8</value>
+			<value>2</value>
+		</item>
+		<item name="render(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:176">
+			<value>94</value>
+			<value>79</value>
+			<value>1</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:261">
+			<value>95</value>
+			<value>14</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:276">
+			<value>96</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:281">
+			<value>97</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:290">
+			<value>98</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:333">
+			<value>99</value>
+			<value>22</value>
+			<value>1</value>
+		</item>
+		<item name="sales(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:360">
+			<value>100</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="controls(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:368">
+			<value>101</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="controls(...) at ./src\components\ItemForecastPage\ItemViewModalComponent.js:367">
+			<value>102</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="9.519607843137255"/>
+		<average label="CCN" value="1.0588235294117647"/>
+		<item name="constructor(...) at ./src\components\ItemManagementPage\ItemInsertModalComponent.js:29">
+			<value>103</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemInsertModalComponent.js:141">
+			<value>104</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemInsertModalComponent.js:54">
+			<value>105</value>
+			<value>97</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\ItemManagementPage\ItemInsertModalComponent.js:34">
+			<value>106</value>
+			<value>24</value>
+			<value>1</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ItemManagementPage\ItemInsertModalComponent.js:159">
+			<value>107</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemInsertModalComponent.js:194">
+			<value>108</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemInsertModalComponent.js:184">
+			<value>109</value>
+			<value>20</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\ItemManagementPage\ItemInsertModalComponent.js:164">
+			<value>110</value>
+			<value>24</value>
+			<value>1</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ItemManagementPage\ItemInsertModalComponent.js:212">
+			<value>111</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ItemManagementPage\ItemInsertModalComponent.js:220">
+			<value>112</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ItemManagementPage\ItemInsertModalComponent.js:225">
+			<value>113</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\ItemManagementPage\ItemInsertModalComponent.js:258">
+			<value>114</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="combination(...) at ./src\components\ItemManagementPage\ItemInsertModalComponent.js:267">
+			<value>115</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="combination(...) at ./src\components\ItemManagementPage\ItemInsertModalComponent.js:266">
+			<value>116</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="10.155172413793103"/>
+		<average label="CCN" value="1.0517241379310345"/>
+		<item name="constructor(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:33">
+			<value>117</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:152">
+			<value>118</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:52">
+			<value>119</value>
+			<value>110</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:38">
+			<value>120</value>
+			<value>19</value>
+			<value>1</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:171">
+			<value>121</value>
+			<value>6</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:190">
+			<value>122</value>
+			<value>15</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:206">
+			<value>123</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:214">
+			<value>124</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:186">
+			<value>125</value>
+			<value>7</value>
+			<value>2</value>
+		</item>
+		<item name="=(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:221">
+			<value>126</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:230">
+			<value>127</value>
+			<value>15</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:246">
+			<value>128</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:254">
+			<value>129</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:225">
+			<value>130</value>
+			<value>8</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:292">
+			<value>131</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:288">
+			<value>132</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:314">
+			<value>133</value>
+			<value>2</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:320">
+			<value>134</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:316">
+			<value>135</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:261">
+			<value>136</value>
+			<value>47</value>
+			<value>1</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:340">
+			<value>137</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:350">
+			<value>138</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:355">
+			<value>139</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:387">
+			<value>140</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="combination(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:396">
+			<value>141</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="combination(...) at ./src\components\ItemManagementPage\ItemUpdateModalComponent.js:395">
+			<value>142</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="10.598591549295774"/>
+		<average label="CCN" value="1.0704225352112675"/>
+		<item name="constructor(...) at ./src\components\ItemManagementPage\ItemViewModalComponent.js:8">
+			<value>143</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemViewModalComponent.js:45">
+			<value>144</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\ItemManagementPage\ItemViewModalComponent.js:13">
+			<value>145</value>
+			<value>41</value>
+			<value>2</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ItemManagementPage\ItemViewModalComponent.js:59">
+			<value>146</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemViewModalComponent.js:82">
+			<value>147</value>
+			<value>2</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ItemManagementPage\ItemViewModalComponent.js:84">
+			<value>148</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\ItemManagementPage\ItemViewModalComponent.js:64">
+			<value>149</value>
+			<value>26</value>
+			<value>1</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ItemManagementPage\ItemViewModalComponent.js:100">
+			<value>150</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ItemManagementPage\ItemViewModalComponent.js:109">
+			<value>151</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ItemManagementPage\ItemViewModalComponent.js:114">
+			<value>152</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\ItemManagementPage\ItemViewModalComponent.js:146">
+			<value>153</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="combination(...) at ./src\components\ItemManagementPage\ItemViewModalComponent.js:154">
+			<value>154</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="combination(...) at ./src\components\ItemManagementPage\ItemViewModalComponent.js:153">
+			<value>155</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="10.458064516129033"/>
+		<average label="CCN" value="1.070967741935484"/>
+		<item name="AboutUs(...) at ./src\components\LandingPage\AboutUsComponent.js:7">
+			<value>156</value>
+			<value>37</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="10.628205128205128"/>
+		<average label="CCN" value="1.0705128205128205"/>
+		<item name="Footer(...) at ./src\components\LandingPage\FooterComponent.js:7">
+			<value>157</value>
+			<value>12</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="10.636942675159236"/>
+		<average label="CCN" value="1.070063694267516"/>
+		<item name="Header(...) at ./src\components\LandingPage\HeaderComponent.js:7">
+			<value>158</value>
+			<value>26</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="10.734177215189874"/>
+		<average label="CCN" value="1.0696202531645569"/>
+		<item name="Interested(...) at ./src\components\LandingPage\InterestedComponent.js:8">
+			<value>159</value>
+			<value>19</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="10.786163522012579"/>
+		<average label="CCN" value="1.069182389937107"/>
+		<item name="NavigationBar(...) at ./src\components\LandingPage\NavigationBarComponent.js:7">
+			<value>160</value>
+			<value>46</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="11.00625"/>
+		<average label="CCN" value="1.06875"/>
+		<item name="OurTeam(...) at ./src\components\LandingPage\OurTeamComponent.js:9">
+			<value>161</value>
+			<value>22</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="11.074534161490684"/>
+		<average label="CCN" value="1.0683229813664596"/>
+		<item name="WhyUs(...) at ./src\components\LandingPage\WhyUsComponent.js:9">
+			<value>162</value>
+			<value>31</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="11.197530864197532"/>
+		<average label="CCN" value="1.0679012345679013"/>
+		<item name="constructor(...) at ./src\components\ProductForecastPage\ProductViewModalComponent.js:13">
+			<value>163</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductForecastPage\ProductViewModalComponent.js:24">
+			<value>164</value>
+			<value>18</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductForecastPage\ProductViewModalComponent.js:42">
+			<value>165</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductForecastPage\ProductViewModalComponent.js:18">
+			<value>166</value>
+			<value>8</value>
+			<value>2</value>
+		</item>
+		<item name="render(...) at ./src\components\ProductForecastPage\ProductViewModalComponent.js:52">
+			<value>167</value>
+			<value>79</value>
+			<value>1</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ProductForecastPage\ProductViewModalComponent.js:137">
+			<value>168</value>
+			<value>14</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductForecastPage\ProductViewModalComponent.js:152">
+			<value>169</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductForecastPage\ProductViewModalComponent.js:157">
+			<value>170</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductForecastPage\ProductViewModalComponent.js:166">
+			<value>171</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductForecastPage\ProductViewModalComponent.js:206">
+			<value>172</value>
+			<value>22</value>
+			<value>1</value>
+		</item>
+		<item name="sales(...) at ./src\components\ProductForecastPage\ProductViewModalComponent.js:233">
+			<value>173</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="?(...) at ./src\components\ProductForecastPage\ProductViewModalComponent.js:242">
+			<value>174</value>
+			<value>13</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="11.494252873563218"/>
+		<average label="CCN" value="1.0747126436781609"/>
+		<item name="constructor(...) at ./src\components\ProductManagementPage\ProductInsertModalComponent.js:29">
+			<value>175</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductInsertModalComponent.js:139">
+			<value>176</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductInsertModalComponent.js:54">
+			<value>177</value>
+			<value>95</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\ProductManagementPage\ProductInsertModalComponent.js:34">
+			<value>178</value>
+			<value>24</value>
+			<value>1</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ProductManagementPage\ProductInsertModalComponent.js:157">
+			<value>179</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductInsertModalComponent.js:192">
+			<value>180</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductInsertModalComponent.js:182">
+			<value>181</value>
+			<value>20</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\ProductManagementPage\ProductInsertModalComponent.js:162">
+			<value>182</value>
+			<value>24</value>
+			<value>1</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ProductManagementPage\ProductInsertModalComponent.js:210">
+			<value>183</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductManagementPage\ProductInsertModalComponent.js:218">
+			<value>184</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductManagementPage\ProductInsertModalComponent.js:223">
+			<value>185</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\ProductManagementPage\ProductInsertModalComponent.js:257">
+			<value>186</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="item(...) at ./src\components\ProductManagementPage\ProductInsertModalComponent.js:266">
+			<value>187</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="item(...) at ./src\components\ProductManagementPage\ProductInsertModalComponent.js:265">
+			<value>188</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="11.72872340425532"/>
+		<average label="CCN" value="1.0691489361702127"/>
+		<item name="constructor(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:33">
+			<value>189</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:137">
+			<value>190</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:50">
+			<value>191</value>
+			<value>97</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:38">
+			<value>192</value>
+			<value>17</value>
+			<value>1</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:156">
+			<value>193</value>
+			<value>6</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:175">
+			<value>194</value>
+			<value>15</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:191">
+			<value>195</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:199">
+			<value>196</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:171">
+			<value>197</value>
+			<value>7</value>
+			<value>2</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:206">
+			<value>198</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:215">
+			<value>199</value>
+			<value>15</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:231">
+			<value>200</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:239">
+			<value>201</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:210">
+			<value>202</value>
+			<value>8</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:278">
+			<value>203</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:274">
+			<value>204</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:299">
+			<value>205</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:304">
+			<value>206</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:300">
+			<value>207</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:246">
+			<value>208</value>
+			<value>47</value>
+			<value>1</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:324">
+			<value>209</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:332">
+			<value>210</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:337">
+			<value>211</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:369">
+			<value>212</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="item(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:378">
+			<value>213</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="item(...) at ./src\components\ProductManagementPage\ProductUpdateModalComponent.js:377">
+			<value>214</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="11.74766355140187"/>
+		<average label="CCN" value="1.0794392523364487"/>
+		<item name="constructor(...) at ./src\components\ProductManagementPage\ProductViewModalComponent.js:8">
+			<value>215</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductViewModalComponent.js:45">
+			<value>216</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\ProductManagementPage\ProductViewModalComponent.js:13">
+			<value>217</value>
+			<value>41</value>
+			<value>2</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ProductManagementPage\ProductViewModalComponent.js:59">
+			<value>218</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductViewModalComponent.js:81">
+			<value>219</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductManagementPage\ProductViewModalComponent.js:82">
+			<value>220</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\ProductManagementPage\ProductViewModalComponent.js:64">
+			<value>221</value>
+			<value>25</value>
+			<value>1</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ProductManagementPage\ProductViewModalComponent.js:98">
+			<value>222</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductManagementPage\ProductViewModalComponent.js:106">
+			<value>223</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductManagementPage\ProductViewModalComponent.js:111">
+			<value>224</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\ProductManagementPage\ProductViewModalComponent.js:143">
+			<value>225</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="item(...) at ./src\components\ProductManagementPage\ProductViewModalComponent.js:151">
+			<value>226</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="item(...) at ./src\components\ProductManagementPage\ProductViewModalComponent.js:150">
+			<value>227</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="11.572687224669604"/>
+		<average label="CCN" value="1.079295154185022"/>
+		<item name="constructor(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionInsertModalComponent.js:20">
+			<value>228</value>
+			<value>6</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionInsertModalComponent.js:27">
+			<value>229</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionInsertModalComponent.js:31">
+			<value>230</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionInsertModalComponent.js:66">
+			<value>231</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionInsertModalComponent.js:62">
+			<value>232</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionInsertModalComponent.js:90">
+			<value>233</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionInsertModalComponent.js:86">
+			<value>234</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionInsertModalComponent.js:132">
+			<value>235</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionInsertModalComponent.js:52">
+			<value>236</value>
+			<value>62</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionInsertModalComponent.js:35">
+			<value>237</value>
+			<value>22</value>
+			<value>2</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionInsertModalComponent.js:151">
+			<value>238</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionInsertModalComponent.js:159">
+			<value>239</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionInsertModalComponent.js:164">
+			<value>240</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionInsertModalComponent.js:193">
+			<value>241</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="className(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionInsertModalComponent.js:206">
+			<value>242</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionInsertModalComponent.js:192">
+			<value>243</value>
+			<value>15</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="11.510288065843621"/>
+		<average label="CCN" value="1.0781893004115226"/>
+		<item name="constructor(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionUpdateModalComponent.js:21">
+			<value>244</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionUpdateModalComponent.js:64">
+			<value>245</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionUpdateModalComponent.js:38">
+			<value>246</value>
+			<value>36</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionUpdateModalComponent.js:26">
+			<value>247</value>
+			<value>17</value>
+			<value>1</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionUpdateModalComponent.js:83">
+			<value>248</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionUpdateModalComponent.js:91">
+			<value>249</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionUpdateModalComponent.js:96">
+			<value>250</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionUpdateModalComponent.js:125">
+			<value>251</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="className(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionUpdateModalComponent.js:138">
+			<value>252</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionUpdateModalComponent.js:124">
+			<value>253</value>
+			<value>15</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="11.446640316205533"/>
+		<average label="CCN" value="1.075098814229249"/>
+		<item name="constructor(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionViewModalComponent.js:8">
+			<value>254</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionViewModalComponent.js:47">
+			<value>255</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionViewModalComponent.js:13">
+			<value>256</value>
+			<value>43</value>
+			<value>2</value>
+		</item>
+		<item name="constructor(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionViewModalComponent.js:61">
+			<value>257</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionViewModalComponent.js:69">
+			<value>258</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionViewModalComponent.js:74">
+			<value>259</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionViewModalComponent.js:103">
+			<value>260</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="className(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionViewModalComponent.js:115">
+			<value>261</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionViewModalComponent.js:122">
+			<value>262</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="main(...) at ./src\components\ProductTransactionHistoryPage\ProductTransactionViewModalComponent.js:102">
+			<value>263</value>
+			<value>15</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="11.376425855513308"/>
+		<average label="CCN" value="1.0760456273764258"/>
+		<item name="constructor(...) at ./src\components\MessageModalComponent.js:5">
+			<value>264</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\MessageModalComponent.js:14">
+			<value>265</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\MessageModalComponent.js:19">
+			<value>266</value>
+			<value>11</value>
+			<value>3</value>
+		</item>
+		<average label="NCSS" value="11.334586466165414"/>
+		<average label="CCN" value="1.0827067669172932"/>
+		<item name="constructor(...) at ./src\components\SideBarComponent.js:16">
+			<value>267</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\SideBarComponent.js:21">
+			<value>268</value>
+			<value>97</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="11.626865671641792"/>
+		<average label="CCN" value="1.0820895522388059"/>
+		<item name="constructor(...) at ./src\components\UpperBarComponent.js:15">
+			<value>269</value>
+			<value>12</value>
+			<value>1</value>
+		</item>
+		<item name="componentDidMount(...) at ./src\components\UpperBarComponent.js:28">
+			<value>270</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\UpperBarComponent.js:32">
+			<value>271</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\UpperBarComponent.js:42">
+			<value>272</value>
+			<value>6</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\UpperBarComponent.js:38">
+			<value>273</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\components\UpperBarComponent.js:50">
+			<value>274</value>
+			<value>8</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\UpperBarComponent.js:72">
+			<value>275</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\components\UpperBarComponent.js:81">
+			<value>276</value>
+			<value>2</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\components\UpperBarComponent.js:59">
+			<value>277</value>
+			<value>23</value>
+			<value>3</value>
+		</item>
+		<average label="NCSS" value="11.490974729241877"/>
+		<average label="CCN" value="1.0902527075812274"/>
+		<item name="constructor(...) at ./src\pages\AccountProfilePage.js:24">
+			<value>278</value>
+			<value>15</value>
+			<value>1</value>
+		</item>
+		<item name="componentDidMount(...) at ./src\pages\AccountProfilePage.js:40">
+			<value>279</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\AccountProfilePage.js:48">
+			<value>280</value>
+			<value>15</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\AccountProfilePage.js:64">
+			<value>281</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\AccountProfilePage.js:72">
+			<value>282</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\pages\AccountProfilePage.js:44">
+			<value>283</value>
+			<value>7</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\AccountProfilePage.js:84">
+			<value>284</value>
+			<value>14</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\AccountProfilePage.js:100">
+			<value>285</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\AccountProfilePage.js:108">
+			<value>286</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\pages\AccountProfilePage.js:75">
+			<value>287</value>
+			<value>12</value>
+			<value>2</value>
+		</item>
+		<item name="=(...) at ./src\pages\AccountProfilePage.js:113">
+			<value>288</value>
+			<value>8</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\AccountProfilePage.js:126">
+			<value>289</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\AccountProfilePage.js:141">
+			<value>290</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\AccountProfilePage.js:152">
+			<value>291</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\AccountProfilePage.js:166">
+			<value>292</value>
+			<value>42</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\AccountProfilePage.js:209">
+			<value>293</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\pages\AccountProfilePage.js:122">
+			<value>294</value>
+			<value>42</value>
+			<value>2</value>
+		</item>
+		<average label="NCSS" value="11.5"/>
+		<average label="CCN" value="1.1054421768707483"/>
+		<item name="constructor(...) at ./src\pages\ErrorPage.js:4">
+			<value>295</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\pages\ErrorPage.js:9">
+			<value>296</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="11.45945945945946"/>
+		<average label="CCN" value="1.1047297297297298"/>
+		<item name="constructor(...) at ./src\pages\InventoryControlHistoryPage.js:18">
+			<value>297</value>
+			<value>35</value>
+			<value>1</value>
+		</item>
+		<item name="componentDidMount(...) at ./src\pages\InventoryControlHistoryPage.js:54">
+			<value>298</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:71">
+			<value>299</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="allItemResponse.data.find(...) at ./src\pages\InventoryControlHistoryPage.js:75">
+			<value>300</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="allItemResponse.data.find(...) at ./src\pages\InventoryControlHistoryPage.js:75">
+			<value>301</value>
+			<value>2</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:72">
+			<value>302</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:78">
+			<value>303</value>
+			<value>1</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:66">
+			<value>304</value>
+			<value>23</value>
+			<value>2</value>
+		</item>
+		<item name="{.catch(...) at ./src\pages\InventoryControlHistoryPage.js:96">
+			<value>305</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:104">
+			<value>306</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="data.filter(...) at ./src\pages\InventoryControlHistoryPage.js:122">
+			<value>307</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="=&gt;(...) at ./src\pages\InventoryControlHistoryPage.js:123">
+			<value>308</value>
+			<value>3</value>
+			<value>2</value>
+		</item>
+		<item name="{.sort(...) at ./src\pages\InventoryControlHistoryPage.js:123">
+			<value>309</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:134">
+			<value>310</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:142">
+			<value>311</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="allItemResponse.data.find(...) at ./src\pages\InventoryControlHistoryPage.js:161">
+			<value>312</value>
+			<value>2</value>
+			<value>1</value>
+		</item>
+		<item name="allItemResponse.data.find(...) at ./src\pages\InventoryControlHistoryPage.js:160">
+			<value>313</value>
+			<value>6</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\InventoryControlHistoryPage.js:159">
+			<value>314</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:174">
+			<value>315</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:182">
+			<value>316</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="allItemResponse.data.find(...) at ./src\pages\InventoryControlHistoryPage.js:201">
+			<value>317</value>
+			<value>2</value>
+			<value>1</value>
+		</item>
+		<item name="allItemResponse.data.find(...) at ./src\pages\InventoryControlHistoryPage.js:200">
+			<value>318</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\InventoryControlHistoryPage.js:199">
+			<value>319</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:215">
+			<value>320</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:223">
+			<value>321</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="handleModalInsert(...) at ./src\pages\InventoryControlHistoryPage.js:229">
+			<value>322</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:239">
+			<value>323</value>
+			<value>16</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:256">
+			<value>324</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:264">
+			<value>325</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="handleModalInsertOnSubmit(...) at ./src\pages\InventoryControlHistoryPage.js:233">
+			<value>326</value>
+			<value>10</value>
+			<value>2</value>
+		</item>
+		<item name="handleModalUpdate(...) at ./src\pages\InventoryControlHistoryPage.js:271">
+			<value>327</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:282">
+			<value>328</value>
+			<value>17</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:300">
+			<value>329</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:308">
+			<value>330</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="handleModalUpdateOnSubmit(...) at ./src\pages\InventoryControlHistoryPage.js:276">
+			<value>331</value>
+			<value>10</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:318">
+			<value>332</value>
+			<value>15</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:334">
+			<value>333</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\InventoryControlHistoryPage.js:342">
+			<value>334</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="handleModalDelete(...) at ./src\pages\InventoryControlHistoryPage.js:315">
+			<value>335</value>
+			<value>7</value>
+			<value>2</value>
+		</item>
+		<item name="return(...) at ./src\pages\InventoryControlHistoryPage.js:353">
+			<value>336</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="this(...) at ./src\pages\InventoryControlHistoryPage.js:357">
+			<value>337</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="this(...) at ./src\pages\InventoryControlHistoryPage.js:364">
+			<value>338</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="this(...) at ./src\pages\InventoryControlHistoryPage.js:370">
+			<value>339</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="=&gt;(...) at ./src\pages\InventoryControlHistoryPage.js:409">
+			<value>340</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="10.844117647058823"/>
+		<average label="CCN" value="1.1176470588235294"/>
+		<item name="constructor(...) at ./src\pages\ItemForecastPage.js:17">
+			<value>341</value>
+			<value>25</value>
+			<value>1</value>
+		</item>
+		<item name="componentDidMount(...) at ./src\pages\ItemForecastPage.js:43">
+			<value>342</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="allProductResponse.data.find(...) at ./src\pages\ItemForecastPage.js:61">
+			<value>343</value>
+			<value>2</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemForecastPage.js:63">
+			<value>344</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="allProductResponse.data.find(...) at ./src\pages\ItemForecastPage.js:60">
+			<value>345</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemForecastPage.js:57">
+			<value>346</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemForecastPage.js:53">
+			<value>347</value>
+			<value>20</value>
+			<value>2</value>
+		</item>
+		<item name="{.catch(...) at ./src\pages\ItemForecastPage.js:83">
+			<value>348</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemForecastPage.js:91">
+			<value>349</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="data.filter(...) at ./src\pages\ItemForecastPage.js:109">
+			<value>350</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="=&gt;(...) at ./src\pages\ItemForecastPage.js:110">
+			<value>351</value>
+			<value>3</value>
+			<value>2</value>
+		</item>
+		<item name="{.sort(...) at ./src\pages\ItemForecastPage.js:110">
+			<value>352</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemForecastPage.js:121">
+			<value>353</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemForecastPage.js:129">
+			<value>354</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="data.filter(...) at ./src\pages\ItemForecastPage.js:146">
+			<value>355</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="data.filter(...) at ./src\pages\ItemForecastPage.js:146">
+			<value>356</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemForecastPage.js:136">
+			<value>357</value>
+			<value>16</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemForecastPage.js:157">
+			<value>358</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemForecastPage.js:165">
+			<value>359</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ItemForecastPage.js:182">
+			<value>360</value>
+			<value>12</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemForecastPage.js:194">
+			<value>361</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemForecastPage.js:202">
+			<value>362</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ItemForecastPage.js:181">
+			<value>363</value>
+			<value>5</value>
+			<value>2</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ItemForecastPage.js:225">
+			<value>364</value>
+			<value>13</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemForecastPage.js:238">
+			<value>365</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemForecastPage.js:246">
+			<value>366</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ItemForecastPage.js:224">
+			<value>367</value>
+			<value>5</value>
+			<value>2</value>
+		</item>
+		<item name="return(...) at ./src\pages\ItemForecastPage.js:257">
+			<value>368</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="this(...) at ./src\pages\ItemForecastPage.js:261">
+			<value>369</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="=&gt;(...) at ./src\pages\ItemForecastPage.js:294">
+			<value>370</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="10.475675675675676"/>
+		<average label="CCN" value="1.1216216216216217"/>
+		<item name="constructor(...) at ./src\pages\ItemManagementPage.js:19">
+			<value>371</value>
+			<value>35</value>
+			<value>1</value>
+		</item>
+		<item name="componentDidMount(...) at ./src\pages\ItemManagementPage.js:55">
+			<value>372</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="allItemResponse.data.find(...) at ./src\pages\ItemManagementPage.js:75">
+			<value>373</value>
+			<value>2</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:78">
+			<value>374</value>
+			<value>2</value>
+			<value>1</value>
+		</item>
+		<item name="allItemResponse.data.find(...) at ./src\pages\ItemManagementPage.js:74">
+			<value>375</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:71">
+			<value>376</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:67">
+			<value>377</value>
+			<value>20</value>
+			<value>2</value>
+		</item>
+		<item name="{.catch(...) at ./src\pages\ItemManagementPage.js:99">
+			<value>378</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:107">
+			<value>379</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="data.filter(...) at ./src\pages\ItemManagementPage.js:125">
+			<value>380</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="=&gt;(...) at ./src\pages\ItemManagementPage.js:126">
+			<value>381</value>
+			<value>3</value>
+			<value>2</value>
+		</item>
+		<item name="{.sort(...) at ./src\pages\ItemManagementPage.js:126">
+			<value>382</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:137">
+			<value>383</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:145">
+			<value>384</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ItemManagementPage.js:163">
+			<value>385</value>
+			<value>12</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:175">
+			<value>386</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:183">
+			<value>387</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ItemManagementPage.js:162">
+			<value>388</value>
+			<value>5</value>
+			<value>2</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ItemManagementPage.js:201">
+			<value>389</value>
+			<value>13</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:214">
+			<value>390</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:222">
+			<value>391</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ItemManagementPage.js:200">
+			<value>392</value>
+			<value>5</value>
+			<value>2</value>
+		</item>
+		<item name="handleModalInsert(...) at ./src\pages\ItemManagementPage.js:228">
+			<value>393</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:235">
+			<value>394</value>
+			<value>17</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:253">
+			<value>395</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:261">
+			<value>396</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="handleModalInsertOnSubmit(...) at ./src\pages\ItemManagementPage.js:232">
+			<value>397</value>
+			<value>7</value>
+			<value>2</value>
+		</item>
+		<item name="handleModalUpdate(...) at ./src\pages\ItemManagementPage.js:268">
+			<value>398</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:293">
+			<value>399</value>
+			<value>11</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:305">
+			<value>400</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:276">
+			<value>401</value>
+			<value>28</value>
+			<value>4</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:325">
+			<value>402</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:333">
+			<value>403</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="handleModalUpdateOnSubmit(...) at ./src\pages\ItemManagementPage.js:273">
+			<value>404</value>
+			<value>7</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:343">
+			<value>405</value>
+			<value>13</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:357">
+			<value>406</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ItemManagementPage.js:365">
+			<value>407</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="handleModalDelete(...) at ./src\pages\ItemManagementPage.js:340">
+			<value>408</value>
+			<value>7</value>
+			<value>2</value>
+		</item>
+		<item name="return(...) at ./src\pages\ItemManagementPage.js:376">
+			<value>409</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="this(...) at ./src\pages\ItemManagementPage.js:380">
+			<value>410</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="this(...) at ./src\pages\ItemManagementPage.js:387">
+			<value>411</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="this(...) at ./src\pages\ItemManagementPage.js:393">
+			<value>412</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="=&gt;(...) at ./src\pages\ItemManagementPage.js:432">
+			<value>413</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="10.157384987893462"/>
+		<average label="CCN" value="1.1404358353510895"/>
+		<item name="constructor(...) at ./src\pages\LandingPage.js:12">
+			<value>414</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\pages\LandingPage.js:17">
+			<value>415</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="10.134939759036145"/>
+		<average label="CCN" value="1.1397590361445784"/>
+		<item name="constructor(...) at ./src\pages\LoginAuthPage.js:18">
+			<value>416</value>
+			<value>6</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\LoginAuthPage.js:28">
+			<value>417</value>
+			<value>17</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\LoginAuthPage.js:46">
+			<value>418</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\LoginAuthPage.js:54">
+			<value>419</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\pages\LoginAuthPage.js:25">
+			<value>420</value>
+			<value>7</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\LoginAuthPage.js:70">
+			<value>421</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\LoginAuthPage.js:87">
+			<value>422</value>
+			<value>24</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\pages\LoginAuthPage.js:59">
+			<value>423</value>
+			<value>36</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="10.189125295508275"/>
+		<average label="CCN" value="1.1418439716312057"/>
+		<item name="constructor(...) at ./src\pages\ProductForecastPage.js:17">
+			<value>424</value>
+			<value>25</value>
+			<value>1</value>
+		</item>
+		<item name="componentDidMount(...) at ./src\pages\ProductForecastPage.js:43">
+			<value>425</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="allProductResponse.data.find(...) at ./src\pages\ProductForecastPage.js:61">
+			<value>426</value>
+			<value>2</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductForecastPage.js:63">
+			<value>427</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="allProductResponse.data.find(...) at ./src\pages\ProductForecastPage.js:60">
+			<value>428</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductForecastPage.js:57">
+			<value>429</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductForecastPage.js:53">
+			<value>430</value>
+			<value>20</value>
+			<value>2</value>
+		</item>
+		<item name="{.catch(...) at ./src\pages\ProductForecastPage.js:83">
+			<value>431</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductForecastPage.js:91">
+			<value>432</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="data.filter(...) at ./src\pages\ProductForecastPage.js:108">
+			<value>433</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="data.filter(...) at ./src\pages\ProductForecastPage.js:108">
+			<value>434</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductForecastPage.js:98">
+			<value>435</value>
+			<value>16</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductForecastPage.js:119">
+			<value>436</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductForecastPage.js:127">
+			<value>437</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="data.filter(...) at ./src\pages\ProductForecastPage.js:145">
+			<value>438</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="=&gt;(...) at ./src\pages\ProductForecastPage.js:146">
+			<value>439</value>
+			<value>3</value>
+			<value>2</value>
+		</item>
+		<item name="{.sort(...) at ./src\pages\ProductForecastPage.js:146">
+			<value>440</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductForecastPage.js:157">
+			<value>441</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductForecastPage.js:165">
+			<value>442</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ProductForecastPage.js:182">
+			<value>443</value>
+			<value>12</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductForecastPage.js:194">
+			<value>444</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductForecastPage.js:202">
+			<value>445</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ProductForecastPage.js:181">
+			<value>446</value>
+			<value>5</value>
+			<value>2</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ProductForecastPage.js:225">
+			<value>447</value>
+			<value>13</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductForecastPage.js:238">
+			<value>448</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductForecastPage.js:246">
+			<value>449</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ProductForecastPage.js:224">
+			<value>450</value>
+			<value>5</value>
+			<value>2</value>
+		</item>
+		<item name="return(...) at ./src\pages\ProductForecastPage.js:257">
+			<value>451</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="this(...) at ./src\pages\ProductForecastPage.js:261">
+			<value>452</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="=&gt;(...) at ./src\pages\ProductForecastPage.js:294">
+			<value>453</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="9.931567328918323"/>
+		<average label="CCN" value="1.1434878587196469"/>
+		<item name="constructor(...) at ./src\pages\ProductManagementPage.js:19">
+			<value>454</value>
+			<value>40</value>
+			<value>1</value>
+		</item>
+		<item name="componentDidMount(...) at ./src\pages\ProductManagementPage.js:60">
+			<value>455</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="allProductResponse.data.find(...) at ./src\pages\ProductManagementPage.js:81">
+			<value>456</value>
+			<value>2</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:83">
+			<value>457</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="allProductResponse.data.find(...) at ./src\pages\ProductManagementPage.js:80">
+			<value>458</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:77">
+			<value>459</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:73">
+			<value>460</value>
+			<value>20</value>
+			<value>2</value>
+		</item>
+		<item name="{.catch(...) at ./src\pages\ProductManagementPage.js:103">
+			<value>461</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:111">
+			<value>462</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="data.filter(...) at ./src\pages\ProductManagementPage.js:129">
+			<value>463</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="=&gt;(...) at ./src\pages\ProductManagementPage.js:130">
+			<value>464</value>
+			<value>3</value>
+			<value>2</value>
+		</item>
+		<item name="{.sort(...) at ./src\pages\ProductManagementPage.js:130">
+			<value>465</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:141">
+			<value>466</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:149">
+			<value>467</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="data.filter(...) at ./src\pages\ProductManagementPage.js:167">
+			<value>468</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="=&gt;(...) at ./src\pages\ProductManagementPage.js:168">
+			<value>469</value>
+			<value>3</value>
+			<value>2</value>
+		</item>
+		<item name="{.sort(...) at ./src\pages\ProductManagementPage.js:168">
+			<value>470</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:179">
+			<value>471</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:187">
+			<value>472</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ProductManagementPage.js:204">
+			<value>473</value>
+			<value>12</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:216">
+			<value>474</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:224">
+			<value>475</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ProductManagementPage.js:203">
+			<value>476</value>
+			<value>5</value>
+			<value>2</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ProductManagementPage.js:241">
+			<value>477</value>
+			<value>13</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:254">
+			<value>478</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:262">
+			<value>479</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ProductManagementPage.js:240">
+			<value>480</value>
+			<value>5</value>
+			<value>2</value>
+		</item>
+		<item name="handleModalInsert(...) at ./src\pages\ProductManagementPage.js:269">
+			<value>481</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:276">
+			<value>482</value>
+			<value>14</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:291">
+			<value>483</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:299">
+			<value>484</value>
+			<value>6</value>
+			<value>1</value>
+		</item>
+		<item name="handleModalInsertOnSubmit(...) at ./src\pages\ProductManagementPage.js:273">
+			<value>485</value>
+			<value>7</value>
+			<value>2</value>
+		</item>
+		<item name="handleModalUpdate(...) at ./src\pages\ProductManagementPage.js:307">
+			<value>486</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:315">
+			<value>487</value>
+			<value>17</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:336">
+			<value>488</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:344">
+			<value>489</value>
+			<value>6</value>
+			<value>1</value>
+		</item>
+		<item name="handleModalUpdateOnSubmit(...) at ./src\pages\ProductManagementPage.js:312">
+			<value>490</value>
+			<value>7</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:355">
+			<value>491</value>
+			<value>13</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:369">
+			<value>492</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductManagementPage.js:377">
+			<value>493</value>
+			<value>6</value>
+			<value>1</value>
+		</item>
+		<item name="handleModalDelete(...) at ./src\pages\ProductManagementPage.js:352">
+			<value>494</value>
+			<value>7</value>
+			<value>2</value>
+		</item>
+		<item name="return(...) at ./src\pages\ProductManagementPage.js:389">
+			<value>495</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="this(...) at ./src\pages\ProductManagementPage.js:393">
+			<value>496</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="this(...) at ./src\pages\ProductManagementPage.js:400">
+			<value>497</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="this(...) at ./src\pages\ProductManagementPage.js:406">
+			<value>498</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="=&gt;(...) at ./src\pages\ProductManagementPage.js:445">
+			<value>499</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="9.649298597194388"/>
+		<average label="CCN" value="1.1523046092184368"/>
+		<item name="constructor(...) at ./src\pages\ProductTransactionHistoryPage.js:18">
+			<value>500</value>
+			<value>35</value>
+			<value>1</value>
+		</item>
+		<item name="componentDidMount(...) at ./src\pages\ProductTransactionHistoryPage.js:54">
+			<value>501</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:72">
+			<value>502</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="allProductResponse.data.find(...) at ./src\pages\ProductTransactionHistoryPage.js:77">
+			<value>503</value>
+			<value>2</value>
+			<value>1</value>
+		</item>
+		<item name="allProductResponse.data.find(...) at ./src\pages\ProductTransactionHistoryPage.js:76">
+			<value>504</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:73">
+			<value>505</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:81">
+			<value>506</value>
+			<value>1</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:67">
+			<value>507</value>
+			<value>23</value>
+			<value>2</value>
+		</item>
+		<item name="{.catch(...) at ./src\pages\ProductTransactionHistoryPage.js:99">
+			<value>508</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:107">
+			<value>509</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="data.filter(...) at ./src\pages\ProductTransactionHistoryPage.js:125">
+			<value>510</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="=&gt;(...) at ./src\pages\ProductTransactionHistoryPage.js:126">
+			<value>511</value>
+			<value>3</value>
+			<value>2</value>
+		</item>
+		<item name="{.sort(...) at ./src\pages\ProductTransactionHistoryPage.js:126">
+			<value>512</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:137">
+			<value>513</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:145">
+			<value>514</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="allProductResponse.data.find(...) at ./src\pages\ProductTransactionHistoryPage.js:164">
+			<value>515</value>
+			<value>2</value>
+			<value>1</value>
+		</item>
+		<item name="allProductResponse.data.find(...) at ./src\pages\ProductTransactionHistoryPage.js:163">
+			<value>516</value>
+			<value>6</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ProductTransactionHistoryPage.js:162">
+			<value>517</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:177">
+			<value>518</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:185">
+			<value>519</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="allProductResponse.data.find(...) at ./src\pages\ProductTransactionHistoryPage.js:204">
+			<value>520</value>
+			<value>2</value>
+			<value>1</value>
+		</item>
+		<item name="allProductResponse.data.find(...) at ./src\pages\ProductTransactionHistoryPage.js:203">
+			<value>521</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<item name="parseFloat(...) at ./src\pages\ProductTransactionHistoryPage.js:202">
+			<value>522</value>
+			<value>9</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:218">
+			<value>523</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:226">
+			<value>524</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="handleModalInsert(...) at ./src\pages\ProductTransactionHistoryPage.js:232">
+			<value>525</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:242">
+			<value>526</value>
+			<value>16</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:259">
+			<value>527</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:267">
+			<value>528</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="handleModalInsertOnSubmit(...) at ./src\pages\ProductTransactionHistoryPage.js:236">
+			<value>529</value>
+			<value>10</value>
+			<value>2</value>
+		</item>
+		<item name="handleModalUpdate(...) at ./src\pages\ProductTransactionHistoryPage.js:274">
+			<value>530</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:285">
+			<value>531</value>
+			<value>17</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:303">
+			<value>532</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:311">
+			<value>533</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="handleModalUpdateOnSubmit(...) at ./src\pages\ProductTransactionHistoryPage.js:279">
+			<value>534</value>
+			<value>10</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:321">
+			<value>535</value>
+			<value>15</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:337">
+			<value>536</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\ProductTransactionHistoryPage.js:345">
+			<value>537</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="handleModalDelete(...) at ./src\pages\ProductTransactionHistoryPage.js:318">
+			<value>538</value>
+			<value>7</value>
+			<value>2</value>
+		</item>
+		<item name="return(...) at ./src\pages\ProductTransactionHistoryPage.js:356">
+			<value>539</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="this(...) at ./src\pages\ProductTransactionHistoryPage.js:360">
+			<value>540</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="this(...) at ./src\pages\ProductTransactionHistoryPage.js:367">
+			<value>541</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="this(...) at ./src\pages\ProductTransactionHistoryPage.js:373">
+			<value>542</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="=&gt;(...) at ./src\pages\ProductTransactionHistoryPage.js:412">
+			<value>543</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="9.414364640883978"/>
+		<average label="CCN" value="1.156537753222836"/>
+		<item name="constructor(...) at ./src\pages\RegisterAuthPage.js:21">
+			<value>544</value>
+			<value>10</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\RegisterAuthPage.js:35">
+			<value>545</value>
+			<value>14</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\RegisterAuthPage.js:51">
+			<value>546</value>
+			<value>8</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\RegisterAuthPage.js:59">
+			<value>547</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="=(...) at ./src\pages\RegisterAuthPage.js:32">
+			<value>548</value>
+			<value>7</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\RegisterAuthPage.js:75">
+			<value>549</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\pages\RegisterAuthPage.js:94">
+			<value>550</value>
+			<value>40</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\pages\RegisterAuthPage.js:64">
+			<value>551</value>
+			<value>38</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="9.500907441016334"/>
+		<average label="CCN" value="1.1578947368421053"/>
+		<item name="constructor(...) at ./src\routes\AuthenticatedRoute.js:13">
+			<value>552</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\routes\AuthenticatedRoute.js:18">
+			<value>553</value>
+			<value>14</value>
+			<value>2</value>
+		</item>
+		<average label="NCSS" value="9.499095840867993"/>
+		<average label="CCN" value="1.1591320072332731"/>
+		<item name="constructor(...) at ./src\routes\RootRoute.js:23">
+			<value>554</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\routes\RootRoute.js:28">
+			<value>555</value>
+			<value>38</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="9.54054054054054"/>
+		<average label="CCN" value="1.1585585585585585"/>
+		<item name="constructor(...) at ./src\routes\UnAuthenticatedRoute.js:6">
+			<value>556</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="render(...) at ./src\routes\UnAuthenticatedRoute.js:11">
+			<value>557</value>
+			<value>12</value>
+			<value>2</value>
+		</item>
+		<average label="NCSS" value="9.535008976660682"/>
+		<average label="CCN" value="1.1597845601436265"/>
+		<item name="loginSucceed(...) at ./src\services\AuthSessionService.js:2">
+			<value>558</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="loginFailed(...) at ./src\services\AuthSessionService.js:6">
+			<value>559</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="logoutSucceed(...) at ./src\services\AuthSessionService.js:10">
+			<value>560</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="logoutFailed(...) at ./src\services\AuthSessionService.js:14">
+			<value>561</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="isLoggedIn(...) at ./src\services\AuthSessionService.js:18">
+			<value>562</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<item name="getAccount(...) at ./src\services\AuthSessionService.js:23">
+			<value>563</value>
+			<value>4</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="9.468916518650088"/>
+		<average label="CCN" value="1.1580817051509769"/>
+		<item name="(anonymous)(...) at ./src\tools\Forecast.js:7">
+			<value>564</value>
+			<value>2</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\tools\Forecast.js:12">
+			<value>565</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="cleanData(...) at ./src\tools\Forecast.js:1">
+			<value>566</value>
+			<value>19</value>
+			<value>3</value>
+		</item>
+		<average label="NCSS" value="9.457597173144876"/>
+		<average label="CCN" value="1.1607773851590106"/>
+		<item name="(anonymous)(...) at ./src\tools\Validations.js:13">
+			<value>567</value>
+			<value>13</value>
+			<value>4</value>
+		</item>
+		<item name="isSameKeys(...) at ./src\tools\Validations.js:1">
+			<value>568</value>
+			<value>8</value>
+			<value>2</value>
+		</item>
+		<item name="isContains(...) at ./src\tools\Validations.js:28">
+			<value>569</value>
+			<value>8</value>
+			<value>4</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\tools\Validations.js:48">
+			<value>570</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="isEquals(...) at ./src\tools\Validations.js:37">
+			<value>571</value>
+			<value>13</value>
+			<value>14</value>
+		</item>
+		<item name="isStringIn(...) at ./src\tools\Validations.js:51">
+			<value>572</value>
+			<value>6</value>
+			<value>3</value>
+		</item>
+		<average label="NCSS" value="9.444055944055943"/>
+		<average label="CCN" value="1.1975524475524475"/>
+		<item name="App(...) at ./src\App.js:6">
+			<value>573</value>
+			<value>7</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="9.43979057591623"/>
+		<average label="CCN" value="1.1972076788830714"/>
+		<item name="(anonymous)(...) at ./src\App.test.js:5">
+			<value>574</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<average label="NCSS" value="9.432055749128919"/>
+		<average label="CCN" value="1.1968641114982579"/>
+		<average label="NCSS" value="9.432055749128919"/>
+		<average label="CCN" value="1.1968641114982579"/>
+		<average label="NCSS" value="9.432055749128919"/>
+		<average label="CCN" value="1.1968641114982579"/>
+		<item name="(anonymous)(...) at ./src\serviceWorker.js:43">
+			<value>575</value>
+			<value>6</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\serviceWorker.js:34">
+			<value>576</value>
+			<value>9</value>
+			<value>2</value>
+		</item>
+		<item name="register(...) at ./src\serviceWorker.js:23">
+			<value>577</value>
+			<value>9</value>
+			<value>4</value>
+		</item>
+		<item name="installingWorker.onstatechange(...) at ./src\serviceWorker.js:66">
+			<value>578</value>
+			<value>18</value>
+			<value>7</value>
+		</item>
+		<item name="registration.onupdatefound(...) at ./src\serviceWorker.js:61">
+			<value>579</value>
+			<value>7</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\serviceWorker.js:60">
+			<value>580</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\serviceWorker.js:96">
+			<value>581</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="registerValidSW(...) at ./src\serviceWorker.js:57">
+			<value>582</value>
+			<value>6</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\serviceWorker.js:115">
+			<value>583</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\serviceWorker.js:114">
+			<value>584</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\serviceWorker.js:106">
+			<value>585</value>
+			<value>11</value>
+			<value>4</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\serviceWorker.js:124">
+			<value>586</value>
+			<value>5</value>
+			<value>1</value>
+		</item>
+		<item name="checkValidServiceWorker(...) at ./src\serviceWorker.js:101">
+			<value>587</value>
+			<value>7</value>
+			<value>2</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\serviceWorker.js:134">
+			<value>588</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="(anonymous)(...) at ./src\serviceWorker.js:137">
+			<value>589</value>
+			<value>3</value>
+			<value>1</value>
+		</item>
+		<item name="unregister(...) at ./src\serviceWorker.js:131">
+			<value>590</value>
+			<value>7</value>
+			<value>3</value>
+		</item>
+		<average label="NCSS" value="9.350847457627118"/>
+		<average label="CCN" value="1.2220338983050847"/>
+		<average label="NCSS" value="9.350847457627118"/>
+		<average label="CCN" value="1.2220338983050847"/>
+	</measure>
+	<measure type="File">
+		<labels>
+			<label>Nr.</label>
+			<label>NCSS</label>
+			<label>CCN</label>
+			<label>Functions</label>
+		</labels>
+		<item name="./src\apis\AccountsAPI.js">
+			<value>1</value>
+			<value>30</value>
+			<value>5</value>
+			<value>5</value>
+		</item>
+		<item name="./src\apis\AuthenticationsAPI.js">
+			<value>2</value>
+			<value>20</value>
+			<value>2</value>
+			<value>2</value>
+		</item>
+		<item name="./src\apis\ForecastsAPI.js">
+			<value>3</value>
+			<value>33</value>
+			<value>4</value>
+			<value>4</value>
+		</item>
+		<item name="./src\apis\InventoryControlsAPI.js">
+			<value>4</value>
+			<value>30</value>
+			<value>5</value>
+			<value>5</value>
+		</item>
+		<item name="./src\apis\ItemCombinationsAPI.js">
+			<value>5</value>
+			<value>30</value>
+			<value>5</value>
+			<value>5</value>
+		</item>
+		<item name="./src\apis\ItemsAPI.js">
+			<value>6</value>
+			<value>66</value>
+			<value>5</value>
+			<value>5</value>
+		</item>
+		<item name="./src\apis\ProductItemsAPI.js">
+			<value>7</value>
+			<value>30</value>
+			<value>5</value>
+			<value>5</value>
+		</item>
+		<item name="./src\apis\ProductsAPI.js">
+			<value>8</value>
+			<value>66</value>
+			<value>5</value>
+			<value>5</value>
+		</item>
+		<item name="./src\apis\ProductTransactionsAPI.js">
+			<value>9</value>
+			<value>42</value>
+			<value>5</value>
+			<value>5</value>
+		</item>
+		<item name="./src\apis\TestAPI.js">
+			<value>10</value>
+			<value>40</value>
+			<value>7</value>
+			<value>7</value>
+		</item>
+		<item name="./src\components\InventoryControlHistoryPage\InventoryControlInsertModalComponent.js">
+			<value>11</value>
+			<value>187</value>
+			<value>17</value>
+			<value>16</value>
+		</item>
+		<item name="./src\components\InventoryControlHistoryPage\InventoryControlUpdateModalComponent.js">
+			<value>12</value>
+			<value>120</value>
+			<value>10</value>
+			<value>10</value>
+		</item>
+		<item name="./src\components\InventoryControlHistoryPage\InventoryControlViewModalComponent.js">
+			<value>13</value>
+			<value>115</value>
+			<value>11</value>
+			<value>10</value>
+		</item>
+		<item name="./src\components\ItemForecastPage\ItemViewModalComponent.js">
+			<value>14</value>
+			<value>368</value>
+			<value>22</value>
+			<value>18</value>
+		</item>
+		<item name="./src\components\ItemManagementPage\ItemInsertModalComponent.js">
+			<value>15</value>
+			<value>278</value>
+			<value>14</value>
+			<value>14</value>
+		</item>
+		<item name="./src\components\ItemManagementPage\ItemUpdateModalComponent.js">
+			<value>16</value>
+			<value>396</value>
+			<value>30</value>
+			<value>26</value>
+		</item>
+		<item name="./src\components\ItemManagementPage\ItemViewModalComponent.js">
+			<value>17</value>
+			<value>172</value>
+			<value>14</value>
+			<value>13</value>
+		</item>
+		<item name="./src\components\LandingPage\AboutUsComponent.js">
+			<value>18</value>
+			<value>43</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="./src\components\LandingPage\FooterComponent.js">
+			<value>19</value>
+			<value>18</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="./src\components\LandingPage\HeaderComponent.js">
+			<value>20</value>
+			<value>32</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="./src\components\LandingPage\InterestedComponent.js">
+			<value>21</value>
+			<value>26</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="./src\components\LandingPage\NavigationBarComponent.js">
+			<value>22</value>
+			<value>52</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="./src\components\LandingPage\OurTeamComponent.js">
+			<value>23</value>
+			<value>30</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="./src\components\LandingPage\WhyUsComponent.js">
+			<value>24</value>
+			<value>39</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="./src\components\ProductForecastPage\ProductViewModalComponent.js">
+			<value>25</value>
+			<value>240</value>
+			<value>14</value>
+			<value>12</value>
+		</item>
+		<item name="./src\components\ProductManagementPage\ProductInsertModalComponent.js">
+			<value>26</value>
+			<value>276</value>
+			<value>14</value>
+			<value>14</value>
+		</item>
+		<item name="./src\components\ProductManagementPage\ProductUpdateModalComponent.js">
+			<value>27</value>
+			<value>378</value>
+			<value>30</value>
+			<value>26</value>
+		</item>
+		<item name="./src\components\ProductManagementPage\ProductViewModalComponent.js">
+			<value>28</value>
+			<value>169</value>
+			<value>14</value>
+			<value>13</value>
+		</item>
+		<item name="./src\components\ProductTransactionHistoryPage\ProductTransactionInsertModalComponent.js">
+			<value>29</value>
+			<value>204</value>
+			<value>17</value>
+			<value>16</value>
+		</item>
+		<item name="./src\components\ProductTransactionHistoryPage\ProductTransactionUpdateModalComponent.js">
+			<value>30</value>
+			<value>137</value>
+			<value>10</value>
+			<value>10</value>
+		</item>
+		<item name="./src\components\ProductTransactionHistoryPage\ProductTransactionViewModalComponent.js">
+			<value>31</value>
+			<value>123</value>
+			<value>11</value>
+			<value>10</value>
+		</item>
+		<item name="./src\components\MessageModalComponent.js">
+			<value>32</value>
+			<value>27</value>
+			<value>5</value>
+			<value>3</value>
+		</item>
+		<item name="./src\components\SideBarComponent.js">
+			<value>33</value>
+			<value>116</value>
+			<value>2</value>
+			<value>2</value>
+		</item>
+		<item name="./src\components\UpperBarComponent.js">
+			<value>34</value>
+			<value>74</value>
+			<value>12</value>
+			<value>9</value>
+		</item>
+		<item name="./src\pages\AccountProfilePage.js">
+			<value>35</value>
+			<value>206</value>
+			<value>23</value>
+			<value>17</value>
+		</item>
+		<item name="./src\pages\ErrorPage.js">
+			<value>36</value>
+			<value>15</value>
+			<value>2</value>
+			<value>2</value>
+		</item>
+		<item name="./src\pages\InventoryControlHistoryPage.js">
+			<value>37</value>
+			<value>411</value>
+			<value>53</value>
+			<value>44</value>
+		</item>
+		<item name="./src\pages\ItemForecastPage.js">
+			<value>38</value>
+			<value>301</value>
+			<value>35</value>
+			<value>30</value>
+		</item>
+		<item name="./src\pages\ItemManagementPage.js">
+			<value>39</value>
+			<value>430</value>
+			<value>56</value>
+			<value>43</value>
+		</item>
+		<item name="./src\pages\LandingPage.js">
+			<value>40</value>
+			<value>22</value>
+			<value>2</value>
+			<value>2</value>
+		</item>
+		<item name="./src\pages\LoginAuthPage.js">
+			<value>41</value>
+			<value>115</value>
+			<value>10</value>
+			<value>8</value>
+		</item>
+		<item name="./src\pages\ProductForecastPage.js">
+			<value>42</value>
+			<value>301</value>
+			<value>35</value>
+			<value>30</value>
+		</item>
+		<item name="./src\pages\ProductManagementPage.js">
+			<value>43</value>
+			<value>439</value>
+			<value>57</value>
+			<value>46</value>
+		</item>
+		<item name="./src\pages\ProductTransactionHistoryPage.js">
+			<value>44</value>
+			<value>413</value>
+			<value>53</value>
+			<value>44</value>
+		</item>
+		<item name="./src\pages\RegisterAuthPage.js">
+			<value>45</value>
+			<value>137</value>
+			<value>10</value>
+			<value>8</value>
+		</item>
+		<item name="./src\routes\AuthenticatedRoute.js">
+			<value>46</value>
+			<value>26</value>
+			<value>3</value>
+			<value>2</value>
+		</item>
+		<item name="./src\routes\RootRoute.js">
+			<value>47</value>
+			<value>60</value>
+			<value>2</value>
+			<value>2</value>
+		</item>
+		<item name="./src\routes\UnAuthenticatedRoute.js">
+			<value>48</value>
+			<value>21</value>
+			<value>3</value>
+			<value>2</value>
+		</item>
+		<item name="./src\services\AuthSessionService.js">
+			<value>49</value>
+			<value>23</value>
+			<value>6</value>
+			<value>6</value>
+		</item>
+		<item name="./src\tools\Forecast.js">
+			<value>50</value>
+			<value>21</value>
+			<value>5</value>
+			<value>3</value>
+		</item>
+		<item name="./src\tools\Validations.js">
+			<value>51</value>
+			<value>48</value>
+			<value>28</value>
+			<value>6</value>
+		</item>
+		<item name="./src\App.js">
+			<value>52</value>
+			<value>12</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="./src\App.test.js">
+			<value>53</value>
+			<value>8</value>
+			<value>1</value>
+			<value>1</value>
+		</item>
+		<item name="./src\AppStyle.js">
+			<value>54</value>
+			<value>2</value>
+			<value>0</value>
+			<value>0</value>
+		</item>
+		<item name="./src\index.js">
+			<value>55</value>
+			<value>12</value>
+			<value>0</value>
+			<value>0</value>
+		</item>
+		<item name="./src\serviceWorker.js">
+			<value>56</value>
+			<value>98</value>
+			<value>34</value>
+			<value>16</value>
+		</item>
+		<item name="./src\setupTests.js">
+			<value>57</value>
+			<value>1</value>
+			<value>0</value>
+			<value>0</value>
+		</item>
+		<average label="NCSS" value="125.0701754385965"/>
+		<average label="CCN" value="12.649122807017545"/>
+		<average label="Functions" value="10.350877192982455"/>
+		<sum label="NCSS" value="7129"/>
+		<sum label="CCN" value="721"/>
+		<sum label="Functions" value="590"/>
+		<average label="NCSS" value="9.350847457627118"/>
+		<average label="CCN" value="1.2220338983050847"/>
+	</measure>
+</cppncss>
+
